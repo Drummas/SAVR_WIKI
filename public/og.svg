@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080c0a" />
+      <stop offset="1" stop-color="#12181a" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.24" r="0.72">
+      <stop offset="0" stop-color="#4ade80" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#4ade80" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#94a3b8" stroke-opacity="0.08" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+  <image xlink:href="brand/savr-wordmark.webp" href="brand/savr-wordmark.webp" x="64" y="46" width="380" height="132" preserveAspectRatio="xMinYMin meet" />
+  <g font-family="'Arial Narrow', Arial, sans-serif">
+    <text x="64" y="248" fill="#4ade80" font-family="monospace" font-size="15" letter-spacing="4">SAVAGE REIGN (SAVR) // ALLIANCE KNOWLEDGE BASE</text>
+    <text x="64" y="342" fill="#f5f2ec" font-size="80" font-weight="700">LAST ASYLUM:</text>
+    <text x="64" y="424" fill="#4ade80" font-size="80" font-weight="700">PLAGUE</text>
+    <text x="64" y="478" fill="#c3c9cf" font-size="23" letter-spacing="2">EVENTS · STRATEGIES · OPTIMISATION · COORDINATION</text>
+    <path d="M64 512H800" stroke="#4ade80" stroke-opacity="0.55" />
+    <text x="64" y="552" fill="#9aa4ad" font-family="monospace" font-size="16" letter-spacing="2">SURVIVAL BATTLE · ALLIANCE VS ALLIANCE · STATE OPS</text>
+    <text x="64" y="592" fill="#5c6872" font-family="monospace" font-size="13" letter-spacing="2">FAN-MADE · VERIFY LIVE EVENT DATA IN-GAME</text>
+    <circle cx="1000" cy="330" r="150" fill="none" stroke="#4ade80" stroke-opacity="0.28" stroke-width="2" />
+    <circle cx="1000" cy="330" r="105" fill="none" stroke="#4ade80" stroke-opacity="0.18" stroke-width="2" />
+    <circle cx="1000" cy="330" r="52" fill="#4ade80" opacity="0.16" stroke="#4ade80" />
+    <path d="M1000 180V480M850 330H1150" stroke="#4ade80" stroke-opacity="0.22" />
+    <path d="M1000 330L1100 270" stroke="#4ade80" stroke-width="3" />
+    <circle cx="1100" cy="270" r="7" fill="#4ade80" />
+  </g>
+</svg>

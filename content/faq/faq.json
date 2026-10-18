@@ -1,0 +1,235 @@
+{
+  "items": [
+    {
+      "id": "general-official",
+      "category": "General Questions",
+      "question": "Is this an official Last Asylum: Plague website?",
+      "answer": "No. This is a fan-made alliance knowledge base. It is not affiliated with or endorsed by 37GAMES, Wiseness, or the game's official channels. Event data can be wrong or outdated; always verify the live in-game screen.",
+      "tags": ["official", "disclaimer", "fan site"]
+    },
+    {
+      "id": "general-sources",
+      "category": "General Questions",
+      "question": "Where do the strategies come from?",
+      "answer": "The frameworks are written for alliance play and are informed by community guides and observable game systems. Specific point values, schedules and rewards are marked as community-sourced or templates. Where public evidence is missing, the page says so instead of inventing an answer.",
+      "tags": ["sources", "accuracy", "community"]
+    },
+    {
+      "id": "general-update",
+      "category": "General Questions",
+      "question": "How do we update the wiki?",
+      "answer": "Alliance leadership can edit MDX and JSON content through the content studio at /admin/cms/, or directly in the repository. The admin dashboard explains the workflow. Every page should carry an updated date and a source or verification note.",
+      "tags": ["admin", "editing", "content"]
+    },
+    {
+      "id": "general-mobile",
+      "category": "General Questions",
+      "question": "Does the site work on a phone?",
+      "answer": "Yes. The site is designed mobile-first with a sticky header, compact navigation, responsive cards, touch-friendly controls and lightbox image viewing. The desktop layout adds a sidebar and wider data tables.",
+      "tags": ["mobile", "responsive", "design"]
+    },
+    {
+      "id": "events-schedule",
+      "category": "Events",
+      "question": "Is the event calendar official?",
+      "answer": "No. Calendar entries are planning aids. Some are community-reported patterns and some are explicitly labeled templates. Your server reset, season, region and game version can change event timings. Confirm the live event tab before committing resources.",
+      "tags": ["calendar", "schedule", "verification"]
+    },
+    {
+      "id": "events-verify",
+      "category": "Events",
+      "question": "How do I verify an event before spending?",
+      "answer": "Open the live event tab and capture the overview, scored actions, end time and reward preview. Compare it with the wiki page and the alliance plan. If the live screen contradicts a guide, the live screen wins. Record the date and version of what you saw.",
+      "tags": ["verification", "screenshots", "spending"]
+    },
+    {
+      "id": "events-overlap",
+      "category": "Events",
+      "question": "What is an overlap window?",
+      "answer": "An overlap window is a period when two live events score the same action. For example, a construction completion might count for both a Survival Battle theme and the Alliance Duel Construction phase. The value is spending once for two scoreboards — but only if both live screens confirm the action scores.",
+      "tags": ["overlap", "scoring", "efficiency"]
+    },
+    {
+      "id": "events-missed",
+      "category": "Events",
+      "question": "What should I do if I miss a round or phase?",
+      "answer": "Do not panic-spend to catch up. Calculate the next reachable threshold and the cost to reach it. If the reward is worth less than the spend, bank the resources for the next phase. Missing one window is normal; breaking the reserve floor to recover is how a small miss becomes a large one.",
+      "tags": ["catch up", "reserve", "mistakes"]
+    },
+    {
+      "id": "ava-scoring",
+      "category": "Alliance vs Alliance",
+      "question": "How does Alliance Duel scoring work?",
+      "answer": "Community guides describe a six-day event with a different scoring theme each day: Raven, Construction, Tech, Hero, Preparation and Raid. The exact point values and eligibility rules vary. Use the live in-game point preview and keep your own dated ledger.",
+      "tags": ["ava", "scoring", "phases"]
+    },
+    {
+      "id": "ava-eligibility",
+      "category": "Alliance vs Alliance",
+      "question": "Why can't our alliance see the event?",
+      "answer": "Community guides report top-32 server eligibility for Alliance Duel matchmaking, but requirements can change. Check alliance eligibility, matchmaking status, server age and the live event tab. Ask leadership to verify before assuming the event is broken.",
+      "tags": ["eligibility", "matchmaking", "ava"]
+    },
+    {
+      "id": "ava-reserve",
+      "category": "Alliance vs Alliance",
+      "question": "How much of a stockpile should we save for AvA?",
+      "answer": "There is no universal number. Build a reserve floor from the last two events: what did each phase need to reach the target? Set the floor to cover the highest-value three phases and keep an additional 10–20% as a closer reserve. Write it down and do not breach it for optional events.",
+      "tags": ["reserve", "ava", "planning"]
+    },
+    {
+      "id": "ava-losing",
+      "category": "Alliance vs Alliance",
+      "question": "What do we do if the opponent is clearly stronger?",
+      "answer": "Set a floor target, secure guaranteed participation rewards, and avoid a bidding war you cannot win. Use the week to rebuild stockpile, test a backup captain and collect data. A deliberate defensive week is better than an expensive loss that leaves the alliance depleted for the next cycle.",
+      "tags": ["defensive", "morale", "ava"]
+    },
+    {
+      "id": "sb-themes",
+      "category": "Survival Battle",
+      "question": "What are Survival Battle themes?",
+      "answer": "Community guides report six four-hour rounds per day, each with a theme such as Build Territory, Train Soldiers, Technology Research, Enhance Raven or Enhance Heroes. The rotation can change. Confirm the live board each day rather than relying on a memorised schedule.",
+      "tags": ["survival battle", "themes", "rounds"]
+    },
+    {
+      "id": "sb-rounds",
+      "category": "Survival Battle",
+      "question": "Do I have to play all six rounds?",
+      "answer": "No. Play the rounds where your available actions match the theme and the rewards are worth the spend. A consistent daily floor usually beats forcing every round with expensive speed-ups. Set alarms for the windows you can actually play.",
+      "tags": ["rounds", "time", "efficiency"]
+    },
+    {
+      "id": "sb-bracket",
+      "category": "Survival Battle",
+      "question": "How is the Survival Battle bracket decided?",
+      "answer": "Community guides report small brackets of players at similar Sanctuary levels, but the exact matchmaking rules are not officially documented here. Treat bracket composition as server- and version-dependent, and focus on guaranteed milestones rather than assuming a fixed group.",
+      "tags": ["bracket", "matchmaking", "survival battle"]
+    },
+    {
+      "id": "sb-rank",
+      "category": "Survival Battle",
+      "question": "Is bracket rank worth chasing?",
+      "answer": "Sometimes. Compare the live rank reward preview with the guaranteed milestone chests and the resource cost of chasing. For many players, claiming the daily milestones and preserving stockpile for AvA is the better value. Rank is a bonus, not a default goal.",
+      "tags": ["rank", "rewards", "value"]
+    },
+    {
+      "id": "heroes-target",
+      "category": "Heroes",
+      "question": "Which hero should I upgrade first?",
+      "answer": "Upgrade the hero that fixes your squad's biggest loss condition. If your front line dies instantly, a tank breakpoint may matter more than another damage hero. Define the role, the next breakpoint and the stop threshold before spending shards.",
+      "tags": ["heroes", "priority", "breakpoints"]
+    },
+    {
+      "id": "heroes-universal",
+      "category": "Heroes",
+      "question": "When should I use universal shards?",
+      "answer": "Use universal shards to complete a breakpoint for a hero that fills a role gap or unlocks a skill you need. Do not use them to finish a bench hero, chase a temporary event bonus, or spread progress across several heroes. Keep a reserve for a future must-have hero.",
+      "tags": ["universal shards", "heroes", "investment"]
+    },
+    {
+      "id": "heroes-recruit",
+      "category": "Heroes",
+      "question": "Should I open recruitment items immediately?",
+      "answer": "Usually no. Recruitment items are a scored resource during hero events and the Alliance Duel Hero phase. Hold them until the scoring window opens and you know which hero you are targeting. Opening outside a window is a common unforced error.",
+      "tags": ["recruitment", "scoring", "heroes"]
+    },
+    {
+      "id": "heroes-event",
+      "category": "Heroes",
+      "question": "How do I stop chasing every new banner?",
+      "answer": "Write a five-slot roster plan with roles and next breakpoints. A new banner must either fill a defined gap or be ignored. Do not start a second hero project until the current one reaches its planned breakpoint. Event score is a by-product of a finished upgrade, not a reason to start one.",
+      "tags": ["banners", "roster", "discipline"]
+    },
+    {
+      "id": "resources-reserve",
+      "category": "Resources",
+      "question": "What is a reserve floor?",
+      "answer": "The minimum stockpile you keep for Alliance Duel, defence and emergencies. Everything above the floor is event budget. Write the floor down per resource and treat it as unavailable. This single rule prevents most post-event resource crashes.",
+      "tags": ["reserve", "resources", "budget"]
+    },
+    {
+      "id": "resources-cap",
+      "category": "Resources",
+      "question": "Why do my resources keep capping?",
+      "answer": "Either production outpaces storage or your login interval is longer than your storage buffer. Upgrade storage before long offline periods and spend overflow on a useful queue. A capped resource is production you paid time for and did not collect.",
+      "tags": ["storage", "overflow", "production"]
+    },
+    {
+      "id": "resources-gather",
+      "category": "Resources",
+      "question": "Should I gather during a resource event?",
+      "answer": "Only if the live event scores gathering and the trips complete inside the window. Otherwise, gather for the resource your next upgrade needs. Sending teams to the wrong node is a common waste. Check the scored resource list before dispatching.",
+      "tags": ["gathering", "resource event", "efficiency"]
+    },
+    {
+      "id": "resources-premium",
+      "category": "Resources",
+      "question": "What should free-to-play players buy with premium currency?",
+      "answer": "Prioritise value that compounds: queue uptime, capacity and guaranteed progression. Avoid bridging score gaps for low-value rewards. Set a premium floor and wait 24 hours before any unplanned purchase. The cheapest long-term gain is usually more production, not a one-time power spike.",
+      "tags": ["premium", "free to play", "value"]
+    },
+    {
+      "id": "research-branch",
+      "category": "Research",
+      "question": "Should I focus economy or combat research first?",
+      "answer": "Build the economy and capacity nodes that sustain your account, then sequence combat nodes around your actual troop and hero plan. Combat research is a multiplier; if you cannot replace losses, the multiplier is temporary. Review the tree after each unlock.",
+      "tags": ["research", "economy", "combat"]
+    },
+    {
+      "id": "research-queue",
+      "category": "Research",
+      "question": "How do I stop wasting research time?",
+      "answer": "Keep the lab busy with a useful node and keep one cheap filler node ready for gaps. Time long completions for scored windows where possible. Do not start a long node immediately before a window unless it can finish inside it.",
+      "tags": ["research", "queue", "timing"]
+    },
+    {
+      "id": "research-speedups",
+      "category": "Research",
+      "question": "When should I spend research speed-ups?",
+      "answer": "Preferably during the Alliance Duel Tech phase or a research-scored event, and only on a node that was already in your plan. Do not spend them to clear a queue for convenience. Log the points gained so you know your conversion rate.",
+      "tags": ["speed-ups", "research", "scoring"]
+    },
+    {
+      "id": "research-wrong",
+      "category": "Research",
+      "question": "What if I researched the wrong branch?",
+      "answer": "Do not restart or spend premium currency to undo it. Finish only the useful prerequisite, then redirect the queue to the correct branch. Record why the branch was wrong so the next plan avoids it. Research is long-horizon; a short detour is rarely fatal.",
+      "tags": ["mistakes", "research", "planning"]
+    },
+    {
+      "id": "battle-rally",
+      "category": "Battle Strategy",
+      "question": "Why do our rallies launch underfilled?",
+      "answer": "Usually because the join cutoff is unclear or members wait until the last second. Publish a hard cutoff with travel time included, use one rally lead and one target per rally, and practise on a low-stakes target. Duplicate or late rallies waste stamina.",
+      "tags": ["rally", "coordination", "timing"]
+    },
+    {
+      "id": "battle-report",
+      "category": "Battle Strategy",
+      "question": "How do I read a battle report usefully?",
+      "answer": "Compare two reports, change one variable, and look at front-line survival, damage concentration, overkill and healing cost. A win with unsustainable losses is not a good result. Capture the patch, opponent type and composition with every report.",
+      "tags": ["battle report", "analysis", "combat"]
+    },
+    {
+      "id": "battle-target",
+      "category": "Battle Strategy",
+      "question": "How do we choose targets during an event?",
+      "answer": "Start with the event objective, then choose the target that advances it at the lowest expected cost. Scout defence and support, set a rally cutoff, keep a second-wave reserve, and ignore revenge targets that do not score. Record the outcome.",
+      "tags": ["targets", "combat", "events"]
+    },
+    {
+      "id": "battle-defense",
+      "category": "Battle Strategy",
+      "question": "Should we leave troops at home during a raid?",
+      "answer": "Yes, keep enough for defence and reinforcement while your main force is out. A successful attack that leaves the sanctuary exposed can lose more value than it gains. Plan the home guard as part of the rally brief, not as an afterthought.",
+      "tags": ["defence", "raid", "troops"]
+    },
+    {
+      "id": "battle-revenge",
+      "category": "Battle Strategy",
+      "question": "Is revenge attacking worth it?",
+      "answer": "Only if it advances an objective and the expected value is positive. Revenge usually consumes stamina, exposes your army and produces no event score. Write the objective first; if revenge is the objective, it is a bad plan.",
+      "tags": ["revenge", "discipline", "combat"]
+    }
+  ]
+}

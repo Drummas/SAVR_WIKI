@@ -1,0 +1,283 @@
+backend:
+  name: github
+  repo: Drummas/SAVR_WIKI
+  branch: main
+  # GitHub OAuth proxy. See docs/DEPLOYMENT.md before publishing.
+  base_url: https://replace-with-your-oauth-proxy.example.com
+  auth_endpoint: auth
+
+# Enables `npx decap-server` for local editing without OAuth.
+local_backend: true
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+site_url: https://last-asylum-alliance.vercel.app
+display_url: https://last-asylum-alliance.vercel.app
+logo_url: /og.png
+
+publish_mode: simple
+
+collections:
+  - name: events
+    label: Event files
+    label_singular: Event
+    folder: content/events
+    extension: mdx
+    format: frontmatter
+    create: true
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{title}} · {{category}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Summary, name: summary, widget: text }
+      - label: Category
+        name: category
+        widget: select
+        options: [Survival Battle, Alliance vs Alliance, State Events, Plague Events, Doomsday Challenge, Resource Events, Hero Events]
+      - label: Difficulty
+        name: difficulty
+        widget: select
+        options: [Beginner, Intermediate, Advanced]
+      - { label: Cadence, name: cadence, widget: string, hint: "Example: Daily · 6 rounds · 4 hours each" }
+      - { label: Duration, name: duration, widget: string }
+      - label: Verification status
+        name: status
+        widget: select
+        options: [verified, community, template]
+        default: community
+      - { label: Last updated, name: updated, widget: date, format: YYYY-MM-DD }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Sort order, name: order, widget: number, default: 99, value_type: int }
+      - { label: Hero image, name: heroImage, widget: image, required: false }
+      - { label: Tags, name: tags, widget: list, required: false, default: [] }
+      - { label: Objective, name: objective, widget: text }
+      - { label: Participation requirements, name: requirements, widget: list, required: false }
+      - label: Schedule
+        name: schedule
+        widget: list
+        required: false
+        fields:
+          - { label: Phase, name: phase, widget: string }
+          - { label: Timing, name: timing, widget: string }
+          - { label: Note, name: note, widget: string, required: false }
+      - label: Rewards
+        name: rewards
+        widget: list
+        required: false
+        fields:
+          - { label: Reward, name: reward, widget: string }
+          - { label: Amount, name: amount, widget: string }
+          - { label: Notes, name: notes, widget: string, required: false }
+      - { label: Recommended preparation, name: preparation, widget: list, required: false }
+      - { label: Best practices, name: bestPractices, widget: list, required: false }
+      - { label: Common mistakes, name: mistakes, widget: list, required: false }
+      - { label: Advanced tips, name: advancedTips, widget: list, required: false }
+      - { label: Event checklist, name: checklist, widget: list, required: false }
+      - { label: Required screenshots, name: requiredScreenshots, widget: list, required: false }
+      - { label: Player notes, name: playerNotes, widget: list, required: false }
+      - { label: Strategy recommendations, name: strategyRecommendations, widget: list, required: false }
+      - label: Visual walkthrough
+        name: walkthrough
+        widget: list
+        required: false
+        fields:
+          - { label: Step title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - { label: Image, name: image, widget: image, required: false }
+          - { label: Caption, name: caption, widget: string, required: false }
+          - { label: Annotations, name: highlights, widget: list, required: false }
+
+  - name: guides
+    label: Field guides
+    label_singular: Guide
+    folder: content/guides
+    extension: mdx
+    format: frontmatter
+    create: true
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{title}} · {{category}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Summary, name: summary, widget: text }
+      - { label: Category, name: category, widget: string, default: Core Systems }
+      - label: Difficulty
+        name: difficulty
+        widget: select
+        options: [Beginner, Intermediate, Advanced]
+      - { label: Reading time, name: readingTime, widget: string, default: "8 min" }
+      - { label: Last updated, name: updated, widget: date, format: YYYY-MM-DD }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Sort order, name: order, widget: number, default: 99, value_type: int }
+      - { label: Hero image, name: heroImage, widget: image, required: false }
+      - { label: Tags, name: tags, widget: list, required: false }
+      - { label: Overview, name: overview, widget: text }
+      - { label: Priorities, name: priorities, widget: list, required: false }
+      - { label: Recommended actions, name: actions, widget: list, required: false }
+      - label: Resource requirements
+        name: resourceRequirements
+        widget: list
+        required: false
+        fields:
+          - { label: Resource, name: item, widget: string }
+          - { label: Requirement, name: amount, widget: string }
+          - label: Priority
+            name: priority
+            widget: select
+            options: [Core, High, Optional]
+      - { label: Tips, name: tips, widget: list, required: false }
+      - { label: Common mistakes, name: mistakes, widget: list, required: false }
+      - label: Visual steps
+        name: steps
+        widget: list
+        required: false
+        fields:
+          - { label: Step title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - { label: Image, name: image, widget: image, required: false }
+          - { label: Caption, name: caption, widget: string, required: false }
+          - { label: Annotations, name: highlights, widget: list, required: false }
+      - { label: Related slugs, name: related, widget: list, required: false, hint: "Page slugs, for example hero-development or hero-events." }
+
+  - name: strategies
+    label: Strategy briefs
+    label_singular: Strategy
+    folder: content/strategies
+    extension: mdx
+    format: frontmatter
+    create: true
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{title}} · {{category}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Summary, name: summary, widget: text }
+      - { label: Category, name: category, widget: string, default: Alliance Play }
+      - label: Difficulty
+        name: difficulty
+        widget: select
+        options: [Beginner, Intermediate, Advanced]
+      - { label: Reading time, name: readingTime, widget: string, default: "10 min" }
+      - { label: Last updated, name: updated, widget: date, format: YYYY-MM-DD }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+      - { label: Sort order, name: order, widget: number, default: 99, value_type: int }
+      - { label: Hero image, name: heroImage, widget: image, required: false }
+      - { label: Tags, name: tags, widget: list, required: false }
+      - { label: Objective, name: objective, widget: text }
+      - { label: Recommended actions, name: actions, widget: list, required: false }
+      - { label: Requirements, name: requirements, widget: list, required: false }
+      - { label: Optimisation methods, name: optimisation, widget: list, required: false }
+      - { label: Tips, name: tips, widget: list, required: false }
+      - { label: Common mistakes, name: mistakes, widget: list, required: false }
+      - label: Metrics
+        name: metrics
+        widget: list
+        required: false
+        fields:
+          - { label: Label, name: label, widget: string }
+          - { label: Value, name: value, widget: string }
+          - { label: Note, name: note, widget: string, required: false }
+      - { label: Related slugs, name: related, widget: list, required: false }
+
+  - name: faq
+    label: FAQ
+    files:
+      - name: faq
+        label: FAQ items
+        file: content/faq/faq.json
+        format: json
+        fields:
+          - label: Items
+            name: items
+            widget: list
+            fields:
+              - { label: ID, name: id, widget: string, hint: "Stable anchor, e.g. ava-scoring" }
+              - label: Category
+                name: category
+                widget: select
+                options: [General Questions, Events, Alliance vs Alliance, Survival Battle, Heroes, Resources, Research, Battle Strategy]
+              - { label: Question, name: question, widget: string }
+              - { label: Answer, name: answer, widget: text }
+              - { label: Tags, name: tags, widget: list, required: false }
+
+  - name: calendar
+    label: Event calendar
+    files:
+      - name: calendar
+        label: Calendar entries
+        file: data/calendar-events.json
+        format: json
+        fields:
+          - label: Events
+            name: events
+            widget: list
+            summary: "{{title}} · {{start}}"
+            fields:
+              - { label: ID, name: id, widget: string, hint: "Stable unique id, e.g. ava-2026-10-19" }
+              - { label: Title, name: title, widget: string }
+              - { label: Start (UTC), name: start, widget: datetime, date_format: YYYY-MM-DD, time_format: HH:mm, format: YYYY-MM-DDTHH:mm:ss[Z] }
+              - { label: End (UTC), name: end, widget: datetime, required: false, date_format: YYYY-MM-DD, time_format: HH:mm, format: YYYY-MM-DDTHH:mm:ss[Z] }
+              - label: Category
+                name: category
+                widget: select
+                options: [Alliance Events, Survival Battle, Alliance vs Alliance, State Events, Resource Events, Hero Events, Plague Events]
+              - { label: Description, name: description, widget: text }
+              - { label: Phase label, name: phase, widget: string, required: false }
+              - label: Source
+                name: source
+                widget: select
+                options: [Alliance leadership, In-game screen, Community guide, Planning template]
+              - { label: Overlaps with IDs, name: overlapWith, widget: list, required: false }
+              - { label: Detail page URL, name: href, widget: string, required: false, hint: "Example: /events/survival-battle/" }
+
+  - name: gallery
+    label: Image library
+    files:
+      - name: gallery
+        label: Gallery images
+        file: data/gallery.json
+        format: json
+        fields:
+          - label: Images
+            name: images
+            widget: list
+            summary: "{{title}} · {{category}}"
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Title, name: title, widget: string }
+              - label: Category
+                name: category
+                widget: select
+                options: [Events, Heroes, Troops, Buildings, Research, Alliance Activities, Strategies, Battle Reports]
+              - { label: Image, name: src, widget: image }
+              - { label: Width, name: width, widget: number, default: 1600, value_type: int }
+              - { label: Height, name: height, widget: number, default: 900, value_type: int }
+              - { label: Description, name: description, widget: text }
+              - { label: Tags, name: tags, widget: list, required: false }
+              - { label: Credit, name: credit, widget: string, required: false }
+
+  - name: settings
+    label: Alliance identity
+    files:
+      - name: site
+        label: Site settings
+        file: data/site.json
+        format: json
+        fields:
+          - { label: Alliance name, name: allianceName, widget: string }
+          - { label: Callsign, name: callsign, widget: string, hint: "Short form used in the header subline, hero badge and app manifest. The wordmark artwork itself is not edited here — see docs/CONTENT.md." }
+          - { label: Server label, name: server, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: Description, name: description, widget: text }
+          - { label: Discord URL, name: discordUrl, widget: string }
+          - { label: Contact email, name: contactEmail, widget: string }
+          - { label: Last updated, name: updated, widget: date, format: YYYY-MM-DD }
+          - label: Hero stats
+            name: stats
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Value, name: value, widget: string }
+          - { label: Disclaimer, name: disclaimer, widget: text }

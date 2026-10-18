@@ -1,0 +1,512 @@
+{
+  "events": [
+    {
+      "id": "ava-2026-10-19",
+      "title": "Alliance Duel · Week 42",
+      "start": "2026-10-19T00:00:00Z",
+      "end": "2026-10-25T23:59:00Z",
+      "category": "Alliance vs Alliance",
+      "description": "Six scoring days: Raven → Construction → Tech → Hero → Preparation → Raid. Confirm the phase order and reset time on the live event screen before committing stockpiles.",
+      "phase": "Mon Raven · Tue Construction · Wed Tech · Thu Hero · Fri Preparation · Sat Raid",
+      "source": "Community guide",
+      "overlapWith": [
+        "survival-2026-10-19"
+      ],
+      "href": "/alliance-vs-alliance/"
+    },
+    {
+      "id": "survival-2026-10-19",
+      "title": "Survival Battle · Daily round cycle",
+      "start": "2026-10-19T00:00:00Z",
+      "end": "2026-10-25T23:59:00Z",
+      "category": "Survival Battle",
+      "description": "Six four-hour rounds per day with rotating themes such as Build Territory, Train Soldiers, Technology Research, Enhance Raven and Enhance Heroes. Use each round's theme as the trigger for queued actions.",
+      "phase": "06 rounds · 4h each · theme resets per round",
+      "source": "Community guide",
+      "overlapWith": [
+        "ava-2026-10-19"
+      ],
+      "href": "/events/survival-battle/"
+    },
+    {
+      "id": "resource-salvage-oct",
+      "title": "Salvage Surge · Resource window",
+      "start": "2026-10-20T10:00:00Z",
+      "end": "2026-10-22T22:00:00Z",
+      "category": "Resource Events",
+      "description": "Hold gather speed-ups and survivor dispatches for the resource scoring window. Check the live event for the actual resource list.",
+      "phase": "Open window",
+      "source": "Planning template",
+      "href": "/events/resource-events/",
+      "overlapWith": [
+        "ava-2026-10-19"
+      ]
+    },
+    {
+      "id": "hero-recruit-oct",
+      "title": "Recruitment Protocol · Hero window",
+      "start": "2026-10-21T00:00:00Z",
+      "end": "2026-10-23T23:59:00Z",
+      "category": "Hero Events",
+      "description": "Coordinate shard spending with the Hero phase of Alliance Duel. Do not open saved recruitment items before leadership confirms scoring.",
+      "phase": "Shard / recruit scoring",
+      "source": "Planning template",
+      "href": "/events/hero-events/",
+      "overlapWith": [
+        "ava-2026-10-19"
+      ]
+    },
+    {
+      "id": "state-push-oct",
+      "title": "State Push · Weekend objective",
+      "start": "2026-10-23T12:00:00Z",
+      "end": "2026-10-25T22:00:00Z",
+      "category": "State Events",
+      "description": "State-wide objective window. Confirm the current objective and score sources in the in-game event tab. Template timings only.",
+      "phase": "Weekend push",
+      "source": "Planning template",
+      "href": "/events/state-events/",
+      "overlapWith": []
+    },
+    {
+      "id": "elixir-oct",
+      "title": "Elixir Scramble",
+      "start": "2026-10-24T18:00:00Z",
+      "end": "2026-10-24T18:30:00Z",
+      "category": "Alliance Events",
+      "description": "Thirty-minute alliance vs alliance map-control match. Pre-assign squads, rally leads and building priorities before the gate opens.",
+      "phase": "30-minute match",
+      "source": "Community guide",
+      "href": "/events/alliance-vs-alliance/",
+      "overlapWith": []
+    },
+    {
+      "id": "ava-2026-10-26",
+      "title": "Alliance Duel · Week 43",
+      "start": "2026-10-26T00:00:00Z",
+      "end": "2026-11-01T23:59:00Z",
+      "category": "Alliance vs Alliance",
+      "description": "Six scoring days: Raven → Construction → Tech → Hero → Preparation → Raid. Confirm the phase order and reset time on the live event screen before committing stockpiles.",
+      "phase": "Mon Raven · Tue Construction · Wed Tech · Thu Hero · Fri Preparation · Sat Raid",
+      "source": "Community guide",
+      "overlapWith": [
+        "survival-2026-10-26"
+      ],
+      "href": "/alliance-vs-alliance/"
+    },
+    {
+      "id": "survival-2026-10-26",
+      "title": "Survival Battle · Daily round cycle",
+      "start": "2026-10-26T00:00:00Z",
+      "end": "2026-11-01T23:59:00Z",
+      "category": "Survival Battle",
+      "description": "Six four-hour rounds per day with rotating themes such as Build Territory, Train Soldiers, Technology Research, Enhance Raven and Enhance Heroes. Use each round's theme as the trigger for queued actions.",
+      "phase": "06 rounds · 4h each · theme resets per round",
+      "source": "Community guide",
+      "overlapWith": [
+        "ava-2026-10-26"
+      ],
+      "href": "/events/survival-battle/"
+    },
+    {
+      "id": "pandemic-oct",
+      "title": "Pandemic Experience",
+      "start": "2026-10-26T00:00:00Z",
+      "end": "2026-11-01T23:59:00Z",
+      "category": "Plague Events",
+      "description": "Limited-time progression event. Verify the active task list and exchange shop in-game; community schedules are version-sensitive.",
+      "phase": "Limited-time window",
+      "source": "Community guide",
+      "href": "/events/plague-events/",
+      "overlapWith": [
+        "survival-2026-10-26",
+        "ava-2026-10-26"
+      ]
+    },
+    {
+      "id": "full-moon-oct",
+      "title": "Full Moon Night",
+      "start": "2026-10-29T00:00:00Z",
+      "end": "2026-11-04T23:59:00Z",
+      "category": "Plague Events",
+      "description": "Limited-time task, currency and exchange event. Confirm the current draw and exchange pool before spending.",
+      "phase": "Task & exchange window",
+      "source": "Community guide",
+      "href": "/events/plague-events/",
+      "overlapWith": []
+    },
+    {
+      "id": "undead-siege-oct",
+      "title": "Undead Siege · Assault window",
+      "start": "2026-10-30T12:00:00Z",
+      "end": "2026-10-30T13:00:00Z",
+      "category": "Alliance Events",
+      "description": "Alliance tower-defence window. Check unlock status and start time in-game; join the alliance voice channel 15 minutes early.",
+      "phase": "Assault start",
+      "source": "Community guide",
+      "href": "/events/plague-events/",
+      "overlapWith": [
+        "ava-2026-10-26"
+      ]
+    },
+    {
+      "id": "ava-2026-11-02",
+      "title": "Alliance Duel · Week 44",
+      "start": "2026-11-02T00:00:00Z",
+      "end": "2026-11-08T23:59:00Z",
+      "category": "Alliance vs Alliance",
+      "description": "Six scoring days: Raven → Construction → Tech → Hero → Preparation → Raid. Confirm the phase order and reset time on the live event screen before committing stockpiles.",
+      "phase": "Mon Raven · Tue Construction · Wed Tech · Thu Hero · Fri Preparation · Sat Raid",
+      "source": "Community guide",
+      "overlapWith": [
+        "survival-2026-11-02"
+      ],
+      "href": "/alliance-vs-alliance/"
+    },
+    {
+      "id": "survival-2026-11-02",
+      "title": "Survival Battle · Daily round cycle",
+      "start": "2026-11-02T00:00:00Z",
+      "end": "2026-11-08T23:59:00Z",
+      "category": "Survival Battle",
+      "description": "Six four-hour rounds per day with rotating themes such as Build Territory, Train Soldiers, Technology Research, Enhance Raven and Enhance Heroes. Use each round's theme as the trigger for queued actions.",
+      "phase": "06 rounds · 4h each · theme resets per round",
+      "source": "Community guide",
+      "overlapWith": [
+        "ava-2026-11-02"
+      ],
+      "href": "/events/survival-battle/"
+    },
+    {
+      "id": "elixir-nov",
+      "title": "Elixir Scramble",
+      "start": "2026-11-07T18:00:00Z",
+      "end": "2026-11-07T18:30:00Z",
+      "category": "Alliance Events",
+      "description": "Thirty-minute alliance map-control match. Rotate rally leads if your primary caller is unavailable.",
+      "phase": "30-minute match",
+      "source": "Community guide",
+      "href": "/events/alliance-vs-alliance/",
+      "overlapWith": [
+        "ava-2026-11-02"
+      ]
+    },
+    {
+      "id": "ava-2026-11-09",
+      "title": "Alliance Duel · Week 45",
+      "start": "2026-11-09T00:00:00Z",
+      "end": "2026-11-15T23:59:00Z",
+      "category": "Alliance vs Alliance",
+      "description": "Six scoring days: Raven → Construction → Tech → Hero → Preparation → Raid. Confirm the phase order and reset time on the live event screen before committing stockpiles.",
+      "phase": "Mon Raven · Tue Construction · Wed Tech · Thu Hero · Fri Preparation · Sat Raid",
+      "source": "Community guide",
+      "overlapWith": [
+        "survival-2026-11-09"
+      ],
+      "href": "/alliance-vs-alliance/"
+    },
+    {
+      "id": "survival-2026-11-09",
+      "title": "Survival Battle · Daily round cycle",
+      "start": "2026-11-09T00:00:00Z",
+      "end": "2026-11-15T23:59:00Z",
+      "category": "Survival Battle",
+      "description": "Six four-hour rounds per day with rotating themes such as Build Territory, Train Soldiers, Technology Research, Enhance Raven and Enhance Heroes. Use each round's theme as the trigger for queued actions.",
+      "phase": "06 rounds · 4h each · theme resets per round",
+      "source": "Community guide",
+      "overlapWith": [
+        "ava-2026-11-09"
+      ],
+      "href": "/events/survival-battle/"
+    },
+    {
+      "id": "kingdom-clash-nov",
+      "title": "Kingdom Clash · Cross-state window",
+      "start": "2026-11-09T00:00:00Z",
+      "end": "2026-11-15T23:59:00Z",
+      "category": "State Events",
+      "description": "Cross-server / state-level objective window reported by community guides. Rules and matchmaking are server-dependent — confirm before planning.",
+      "phase": "Quest & objective scoring",
+      "source": "Community guide",
+      "href": "/events/state-events/",
+      "overlapWith": [
+        "ava-2026-11-09",
+        "survival-2026-11-09"
+      ]
+    },
+    {
+      "id": "hero-recruit-nov",
+      "title": "Recruitment Protocol · Hero window",
+      "start": "2026-11-11T00:00:00Z",
+      "end": "2026-11-13T23:59:00Z",
+      "category": "Hero Events",
+      "description": "Hold recruitment items until leadership confirms the scoring phase. Prioritise shards that unlock a planned power spike.",
+      "phase": "Shard / recruit scoring",
+      "source": "Planning template",
+      "href": "/events/hero-events/",
+      "overlapWith": [
+        "ava-2026-11-09"
+      ]
+    },
+    {
+      "id": "undead-siege-nov",
+      "title": "Undead Siege · Assault window",
+      "start": "2026-11-13T12:00:00Z",
+      "end": "2026-11-13T13:00:00Z",
+      "category": "Alliance Events",
+      "description": "Alliance tower-defence window. Assign a backup rally lead and test your formation beforehand.",
+      "phase": "Assault start",
+      "source": "Community guide",
+      "href": "/events/plague-events/",
+      "overlapWith": [
+        "ava-2026-11-09"
+      ]
+    },
+    {
+      "id": "ava-2026-11-16",
+      "title": "Alliance Duel · Week 46",
+      "start": "2026-11-16T00:00:00Z",
+      "end": "2026-11-22T23:59:00Z",
+      "category": "Alliance vs Alliance",
+      "description": "Six scoring days: Raven → Construction → Tech → Hero → Preparation → Raid. Confirm the phase order and reset time on the live event screen before committing stockpiles.",
+      "phase": "Mon Raven · Tue Construction · Wed Tech · Thu Hero · Fri Preparation · Sat Raid",
+      "source": "Community guide",
+      "overlapWith": [
+        "survival-2026-11-16"
+      ],
+      "href": "/alliance-vs-alliance/"
+    },
+    {
+      "id": "survival-2026-11-16",
+      "title": "Survival Battle · Daily round cycle",
+      "start": "2026-11-16T00:00:00Z",
+      "end": "2026-11-22T23:59:00Z",
+      "category": "Survival Battle",
+      "description": "Six four-hour rounds per day with rotating themes such as Build Territory, Train Soldiers, Technology Research, Enhance Raven and Enhance Heroes. Use each round's theme as the trigger for queued actions.",
+      "phase": "06 rounds · 4h each · theme resets per round",
+      "source": "Community guide",
+      "overlapWith": [
+        "ava-2026-11-16"
+      ],
+      "href": "/events/survival-battle/"
+    },
+    {
+      "id": "doomsday-nov",
+      "title": "Doomsday Challenge · Planning slot",
+      "start": "2026-11-16T00:00:00Z",
+      "end": "2026-11-22T23:59:00Z",
+      "category": "State Events",
+      "description": "PLACEHOLDER: this event is not confirmed in public documentation for every server. Use this slot only after leadership verifies it on your live event screen.",
+      "phase": "Verify in-game",
+      "source": "Planning template",
+      "href": "/events/doomsday-challenge/",
+      "overlapWith": [
+        "ava-2026-11-16"
+      ]
+    },
+    {
+      "id": "salvage-nov",
+      "title": "Salvage Surge · Resource window",
+      "start": "2026-11-17T10:00:00Z",
+      "end": "2026-11-19T22:00:00Z",
+      "category": "Resource Events",
+      "description": "Resource accumulation and spending window. Protect your stockpile from unnecessary upgrades in the preceding 48 hours.",
+      "phase": "Open window",
+      "source": "Planning template",
+      "href": "/events/resource-events/",
+      "overlapWith": [
+        "ava-2026-11-16"
+      ]
+    },
+    {
+      "id": "state-push-nov",
+      "title": "State Push · Weekend objective",
+      "start": "2026-11-20T12:00:00Z",
+      "end": "2026-11-22T22:00:00Z",
+      "category": "State Events",
+      "description": "State-wide weekend objective. Confirm target and score sources before committing stamina or speed-ups.",
+      "phase": "Weekend push",
+      "source": "Planning template",
+      "href": "/events/state-events/",
+      "overlapWith": []
+    },
+    {
+      "id": "elixir-nov-2",
+      "title": "Elixir Scramble",
+      "start": "2026-11-21T18:00:00Z",
+      "end": "2026-11-21T18:30:00Z",
+      "category": "Alliance Events",
+      "description": "Thirty-minute alliance map-control match. Confirm the next match time after the event ends.",
+      "phase": "30-minute match",
+      "source": "Community guide",
+      "href": "/events/alliance-vs-alliance/",
+      "overlapWith": [
+        "ava-2026-11-16"
+      ]
+    },
+    {
+      "id": "ava-2026-11-23",
+      "title": "Alliance Duel · Week 47",
+      "start": "2026-11-23T00:00:00Z",
+      "end": "2026-11-29T23:59:00Z",
+      "category": "Alliance vs Alliance",
+      "description": "Six scoring days: Raven → Construction → Tech → Hero → Preparation → Raid. Confirm the phase order and reset time on the live event screen before committing stockpiles.",
+      "phase": "Mon Raven · Tue Construction · Wed Tech · Thu Hero · Fri Preparation · Sat Raid",
+      "source": "Community guide",
+      "overlapWith": [
+        "survival-2026-11-23"
+      ],
+      "href": "/alliance-vs-alliance/"
+    },
+    {
+      "id": "survival-2026-11-23",
+      "title": "Survival Battle · Daily round cycle",
+      "start": "2026-11-23T00:00:00Z",
+      "end": "2026-11-29T23:59:00Z",
+      "category": "Survival Battle",
+      "description": "Six four-hour rounds per day with rotating themes such as Build Territory, Train Soldiers, Technology Research, Enhance Raven and Enhance Heroes. Use each round's theme as the trigger for queued actions.",
+      "phase": "06 rounds · 4h each · theme resets per round",
+      "source": "Community guide",
+      "overlapWith": [
+        "ava-2026-11-23"
+      ],
+      "href": "/events/survival-battle/"
+    },
+    {
+      "id": "undead-siege-nov-2",
+      "title": "Undead Siege · Assault window",
+      "start": "2026-11-27T12:00:00Z",
+      "end": "2026-11-27T13:00:00Z",
+      "category": "Alliance Events",
+      "description": "Alliance tower-defence window. Verify wave rules and unlock status in-game.",
+      "phase": "Assault start",
+      "source": "Community guide",
+      "href": "/events/plague-events/",
+      "overlapWith": [
+        "ava-2026-11-23"
+      ]
+    },
+    {
+      "id": "ava-2026-11-30",
+      "title": "Alliance Duel · Week 48",
+      "start": "2026-11-30T00:00:00Z",
+      "end": "2026-12-06T23:59:00Z",
+      "category": "Alliance vs Alliance",
+      "description": "Six scoring days: Raven → Construction → Tech → Hero → Preparation → Raid. Confirm the phase order and reset time on the live event screen before committing stockpiles.",
+      "phase": "Mon Raven · Tue Construction · Wed Tech · Thu Hero · Fri Preparation · Sat Raid",
+      "source": "Community guide",
+      "overlapWith": [
+        "survival-2026-11-30"
+      ],
+      "href": "/alliance-vs-alliance/"
+    },
+    {
+      "id": "survival-2026-11-30",
+      "title": "Survival Battle · Daily round cycle",
+      "start": "2026-11-30T00:00:00Z",
+      "end": "2026-12-06T23:59:00Z",
+      "category": "Survival Battle",
+      "description": "Six four-hour rounds per day with rotating themes such as Build Territory, Train Soldiers, Technology Research, Enhance Raven and Enhance Heroes. Use each round's theme as the trigger for queued actions.",
+      "phase": "06 rounds · 4h each · theme resets per round",
+      "source": "Community guide",
+      "overlapWith": [
+        "ava-2026-11-30"
+      ],
+      "href": "/events/survival-battle/"
+    },
+    {
+      "id": "elixir-dec",
+      "title": "Elixir Scramble",
+      "start": "2026-12-05T18:00:00Z",
+      "end": "2026-12-05T18:30:00Z",
+      "category": "Alliance Events",
+      "description": "Thirty-minute alliance map-control match. Review the previous match recording before the gate opens.",
+      "phase": "30-minute match",
+      "source": "Community guide",
+      "href": "/alliance-vs-alliance/",
+      "overlapWith": [
+        "ava-2026-11-30"
+      ]
+    },
+    {
+      "id": "ava-2026-12-07",
+      "title": "Alliance Duel · Week 49",
+      "start": "2026-12-07T00:00:00Z",
+      "end": "2026-12-13T23:59:00Z",
+      "category": "Alliance vs Alliance",
+      "description": "Six scoring days: Raven → Construction → Tech → Hero → Preparation → Raid. Confirm the phase order and reset time on the live event screen before committing stockpiles.",
+      "phase": "Mon Raven · Tue Construction · Wed Tech · Thu Hero · Fri Preparation · Sat Raid",
+      "source": "Community guide",
+      "overlapWith": [
+        "survival-2026-12-07"
+      ],
+      "href": "/alliance-vs-alliance/"
+    },
+    {
+      "id": "survival-2026-12-07",
+      "title": "Survival Battle · Daily round cycle",
+      "start": "2026-12-07T00:00:00Z",
+      "end": "2026-12-13T23:59:00Z",
+      "category": "Survival Battle",
+      "description": "Six four-hour rounds per day with rotating themes such as Build Territory, Train Soldiers, Technology Research, Enhance Raven and Enhance Heroes. Use each round's theme as the trigger for queued actions.",
+      "phase": "06 rounds · 4h each · theme resets per round",
+      "source": "Community guide",
+      "overlapWith": [
+        "ava-2026-12-07"
+      ],
+      "href": "/events/survival-battle/"
+    },
+    {
+      "id": "hero-recruit-dec",
+      "title": "Recruitment Protocol · Hero window",
+      "start": "2026-12-09T00:00:00Z",
+      "end": "2026-12-11T23:59:00Z",
+      "category": "Hero Events",
+      "description": "Hold recruitment items until leadership confirms the scoring phase. Do not chase a banner without a planned roster slot.",
+      "phase": "Shard / recruit scoring",
+      "source": "Planning template",
+      "href": "/events/hero-events/",
+      "overlapWith": [
+        "ava-2026-12-07"
+      ]
+    },
+    {
+      "id": "undead-siege-dec",
+      "title": "Undead Siege · Assault window",
+      "start": "2026-12-11T12:00:00Z",
+      "end": "2026-12-11T13:00:00Z",
+      "category": "Alliance Events",
+      "description": "Alliance tower-defence window. Assign squad lanes and confirm the caller.",
+      "phase": "Assault start",
+      "source": "Community guide",
+      "href": "/events/plague-events/",
+      "overlapWith": [
+        "ava-2026-12-07"
+      ]
+    },
+    {
+      "id": "salvage-dec",
+      "title": "Salvage Surge · Resource window",
+      "start": "2026-12-15T10:00:00Z",
+      "end": "2026-12-17T22:00:00Z",
+      "category": "Resource Events",
+      "description": "Resource accumulation window. Keep a reserve for the next AvA preparation day.",
+      "phase": "Open window",
+      "source": "Planning template",
+      "href": "/events/resource-events/",
+      "overlapWith": []
+    },
+    {
+      "id": "state-push-dec",
+      "title": "State Push · Weekend objective",
+      "start": "2026-12-18T12:00:00Z",
+      "end": "2026-12-20T22:00:00Z",
+      "category": "State Events",
+      "description": "State-wide weekend objective. Verify the objective and score sources in-game.",
+      "phase": "Weekend push",
+      "source": "Planning template",
+      "href": "/events/state-events/",
+      "overlapWith": []
+    }
+  ]
+}

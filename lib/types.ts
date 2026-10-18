@@ -1,0 +1,184 @@
+export type EventCategory =
+  | "Survival Battle"
+  | "Alliance vs Alliance"
+  | "State Events"
+  | "Plague Events"
+  | "Doomsday Challenge"
+  | "Resource Events"
+  | "Hero Events";
+
+export type Difficulty = "Beginner" | "Intermediate" | "Advanced";
+
+export type ContentType = "event" | "guide" | "strategy" | "faq" | "calendar" | "image";
+
+export interface BaseContent {
+  slug: string;
+  title: string;
+  summary: string;
+  updated: string;
+  tags: string[];
+  featured: boolean;
+  order: number;
+  heroImage?: string;
+}
+
+export interface SchedulePhase {
+  phase: string;
+  timing: string;
+  note?: string;
+}
+
+export interface RewardRow {
+  reward: string;
+  amount: string;
+  notes?: string;
+}
+
+export interface WalkthroughStep {
+  title: string;
+  description: string;
+  image?: string;
+  caption?: string;
+  highlights: string[];
+}
+
+export interface GameEvent extends BaseContent {
+  category: EventCategory;
+  difficulty: Difficulty;
+  cadence: string;
+  duration: string;
+  status: "verified" | "community" | "template";
+  objective: string;
+  requirements: string[];
+  schedule: SchedulePhase[];
+  rewards: RewardRow[];
+  preparation: string[];
+  bestPractices: string[];
+  mistakes: string[];
+  advancedTips: string[];
+  checklist: string[];
+  requiredScreenshots: string[];
+  playerNotes: string[];
+  strategyRecommendations: string[];
+  walkthrough: WalkthroughStep[];
+  body: string;
+}
+
+export interface ResourceRequirement {
+  item: string;
+  amount: string;
+  priority: "Core" | "High" | "Optional";
+}
+
+export interface GuideStep {
+  title: string;
+  description: string;
+  image?: string;
+  caption?: string;
+  highlights: string[];
+}
+
+export interface Guide extends BaseContent {
+  category: string;
+  difficulty: Difficulty;
+  readingTime: string;
+  overview: string;
+  priorities: string[];
+  actions: string[];
+  resourceRequirements: ResourceRequirement[];
+  tips: string[];
+  mistakes: string[];
+  steps: GuideStep[];
+  related: string[];
+  body: string;
+}
+
+export interface Strategy extends BaseContent {
+  category: string;
+  difficulty: Difficulty;
+  readingTime: string;
+  objective: string;
+  actions: string[];
+  requirements: string[];
+  optimisation: string[];
+  tips: string[];
+  mistakes: string[];
+  metrics: { label: string; value: string; note?: string }[];
+  related: string[];
+  body: string;
+}
+
+export interface FAQItem {
+  id: string;
+  category: string;
+  question: string;
+  answer: string;
+  tags: string[];
+}
+
+export type CalendarCategory =
+  | "Alliance Events"
+  | "Survival Battle"
+  | "Alliance vs Alliance"
+  | "State Events"
+  | "Resource Events"
+  | "Hero Events"
+  | "Plague Events";
+
+export interface CalendarEvent {
+  id: string;
+  title: string;
+  start: string;
+  end?: string;
+  category: CalendarCategory;
+  description: string;
+  phase?: string;
+  source: "Alliance leadership" | "In-game screen" | "Community guide" | "Planning template";
+  overlapWith?: string[];
+  href?: string;
+}
+
+export interface GalleryImage {
+  id: string;
+  title: string;
+  category:
+    | "Events"
+    | "Heroes"
+    | "Troops"
+    | "Buildings"
+    | "Research"
+    | "Alliance Activities"
+    | "Strategies"
+    | "Battle Reports";
+  src: string;
+  width: number;
+  height: number;
+  description: string;
+  tags: string[];
+  credit: string;
+}
+
+export interface SearchDoc {
+  id: string;
+  type: ContentType;
+  title: string;
+  description: string;
+  url: string;
+  category: string;
+  tags: string[];
+  content: string;
+  date?: string;
+}
+
+export interface SiteConfig {
+  allianceName: string;
+  callsign: string;
+  server: string;
+  tagline: string;
+  description: string;
+  discordUrl: string;
+  contactEmail: string;
+  updated: string;
+  stats: { label: string; value: string }[];
+  disclaimer: string;
+}

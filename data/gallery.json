@@ -1,0 +1,246 @@
+{
+  "images": [
+    {
+      "id": "event-survival-battle",
+      "title": "Survival Battle — Six-Round Board",
+      "category": "Events",
+      "src": "/images/gallery/event-survival-battle.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Reference layout for the daily six-round Survival Battle cycle, with theme triggers and reward checkpoints.",
+      "tags": ["survival battle", "rounds", "scoring", "schedule"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "event-ava-overlap",
+      "title": "Alliance Duel — Overlap Schematic",
+      "category": "Events",
+      "src": "/images/gallery/event-ava-overlap.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Visual planning board for stacking Alliance Duel scoring days with Survival Battle round themes.",
+      "tags": ["alliance duel", "ava", "overlap", "planning"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "event-elixir-scramble",
+      "title": "Elixir Scramble — Map Control",
+      "category": "Events",
+      "src": "/images/gallery/event-elixir-scramble.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Thirty-minute match schematic showing contested buildings and rally flow. Replace with a real map capture.",
+      "tags": ["elixir scramble", "alliance event", "map control", "pvp"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "full-moon-night",
+      "title": "Full Moon Night — Event Board",
+      "category": "Events",
+      "src": "/images/gallery/full-moon-night.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Reference layout for a limited-time plague event with tasks, currency and an exchange shop.",
+      "tags": ["full moon night", "plague", "limited time", "exchange"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "doomsday-challenge",
+      "title": "Doomsday Challenge — Verification Slot",
+      "category": "Events",
+      "src": "/images/gallery/doomsday-challenge.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Placeholder image reserved for a verified Doomsday Challenge capture. Do not treat as evidence the event exists.",
+      "tags": ["doomsday", "unverified", "template", "placeholder"],
+      "credit": "Alliance archive placeholder — replace only with genuine evidence"
+    },
+    {
+      "id": "resource-salvage",
+      "title": "Salvage Surge — Resource Board",
+      "category": "Events",
+      "src": "/images/gallery/resource-salvage.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Reference resource event board for tracking stockpile, gather supply and the AvA reserve floor.",
+      "tags": ["resources", "salvage", "stockpile", "gathering"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "hero-recruitment",
+      "title": "Recruitment Protocol — Shard Board",
+      "category": "Heroes",
+      "src": "/images/gallery/hero-recruitment.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Reference hero recruitment planning board showing a target, breakpoint and held recruitment items.",
+      "tags": ["heroes", "recruitment", "shards", "event"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "hero-roster",
+      "title": "Hero Roster — Role Matrix",
+      "category": "Heroes",
+      "src": "/images/gallery/hero-roster.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Placeholder role matrix for planning tank, damage and support coverage across your top squads.",
+      "tags": ["heroes", "roster", "roles", "squads"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "hero-breakthrough",
+      "title": "Hero Breakthrough — Shard Route",
+      "category": "Heroes",
+      "src": "/images/gallery/hero-breakthrough.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Diagram for mapping shard breakpoints and skill investment before a scoring phase.",
+      "tags": ["heroes", "shards", "upgrade", "breakthrough"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "troop-counter-matrix",
+      "title": "Troop Counter Matrix",
+      "category": "Troops",
+      "src": "/images/gallery/troop-counter-matrix.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "A decision-board placeholder for recording tested troop matchups. Add your own battle-tested results.",
+      "tags": ["troops", "counters", "combat", "matrix"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "troop-training-queue",
+      "title": "Training Queue — Batch Plan",
+      "category": "Troops",
+      "src": "/images/gallery/troop-training-queue.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Sample training queue plan for tiering batches around preparation and scoring windows.",
+      "tags": ["troops", "training", "queue", "preparation"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "sanctuary-layout",
+      "title": "Sanctuary Layout — Sector Grid",
+      "category": "Buildings",
+      "src": "/images/gallery/sanctuary-layout.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Reference sector grid for planning building placement, production clustering and defensive coverage.",
+      "tags": ["buildings", "base", "layout", "defence"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "construction-priority",
+      "title": "Construction Priority — Stack Order",
+      "category": "Buildings",
+      "src": "/images/gallery/construction-priority.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Placeholder queue stack for construction upgrades; replace with your alliance's accepted priority order.",
+      "tags": ["buildings", "construction", "priority", "queue"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "research-economy",
+      "title": "Research Tree — Economy Branch",
+      "category": "Research",
+      "src": "/images/gallery/research-economy.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Reference node map for production, gathering and capacity research. Confirm prerequisites in-game.",
+      "tags": ["research", "economy", "production", "tree"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "research-combat",
+      "title": "Research Tree — Combat Branch",
+      "category": "Research",
+      "src": "/images/gallery/research-combat.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Reference node map for combat research sequencing and scoring-day timing.",
+      "tags": ["research", "combat", "tree", "scoring"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "alliance-muster",
+      "title": "Alliance Muster — Rally Board",
+      "category": "Alliance Activities",
+      "src": "/images/gallery/alliance-muster.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Muster board for mapping online windows, rally leads and backup callers across time zones.",
+      "tags": ["alliance", "rally", "coordination", "timezones"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "falcon-quest-window",
+      "title": "Falcon Quest — Claim Window",
+      "category": "Alliance Activities",
+      "src": "/images/gallery/falcon-quest-window.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Timeline placeholder for synchronising Falcon Quest claims with scoring phases.",
+      "tags": ["alliance", "falcon quest", "claims", "timing"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "event-overlap-value-map",
+      "title": "Overlap Value Map",
+      "category": "Strategies",
+      "src": "/images/gallery/event-overlap-value-map.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Map of event overlap routes: stack actions, not calendars. Add verified overlap windows from your server.",
+      "tags": ["strategy", "overlap", "planning", "value"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "scoring-flow",
+      "title": "Scoring Flow — Stockpile to Points",
+      "category": "Strategies",
+      "src": "/images/gallery/scoring-flow.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Flow from stockpiled resources and saved items to a scoring trigger and reward claim.",
+      "tags": ["strategy", "scoring", "stockpile", "flow"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "f2p-spend-ladder",
+      "title": "F2P Spend Ladder",
+      "category": "Strategies",
+      "src": "/images/gallery/f2p-spend-ladder.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Value-per-hour ladder for free-to-play speed-up and resource spending decisions.",
+      "tags": ["strategy", "free to play", "spending", "value"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "battle-report-delta",
+      "title": "Battle Report — Read the Delta",
+      "category": "Battle Reports",
+      "src": "/images/gallery/battle-report-delta.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Annotated placeholder for reading damage dealt, losses and the delta between two battle reports.",
+      "tags": ["battle report", "combat", "analysis", "losses"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    },
+    {
+      "id": "rally-join-window",
+      "title": "Rally Timing — Join Window",
+      "category": "Battle Reports",
+      "src": "/images/gallery/rally-join-window.webp",
+      "width": 1600,
+      "height": 900,
+      "description": "Timing diagram for rally launch, travel time and the final join window.",
+      "tags": ["rally", "timing", "combat", "coordination"],
+      "credit": "Alliance archive placeholder — replace with an in-game capture"
+    }
+  ]
+}

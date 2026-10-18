@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#0c1115" />
+        <stop offset="0.55" stop-color="#080b0d" />
+        <stop offset="1" stop-color="#121417" />
+      </linearGradient>
+      <radialGradient id="glow" cx="0.72" cy="0.45" r="0.6">
+        <stop offset="0" stop-color="#f87171" stop-opacity="0.20" />
+        <stop offset="1" stop-color="#f87171" stop-opacity="0" />
+      </radialGradient>
+      <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+        <path d="M48 0H0V48" fill="none" stroke="#94a3b8" stroke-opacity="0.055" stroke-width="1" />
+      </pattern>
+      <pattern id="noise" width="7" height="7" patternUnits="userSpaceOnUse">
+        <circle cx="1" cy="1" r="0.7" fill="#94a3b8" opacity="0.09" />
+      </pattern>
+    </defs>
+    <rect width="1600" height="900" fill="url(#bg)" />
+    <rect width="1600" height="900" fill="url(#grid)" />
+    <rect width="1600" height="900" fill="url(#glow)" />
+    <rect width="1600" height="900" fill="url(#noise)" />
+    <path d="M0 72H1600" stroke="#94a3b8" stroke-opacity="0.12" />
+    <path d="M0 760H1600" stroke="#94a3b8" stroke-opacity="0.12" />
+    <g font-family="'Arial Narrow', Arial, sans-serif">
+      <text x="64" y="48" fill="#f87171" font-family="monospace" font-size="15" letter-spacing="4">FIELD IMAGE // BTR-001</text>
+      <text x="1536" y="48" fill="#94a3b8" font-family="monospace" font-size="13" letter-spacing="3" text-anchor="end">BATTLE REPORTS</text>
+      <text x="64" y="700" fill="#f5f2ec" font-size="74" font-weight="700" letter-spacing="2">BATTLE REPORT</text>
+      <text x="66" y="748" fill="#9aa4ad" font-family="monospace" font-size="20" letter-spacing="1">READ THE DAMAGE DELTA</text>
+      <text x="1536" y="880" fill="#5c6872" font-family="monospace" font-size="12" letter-spacing="2" text-anchor="end">REFERENCE PLACEHOLDER · REPLACE WITH IN-GAME CAPTURE</text>
+      <text x="64" y="880" fill="#5c6872" font-family="monospace" font-size="12" letter-spacing="2">SAVAGE REIGN // SAVR OPS</text>
+    </g>
+    <g stroke="#f87171" stroke-opacity="0.8">
+      <path d="M64 88h34M64 88v34" fill="none" />
+      <path d="M1536 720h-34M1536 720v34" fill="none" />
+    </g>
+    
+        <g transform="translate(820,420)" fill="none" stroke="#f87171" stroke-width="2" opacity="0.9">
+          <path d="M0 160V-140M0 160H520" stroke="rgba(148,163,184,0.25)" />
+          <path d="M0 40L80 -20L150 90L240 -90L330 20L420 -110L520 -30" stroke="#f87171" stroke-width="3" />
+          <path d="M0 90L80 30L150 120L240 -20L330 90L420 -40L520 30" stroke="rgba(148,163,184,0.25)" stroke-dasharray="6 8" />
+          <line x1="0" y1="160" x2="0" y2="170" stroke="rgba(148,163,184,0.25)" /><line x1="86" y1="160" x2="86" y2="170" stroke="rgba(148,163,184,0.25)" /><line x1="172" y1="160" x2="172" y2="170" stroke="rgba(148,163,184,0.25)" /><line x1="258" y1="160" x2="258" y2="170" stroke="rgba(148,163,184,0.25)" /><line x1="344" y1="160" x2="344" y2="170" stroke="rgba(148,163,184,0.25)" /><line x1="430" y1="160" x2="430" y2="170" stroke="rgba(148,163,184,0.25)" /><line x1="516" y1="160" x2="516" y2="170" stroke="rgba(148,163,184,0.25)" />
+          <circle cx="420" cy="-110" r="8" fill="#f87171" stroke="none" />
+        </g>
+    <g opacity="0.55" font-family="monospace" font-size="11" fill="#65717b">
+      <text x="64" y="836">LAT 00.000 / LON 00.000</text>
+      <text x="260" y="836">SOURCE: ALLIANCE ARCHIVE</text>
+      <text x="510" y="836">STATUS: AWAITING UPLOAD</text>
+    </g>
+  </svg>

@@ -1,0 +1,29 @@
+{
+  "allianceName": "Savage Reign",
+  "callsign": "SAVR",
+  "server": "Server #297",
+  "tagline": "Events, Strategies, Optimisation, and Alliance Coordination",
+  "description": "The Savage Reign (SAVR) alliance knowledge base for Last Asylum: Plague. Event breakdowns, Alliance vs Alliance scoring, Survival Battle overlap windows, visual walkthroughs and coordination plans.",
+  "discordUrl": "https://discord.gg/your-alliance-invite",
+  "contactEmail": "command@your-alliance.example",
+  "updated": "2026-10-18",
+  "stats": [
+    {
+      "label": "Event files",
+      "value": "07"
+    },
+    {
+      "label": "Field guides",
+      "value": "07"
+    },
+    {
+      "label": "Strategy briefs",
+      "value": "06"
+    },
+    {
+      "label": "Community FAQs",
+      "value": "33"
+    }
+  ],
+  "disclaimer": "Savage Reign (SAVR) fan-made alliance resource. Not affiliated with or endorsed by 37GAMES or Wiseness. Event timings, point values and rewards change by server, season and game version — always verify the live in-game event screen. Replace placeholder art with your own screenshots and any official assets you have permission to use."
+}

@@ -1,0 +1,121 @@
+---
+title: "Troop Development"
+summary: "Train with a purpose: tier coverage, batch timing and battle reports that tell you which troops are actually earning their keep."
+category: "Combat"
+difficulty: "Intermediate"
+readingTime: "11 min"
+updated: "2026-10-18"
+featured: true
+order: 3
+heroImage: "/images/gallery/troop-training-queue.webp"
+tags: ["troops", "training", "combat", "tiers", "queue"]
+overview: "Troop development is a throughput problem wrapped in a combat problem. Keep training queues busy, build the tiers your squad can support, and validate lineups with battle reports instead of assumptions."
+priorities:
+  - "Keep the training queue active whenever resources allow."
+  - "Maintain enough lower-tier troops for events and gathering without sacrificing your main army."
+  - "Upgrade troop tiers only when you can support them with heroes, research and resources."
+  - "Test troop matchups with controlled reports."
+  - "Hold training speed-ups for Preparation / Survival Battle windows."
+actions:
+  - "Check training capacity and queue slots."
+  - "Set a batch size that completes before your next login."
+  - "Keep a reserve of training speed-ups for scored windows."
+  - "Review the last ten battle reports for loss patterns."
+  - "Adjust tier composition based on evidence, not guesswork."
+  - "Coordinate training with the AvA Preparation phase."
+resourceRequirements:
+  - item: "Food / troop resources"
+    amount: "Continuous"
+    priority: "Core"
+  - item: "Training speed-ups"
+    amount: "Reserve for scoring windows"
+    priority: "High"
+  - item: "Training capacity"
+    amount: "Upgrade as needed"
+    priority: "High"
+  - item: "Healing resources"
+    amount: "Raid reserve"
+    priority: "Core"
+tips:
+  - "Shorter batches reduce overflow waste when capacity is limited."
+  - "Do not train a tier you cannot equip or support with research."
+  - "Keep enough troops at home for defence while your main army is out."
+  - "Use battle reports from both wins and losses. Wins hide inefficiencies."
+  - "Training during a scoring window is free value if the troops were already in your plan."
+mistakes:
+  - "Training the highest visible tier regardless of support systems."
+  - "Letting the queue idle overnight."
+  - "Sending the entire army out and leaving the base undefended."
+  - "Ignoring healing costs before Raid phase."
+  - "Judging a troop change from a single battle."
+  - "Spending every speed-up outside a scoring window."
+steps:
+  - title: "Set the queue rhythm"
+    description: "Choose a batch size that completes before your next login. A finished batch that sits idle is wasted capacity."
+    image: "/images/gallery/troop-training-queue.webp"
+    caption: "Reference batch plan. Replace with a screenshot of your training queue."
+    highlights: ["Batch size", "Login rhythm", "No idle queue"]
+  - title: "Test the lineup"
+    description: "Fight a comparable opponent with a controlled composition. Compare two battle reports before changing your entire army."
+    image: "/images/gallery/troop-counter-matrix.webp"
+    caption: "Record matchups and results in your own matrix."
+    highlights: ["One variable at a time", "Compare deltas", "Use wins and losses"]
+  - title: "Coordinate the spend"
+    description: "Move training speed-ups into Preparation / Survival Battle scoring windows only when the troops are part of the plan."
+    image: "/images/gallery/event-ava-overlap.webp"
+    caption: "Train, score and reinforce in the same window."
+    highlights: ["Scored window", "Planned batch", "Keep a defence reserve"]
+related: ["battle-planning", "resource-management", "survival-battle-overlap"]
+---
+
+<Callout type="warning" title="Balance changes">
+Troop tiers and matchups can change with updates. Use the matrix as a living document: record the patch/date next to every conclusion.
+</Callout>
+
+## The throughput rule
+
+Troops are produced by time. If the queue is idle, you are losing troops you could have had for free. The first optimisation is not a better tier; it is **never leaving the queue empty**.
+
+A sustainable rhythm looks like:
+
+1. Log in.
+2. Claim completed batch.
+3. Start the next batch sized to finish before the next login.
+4. Use alliance help.
+5. Log off.
+
+Only after that baseline is stable should you optimise composition.
+
+## Tier discipline
+
+Higher tiers are not automatically better value. Consider:
+
+- **Support systems:** research, hero buffs and equipment that affect the tier.
+- **Resource cost:** can your economy sustain a full batch?
+- **Healing cost:** can you replace losses after a fight?
+- **Event requirements:** some scoring actions care about training volume, not tier.
+- **Defence:** a smaller high-tier army on the map leaves the base exposed.
+
+<Callout type="strategy" title="Tier coverage beats tier purity">
+A mixed army that keeps your base defended, your events scored and your rallies filled is usually stronger than a perfect single-tier army you cannot sustain.
+</Callout>
+
+## Reading a battle report
+
+Look for patterns, not one number:
+
+| Signal | What it suggests |
+| --- | --- |
+| Front line dies early | Hero/troop tank gap, or bad matchup |
+| High damage but low kills | Overkill, target selection or squishy carry |
+| Losses spike after round 1 | Sustain or healing problem |
+| Win with heavy losses | Not sustainable for Raid phase |
+| Loss with favorable delta | Composition may still be improving |
+
+Capture the report and tag it with the patch, opponent type and composition. A battle report without context is just a screenshot.
+
+<Screenshot src="/images/gallery/battle-report-delta.webp" alt="Reference battle report delta comparison" caption="Use two reports and compare deltas. Replace with your own screenshots and annotations." />
+
+## Preparation for AvA
+
+Training speed-ups are a scored resource in the Preparation phase (community-reported). Keep a reserve, but do not train troops you would not otherwise want. Score should follow a useful army, not create one you cannot heal.
