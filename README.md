@@ -133,7 +133,7 @@ Content is plain MDX + JSON in Git. Replace the placeholder text and images, upd
 
 ## Search
 
-`npm run build:search` reads every content file and generates `public/search-index.json`. The client loads it lazily and performs weighted local matching on titles, tags, descriptions and full text. Search works without a server or a page reload, and supports:
+`npm run build:search` reads every content file and generates `public/search-index.json` (gitignored — it is rebuilt at the start of both `npm run dev` and `npm run build`). The client loads it lazily and performs weighted local matching on titles, tags, descriptions and full text. Search works without a server or a page reload, and supports:
 
 - Instant results in a command dialog (`Ctrl/⌘ + K` or `/`)
 - Full search page with type and category filters

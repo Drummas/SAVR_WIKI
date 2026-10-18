@@ -37,5 +37,8 @@ yarn-error.log*
 # vercel
 .vercel
 
+# generated at build time by scripts/build-search-index.mjs
+/public/search-index.json
+
 # typescript
 *.tsbuildinfo
