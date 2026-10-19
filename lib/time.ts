@@ -1,10 +1,11 @@
 /**
  * Clock and timezone helpers.
  *
- * Calendar data is authored on the in-game clock, and that clock runs five
- * hours behind GMT (`UTC-5`). A stored value therefore describes server
- * wall-clock time, not an absolute UTC instant: `2026-10-19T00:00:00Z` in the
- * JSON means midnight on the server, which is 05:00 UTC.
+ * Calendar data is authored on the in-game clock, which runs at `UTC-4` —
+ * four hours behind UTC, and five hours behind UK summer time (BST). A stored
+ * value therefore describes server wall-clock time, not an absolute UTC
+ * instant: `2026-10-19T00:00:00Z` in the JSON means midnight on the server,
+ * which is 04:00 UTC.
  *
  * `SERVER_OFFSET` is the server offset in minutes east of UTC. Rendering in
  * server time shows a stored value unchanged; rendering in any other zone
@@ -14,7 +15,7 @@
  * server-rendered markup and the first client render always agree.
  */
 
-export const SERVER_OFFSET = -300;
+export const SERVER_OFFSET = -240;
 
 export type ClockMode = "server" | "local";
 
@@ -36,8 +37,8 @@ const cityHints: Record<number, string> = {
   [-480]: "Los Angeles",
   [-420]: "Denver",
   [-360]: "Chicago",
-  [-300]: "Server time · New York",
-  [-240]: "Halifax",
+  [-300]: "New York",
+  [-240]: "Server time · Halifax",
   [-210]: "St. John's",
   [-180]: "São Paulo",
   [-120]: "South Georgia",

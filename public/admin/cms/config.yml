@@ -217,8 +217,8 @@ collections:
             fields:
               - { label: ID, name: id, widget: string, hint: "Stable unique id, e.g. ava-2026-10-19" }
               - { label: Title, name: title, widget: string }
-              - { label: Start (server time, UTC-5), name: start, widget: datetime, date_format: "YYYY-MM-DD", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ssZ", picker_utc: true, hint: "Enter the in-game time. The server clock runs at UTC-5; the site re-labels the value for each visitor." }
-              - { label: End (server time, UTC-5), name: end, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ssZ", picker_utc: true }
+              - { label: Start (server time, UTC-4), name: start, widget: datetime, date_format: "YYYY-MM-DD", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ssZ", picker_utc: true, hint: "Enter the in-game time. The server clock runs at UTC-4; the site re-labels the value for each visitor." }
+              - { label: End (server time, UTC-4), name: end, widget: datetime, required: false, date_format: "YYYY-MM-DD", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ssZ", picker_utc: true }
               - label: Category
                 name: category
                 widget: select

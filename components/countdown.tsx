@@ -44,7 +44,7 @@ export function Countdown({
   const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
-    // Stored timestamps are on the in-game clock (UTC-5); reading the device
+    // Stored timestamps are on the in-game clock (UTC-4); reading the device
     // clock into that same space keeps the countdown honest.
     const tick = () => setNow(new Date(nowOnServerClock()));
     tick();

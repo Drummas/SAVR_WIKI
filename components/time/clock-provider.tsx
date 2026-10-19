@@ -30,7 +30,7 @@ const MODE_KEY = "savr.clock.mode";
 const OFFSET_KEY = "savr.clock.offset";
 
 interface ClockContextValue {
-  /** `server` = in-game clock (UTC-5), `local` = the player's chosen offset. */
+  /** `server` = in-game clock (UTC-4), `local` = the player's chosen offset. */
   mode: ClockMode;
   /** The player's saved offset (minutes east of UTC). */
   localOffset: number;
@@ -41,7 +41,7 @@ interface ClockContextValue {
    * Zero in server mode, because the data is already on the server clock.
    */
   displayOffset: number;
-  /** Short label for the active clock, e.g. `UTC-5` or `UTC+2`. */
+  /** Short label for the active clock, e.g. `UTC-4` or `UTC+2`. */
   zone: string;
   /**
    * Live timestamp on the server clock, refreshed a few times a minute. Null
@@ -131,7 +131,7 @@ export function ClockProvider({ children }: { children: ReactNode }) {
       setLocalOffsetState(next);
       persist(OFFSET_KEY, String(next));
       // Picking an offset by hand means "show me that clock", even when the
-      // offset happens to match the server's UTC-5.
+      // offset happens to match the server's UTC-4.
       setModeState("local");
       persist(MODE_KEY, "local");
     },

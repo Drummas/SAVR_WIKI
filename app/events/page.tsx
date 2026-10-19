@@ -25,7 +25,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function EventsPage() {
   const events = getEvents();
-  // Calendar values are on the in-game clock, which runs five hours behind GMT.
+  // Calendar values are on the in-game clock, which runs four hours behind UTC.
   const now = nowOnServerClock();
   const upcoming = getCalendarEvents()
     .filter((event) => new Date(event.end ?? event.start).getTime() >= now)

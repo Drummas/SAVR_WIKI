@@ -171,7 +171,7 @@ Category options are defined in the Decap config and rendered from the data. IDs
 
 Sources: `Alliance leadership`, `In-game screen`, `Community guide`, `Planning template`. The source appears in the calendar and search results. Use `Planning template` for anything you have not verified in-game.
 
-`start` and `end` are stored on the **in-game clock**, which runs at **UTC-5** — always write them as `YYYY-MM-DDTHH:mm:ssZ` and enter the time you see in game. The `Z` is a storage convention, not a claim that the value is UTC: `00:00Z` here is midnight on the server, i.e. 05:00 UTC. The site re-labels each value live for every visitor: the header clock chip switches between server time (`UTC-5`) and the player's own offset, and the calendar, event lists and countdowns all follow that choice. Never store a player's local time in the JSON.
+`start` and `end` are stored on the **in-game clock**, which runs at **UTC-4** — always write them as `YYYY-MM-DDTHH:mm:ssZ` and enter the time you see in game. The `Z` is a storage convention, not a claim that the value is UTC: `00:00Z` here is midnight on the server, i.e. 04:00 UTC. The site re-labels each value live for every visitor: the header clock chip switches between server time (`UTC-4`) and the player's own offset, and the calendar, event lists and countdowns all follow that choice. Never store a player's local time in the JSON.
 
 The CMS datetime fields use UTC pickers (`picker_utc: true`) so the editor's own timezone cannot shift the value; what leadership picks is exactly what is saved, on the server clock. Dates can be edited for any day, including today, and a window that has already opened stays listed as live until its `end` passes.
 
