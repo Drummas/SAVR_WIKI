@@ -33,7 +33,7 @@ import {
   weekDays,
 } from "@/lib/calendar";
 import { calendarCategories } from "@/lib/navigation";
-import { formatZoneMonthShort, zoneDateKey } from "@/lib/time";
+import { formatZoneMonthShort } from "@/lib/time";
 import { cn } from "@/lib/utils";
 import type { CalendarCategory, CalendarEvent } from "@/lib/types";
 
@@ -65,7 +65,10 @@ export function CalendarExplorer({
   initialDate: string;
 }) {
   const clock = useClock();
-  const offset = clock.offset;
+  // Stored calendar values are on the server clock, so day keys and labels use
+  // the display shift; `clock.offset` alone assumes UTC-stored data.
+  const shift = clock.displayOffset;
+  const todayKey = clock.todayKey;
   const [cursor, setCursor] = useState(() => new Date(`${initialDate}T12:00:00Z`));
   const [selectedKey, setSelectedKey] = useState(initialDate);
   const [view, setView] = useState<View>("month");
@@ -84,8 +87,8 @@ export function CalendarExplorer({
     if (target) {
       const match = events.find((event) => event.id === target);
       if (match) {
-        setCursor(new Date(`${eventStartKey(match, offset)}T12:00:00Z`));
-        setSelectedKey(eventStartKey(match, offset));
+        setCursor(new Date(`${eventStartKey(match, shift)}T12:00:00Z`));
+        setSelectedKey(eventStartKey(match, shift));
         setHighlightedEvent(match.id);
         window.setTimeout(() => {
           document
@@ -95,10 +98,9 @@ export function CalendarExplorer({
         return;
       }
     }
-    const today = zoneDateKey(Date.now(), offset);
-    setCursor(new Date(`${today}T12:00:00Z`));
-    setSelectedKey(today);
-  }, [events, offset]);
+    setCursor(new Date(`${todayKey}T12:00:00Z`));
+    setSelectedKey(todayKey);
+  }, [events, shift, todayKey]);
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase();
@@ -112,7 +114,7 @@ export function CalendarExplorer({
   }, [activeCategories, events, query]);
 
   const selectedDate = new Date(`${selectedKey}T12:00:00Z`);
-  const selectedEvents = filtered.filter((event) => eventOccursOn(event, selectedKey, offset));
+  const selectedEvents = filtered.filter((event) => eventOccursOn(event, selectedKey, shift));
   const nowMs = clock.nowMs ?? new Date(`${initialDate}T12:00:00Z`).getTime();
   const upcoming = filtered
     .filter((event) => new Date(event.end ?? event.start).getTime() >= nowMs)
@@ -132,14 +134,12 @@ export function CalendarExplorer({
   }
 
   function goToday() {
-    const today = zoneDateKey(Date.now(), offset);
-    setCursor(new Date(`${today}T12:00:00Z`));
-    setSelectedKey(today);
+    setCursor(new Date(`${todayKey}T12:00:00Z`));
+    setSelectedKey(todayKey);
   }
 
   const days = monthGrid(cursor);
   const week = weekDays(cursor);
-  const todayKey = clock.nowMs ? clock.dateKey(clock.nowMs) : initialDate;
   const windowLabel =
     view === "week"
       ? `${dayLabel(week[0])} – ${dayLabel(week[6])}`
@@ -284,7 +284,7 @@ export function CalendarExplorer({
                 {days.map((date) => {
                   const key = dateKey(date);
                   const dayEvents = filtered.filter((event) =>
-                    eventOccursOn(event, key, offset),
+                    eventOccursOn(event, key, shift),
                   );
                   const hasOverlap = dayEvents.some((event) => (event.overlapWith?.length ?? 0) > 0);
                   const isSelected = key === selectedKey;
@@ -368,7 +368,7 @@ export function CalendarExplorer({
                 {week.map((date) => {
                   const key = dateKey(date);
                   const dayEvents = filtered.filter((event) =>
-                    eventOccursOn(event, key, offset),
+                    eventOccursOn(event, key, shift),
                   );
                   return (
                     <div key={key} className="min-h-[420px] border-r border-border/40 last:border-r-0">
@@ -443,7 +443,7 @@ export function CalendarExplorer({
                           {start.getUTCDate().toString().padStart(2, "0")}
                         </span>
                         <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                          {formatZoneMonthShort(start, offset)}
+                          {formatZoneMonthShort(start, shift)}
                         </span>
                       </div>
                       <div className="min-w-0">

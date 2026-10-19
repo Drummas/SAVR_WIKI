@@ -2,14 +2,14 @@
 
 import { Monitor, Server } from "lucide-react";
 
-import { zoneOptions } from "@/lib/time";
+import { SERVER_OFFSET, zoneLabel, zoneOptions } from "@/lib/time";
 import { cn } from "@/lib/utils";
 
 import { useClock } from "./clock-provider";
 
 /**
- * Clock source picker: server time (the in-game UTC clock) or a local offset
- * the player sets by hand, the same way the game asks for a timezone.
+ * Clock source picker: server time (the in-game clock, UTC-5) or a local
+ * offset the player sets by hand, the same way the game asks for a timezone.
  */
 export function ClockControls({
   className,
@@ -85,7 +85,8 @@ export function ClockControls({
 
       {showHint && (
         <p className="text-[10px] leading-relaxed text-muted-foreground/70">
-          Server time is the in-game clock. Set your own offset and the whole calendar follows it.
+          Server time is the in-game clock ({zoneLabel(SERVER_OFFSET)}), five hours behind GMT. Set your own
+          offset and the whole calendar follows it.
         </p>
       )}
     </div>

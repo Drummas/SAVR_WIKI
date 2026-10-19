@@ -109,12 +109,12 @@ Collections:
 
 ### Event clock and timezones
 
-Every window in `data/calendar-events.json` is stored on the **in-game clock (UTC)**. The site renders those instants in whichever clock the visitor picked:
+Every window in `data/calendar-events.json` is stored on the **in-game clock**, which runs at **UTC-5** (five hours behind GMT). A stored `...Z` value is server wall-clock time, not a UTC instant: `2026-10-19T00:00:00Z` means midnight on the server, which is 05:00 UTC. The site renders those values in whichever clock the visitor picked:
 
-- **Server** — the in-game clock, used by default.
+- **Server** — the in-game clock (`UTC-5`), used by default.
 - **My local** — a fixed offset the player sets with the header clock chip (or the calendar panel), the way the game asks for a timezone. The choice is stored in `localStorage` and every calendar label, countdown, event list and day grid follows it.
 
-Nothing is stored in the visitor's timezone, so editors always enter UTC in the CMS. Countdowns read the device clock every second, so the current day rolls over at midnight without a rebuild. `lib/time.ts` holds the offset maths and `components/time/` the provider, clock chip, panel and time labels.
+Nothing is stored in the visitor's timezone, so editors always type the in-game time in the CMS. Countdowns read the device clock every second, so the current day rolls over at midnight without a rebuild. `lib/time.ts` holds the offset maths (`SERVER_OFFSET`, `displayOffset`, `nowOnServerClock`) and `components/time/` the provider, clock chip, panel and time labels.
 
 ### Name, wordmark and crest
 

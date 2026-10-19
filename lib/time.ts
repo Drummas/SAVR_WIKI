@@ -1,15 +1,20 @@
 /**
  * Clock and timezone helpers.
  *
- * Alliance data is stored in UTC (`...Z`), which is also the in-game server
- * clock. Players usually play on a fixed offset they set in game, so every
- * time on the site can be rendered either in server time or in that offset.
+ * Calendar data is authored on the in-game clock, and that clock runs five
+ * hours behind GMT (`UTC-5`). A stored value therefore describes server
+ * wall-clock time, not an absolute UTC instant: `2026-10-19T00:00:00Z` in the
+ * JSON means midnight on the server, which is 05:00 UTC.
+ *
+ * `SERVER_OFFSET` is the server offset in minutes east of UTC. Rendering in
+ * server time shows a stored value unchanged; rendering in any other zone
+ * shifts it by `zoneOffset - SERVER_OFFSET` (see `displayOffset`).
  *
  * Everything here is pure and offset-based (never the host machine's zone), so
  * server-rendered markup and the first client render always agree.
  */
 
-export const SERVER_OFFSET = 0;
+export const SERVER_OFFSET = -300;
 
 export type ClockMode = "server" | "local";
 
@@ -31,14 +36,14 @@ const cityHints: Record<number, string> = {
   [-480]: "Los Angeles",
   [-420]: "Denver",
   [-360]: "Chicago",
-  [-300]: "New York",
+  [-300]: "Server time · New York",
   [-240]: "Halifax",
   [-210]: "St. John's",
   [-180]: "São Paulo",
   [-120]: "South Georgia",
   [-60]: "Azores",
   [-30]: "Mid-Atlantic",
-  0: "Server time",
+  0: "GMT / UTC",
   60: "Central Europe",
   120: "Eastern Europe",
   180: "Moscow",
@@ -80,6 +85,28 @@ export const zoneOptions: ZoneOption[] = Array.from(
 /** The browser's current offset in minutes east of UTC (UTC+2 → 120). */
 export function browserOffset() {
   return -new Date().getTimezoneOffset();
+}
+
+/**
+ * Shift to apply to a stored (server-clock) timestamp so it renders in
+ * `offset`. Server time is the identity; any other zone includes the five-hour
+ * hop between the in-game clock and UTC.
+ */
+export function displayOffset(offset: number) {
+  return offset - SERVER_OFFSET;
+}
+
+/**
+ * Current time expressed on the server clock — the same space as the stored
+ * calendar values, so comparisons and countdowns line up with them.
+ */
+export function nowOnServerClock(now = Date.now()) {
+  return now + SERVER_OFFSET * 60_000;
+}
+
+/** Today's date key (`YYYY-MM-DD`) on the server clock. */
+export function serverTodayKey(now = Date.now()) {
+  return new Date(nowOnServerClock(now)).toISOString().slice(0, 10);
 }
 
 /** Shift an instant so its UTC getters read as wall-clock time in the zone. */

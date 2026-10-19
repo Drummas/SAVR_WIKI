@@ -37,6 +37,7 @@ import {
   getStrategies,
 } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { serverTodayKey } from "@/lib/time";
 
 const pageTitle = "Savage Reign (SAVR) — Last Asylum: Plague Alliance Knowledge Base";
 
@@ -166,7 +167,7 @@ export default function HomePage() {
 
   const avaEvent = events.find((event) => event.slug === "alliance-vs-alliance");
   const survivalGuide = strategies.find((strategy) => strategy.slug === "survival-battle-overlap");
-  const initialDate = new Date().toISOString().slice(0, 10);
+  const initialDate = serverTodayKey();
 
   return (
     <>

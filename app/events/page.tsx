@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { ZonedTime } from "@/components/time/zoned-time";
 import { getCalendarEvents, getEvents } from "@/lib/content";
 import { breadcrumbSchema, buildMetadata } from "@/lib/seo";
+import { nowOnServerClock } from "@/lib/time";
 import { formatDateShort } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata({
@@ -24,7 +25,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function EventsPage() {
   const events = getEvents();
-  const now = Date.now();
+  // Calendar values are on the in-game clock, which runs five hours behind GMT.
+  const now = nowOnServerClock();
   const upcoming = getCalendarEvents()
     .filter((event) => new Date(event.end ?? event.start).getTime() >= now)
     .slice(0, 5);

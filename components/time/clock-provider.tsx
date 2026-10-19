@@ -14,11 +14,13 @@ import {
 import {
   SERVER_OFFSET,
   browserOffset,
+  displayOffset,
   formatZoneDate,
   formatZoneDateShort,
   formatZoneDayLong,
   formatZoneTime,
   formatZoneWeekday,
+  nowOnServerClock,
   zoneDateKey,
   zoneLabel,
   type ClockMode,
@@ -28,16 +30,26 @@ const MODE_KEY = "savr.clock.mode";
 const OFFSET_KEY = "savr.clock.offset";
 
 interface ClockContextValue {
-  /** `server` = in-game UTC clock, `local` = the player's chosen offset. */
+  /** `server` = in-game clock (UTC-5), `local` = the player's chosen offset. */
   mode: ClockMode;
   /** The player's saved offset (minutes east of UTC). */
   localOffset: number;
-  /** Offset currently used for rendering (server or local). */
+  /** Offset currently used for the clock (server or local). */
   offset: number;
-  /** Short label for the active clock, e.g. `UTC` or `UTC+2`. */
+  /**
+   * Shift to apply to stored calendar values so they render in `offset`.
+   * Zero in server mode, because the data is already on the server clock.
+   */
+  displayOffset: number;
+  /** Short label for the active clock, e.g. `UTC-5` or `UTC+2`. */
   zone: string;
-  /** Live timestamp, refreshed a few times a minute. Null until hydration. */
+  /**
+   * Live timestamp on the server clock, refreshed a few times a minute. Null
+   * until hydration. In the same space as the stored calendar values.
+   */
   nowMs: number | null;
+  /** Calendar day key for today in the active clock, e.g. `2026-10-19`. */
+  todayKey: string;
   /** True once saved preferences have been read from storage. */
   ready: boolean;
   setMode: (mode: ClockMode) => void;
@@ -75,10 +87,10 @@ export function ClockProvider({ children }: { children: ReactNode }) {
       // Storage can be unavailable (private mode, blocked cookies): defaults stand.
     }
     stored.current = true;
-    setNowMs(Date.now());
+    setNowMs(nowOnServerClock());
     setReady(true);
 
-    const timer = window.setInterval(() => setNowMs(Date.now()), 20_000);
+    const timer = window.setInterval(() => setNowMs(nowOnServerClock()), 20_000);
 
     function onStorage(event: StorageEvent) {
       if (event.key === MODE_KEY && (event.newValue === "server" || event.newValue === "local")) {
@@ -118,10 +130,10 @@ export function ClockProvider({ children }: { children: ReactNode }) {
     (next: number) => {
       setLocalOffsetState(next);
       persist(OFFSET_KEY, String(next));
-      if (next !== SERVER_OFFSET) {
-        setModeState("local");
-        persist(MODE_KEY, "local");
-      }
+      // Picking an offset by hand means "show me that clock", even when the
+      // offset happens to match the server's UTC-5.
+      setModeState("local");
+      persist(MODE_KEY, "local");
     },
     [persist],
   );
@@ -131,26 +143,31 @@ export function ClockProvider({ children }: { children: ReactNode }) {
   }, [setLocalOffset]);
 
   const offset = mode === "server" ? SERVER_OFFSET : localOffset;
+  // Stored values are on the server clock, so every label needs the extra hop
+  // out of that clock before the chosen zone is applied.
+  const shift = displayOffset(offset);
 
   const value = useMemo<ClockContextValue>(
     () => ({
       mode,
       localOffset,
       offset,
+      displayOffset: shift,
       zone: zoneLabel(offset),
       nowMs,
+      todayKey: zoneDateKey(nowMs ?? nowOnServerClock(), shift),
       ready,
       setMode,
       setLocalOffset,
       useBrowserOffset,
-      formatTime: (input) => formatZoneTime(input, offset),
-      formatDate: (input) => formatZoneDate(input, offset),
-      formatDateShort: (input) => formatZoneDateShort(input, offset),
-      formatDayLong: (input) => formatZoneDayLong(input, offset),
-      formatWeekday: (input) => formatZoneWeekday(input, offset),
-      dateKey: (input) => zoneDateKey(input, offset),
+      formatTime: (input) => formatZoneTime(input, shift),
+      formatDate: (input) => formatZoneDate(input, shift),
+      formatDateShort: (input) => formatZoneDateShort(input, shift),
+      formatDayLong: (input) => formatZoneDayLong(input, shift),
+      formatWeekday: (input) => formatZoneWeekday(input, shift),
+      dateKey: (input) => zoneDateKey(input, shift),
     }),
-    [mode, localOffset, offset, nowMs, ready, setMode, setLocalOffset, useBrowserOffset],
+    [mode, localOffset, offset, shift, nowMs, ready, setMode, setLocalOffset, useBrowserOffset],
   );
 
   return <ClockContext.Provider value={value}>{children}</ClockContext.Provider>;

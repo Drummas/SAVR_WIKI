@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 import { useClock } from "./clock-provider";
 
 /**
- * Renders an ISO timestamp in the clock the visitor picked. Server-rendered
- * markup is always UTC, so it is safe for static export; the saved preference
- * is applied after hydration.
+ * Renders a stored timestamp in the clock the visitor picked. Server-rendered
+ * markup is always server time, so it is safe for static export; the saved
+ * preference is applied after hydration.
  */
 export function ZonedTime({
   value,

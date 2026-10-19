@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { formatZoneTimeWithSeconds } from "@/lib/time";
+import { formatZoneDate, formatZoneTimeWithSeconds } from "@/lib/time";
 import { cn } from "@/lib/utils";
 
 import { useClock } from "./clock-provider";
@@ -25,7 +25,7 @@ export function LiveClock({
   seconds?: boolean;
   size?: "sm" | "md" | "lg";
 }) {
-  const { offset, zone, formatDate } = useClock();
+  const { offset, zone } = useClock();
   const [nowMs, setNowMs] = useState<number | null>(null);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export function LiveClock({
       )}
       {showDate && nowMs !== null && (
         <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground/60">
-          {formatDate(nowMs)}
+          {formatZoneDate(nowMs, offset)}
         </span>
       )}
     </span>

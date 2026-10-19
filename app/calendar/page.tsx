@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getCalendarEvents } from "@/lib/content";
 import { breadcrumbSchema, buildMetadata } from "@/lib/seo";
+import { nowOnServerClock, serverTodayKey } from "@/lib/time";
 
 export const metadata: Metadata = buildMetadata({
   title: "Event Calendar",
@@ -22,7 +23,7 @@ export const metadata: Metadata = buildMetadata({
 export default function CalendarPage() {
   const events = getCalendarEvents();
   const upcoming = events
-    .filter((event) => new Date(event.end ?? event.start).getTime() >= Date.now())
+    .filter((event) => new Date(event.end ?? event.start).getTime() >= nowOnServerClock())
     .slice(0, 10);
 
   return (
@@ -84,7 +85,7 @@ export default function CalendarPage() {
             </Link>
           </Button>
         </div>
-        <CalendarExplorer events={events} initialDate={new Date().toISOString().slice(0, 10)} />
+        <CalendarExplorer events={events} initialDate={serverTodayKey()} />
       </section>
     </>
   );

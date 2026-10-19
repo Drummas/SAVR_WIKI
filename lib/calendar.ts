@@ -1,4 +1,4 @@
-import { zoneDateKey } from "@/lib/time";
+import { nowOnServerClock, zoneDateKey } from "@/lib/time";
 import type { CalendarCategory, CalendarEvent } from "@/lib/types";
 
 /**
@@ -168,6 +168,6 @@ export function isSameMonth(date: Date, cursor: Date) {
   );
 }
 
-export function isPastEvent(event: CalendarEvent, now = Date.now()) {
+export function isPastEvent(event: CalendarEvent, now = nowOnServerClock()) {
   return new Date(event.end ?? event.start).getTime() < now;
 }

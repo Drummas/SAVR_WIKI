@@ -34,7 +34,9 @@ export function NextOps({
   variant?: "panel" | "section";
 }) {
   const clock = useClock();
-  const offset = clock.offset;
+  // Stored values sit on the server clock, so the strip shifts by the display
+  // offset rather than the plain zone offset.
+  const shift = clock.displayOffset;
   const now = clock.nowMs ?? new Date(`${initialDate}T12:00:00Z`).getTime();
 
   const upcoming = useMemo(
@@ -45,8 +47,8 @@ export function NextOps({
     [events, now],
   );
 
-  const days = nextSevenDays(now, offset);
-  const today = new Date(now + offset * 60_000);
+  const days = nextSevenDays(now, shift);
+  const today = new Date(now + shift * 60_000);
   const todayKey = clock.dateKey(now);
 
   if (variant === "section") {
@@ -67,7 +69,7 @@ export function NextOps({
           <div className="grid grid-cols-7 gap-1">
             {days.map((date) => {
               const key = dateKey(date);
-              const dayEvents = events.filter((event) => eventOccursOn(event, key, offset));
+              const dayEvents = events.filter((event) => eventOccursOn(event, key, shift));
               const isToday = key === todayKey;
               return (
                 <Link

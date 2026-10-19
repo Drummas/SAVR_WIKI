@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Radio } from "lucide-react";
 
+import { nowOnServerClock } from "@/lib/time";
 import { cn } from "@/lib/utils";
 
 function diffParts(target: Date, now: Date) {
@@ -43,8 +44,11 @@ export function Countdown({
   const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
-    setNow(new Date());
-    const timer = window.setInterval(() => setNow(new Date()), 1000);
+    // Stored timestamps are on the in-game clock (UTC-5); reading the device
+    // clock into that same space keeps the countdown honest.
+    const tick = () => setNow(new Date(nowOnServerClock()));
+    tick();
+    const timer = window.setInterval(tick, 1000);
     return () => window.clearInterval(timer);
   }, []);
 
