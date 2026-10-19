@@ -220,6 +220,7 @@ export function GalleryExplorer({ images }: { images: GalleryImage[] }) {
         </div>
         <Link
           href="/admin/cms/"
+          prefetch={false}
           className="inline-flex shrink-0 items-center gap-2 rounded-sm border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-emerald-300 transition-colors hover:bg-primary hover:text-primary-foreground"
         >
           Upload images <ArrowRight className="size-3.5" />

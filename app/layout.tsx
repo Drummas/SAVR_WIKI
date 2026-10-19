@@ -6,6 +6,7 @@ import { MobileBottomNav } from "@/components/mobile-bottom-nav";
 import { SearchProvider } from "@/components/search/search-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ClockProvider } from "@/components/time/clock-provider";
 import { getSiteConfig } from "@/lib/content";
 import { siteUrl, websiteSchema } from "@/lib/seo";
 import "@/styles/globals.css";
@@ -102,17 +103,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en-GB" className={`dark ${inter.variable} ${barlow.variable}`}>
       <body className="min-h-screen font-sans pb-16 lg:pb-0">
-        <SearchProvider>
-          <a href="#main" className="skip-link">
-            Skip to content
-          </a>
-          <SiteHeader server={site.server} />
-          <main id="main" className="min-h-[60vh]">
-            {children}
-          </main>
-          <SiteFooter />
-          <MobileBottomNav />
-        </SearchProvider>
+        <ClockProvider>
+          <SearchProvider>
+            <a href="#main" className="skip-link">
+              Skip to content
+            </a>
+            <SiteHeader server={site.server} />
+            <main id="main" className="min-h-[60vh]">
+              {children}
+            </main>
+            <SiteFooter />
+            <MobileBottomNav />
+          </SearchProvider>
+        </ClockProvider>
         <JsonLd data={websiteSchema()} />
       </body>
     </html>

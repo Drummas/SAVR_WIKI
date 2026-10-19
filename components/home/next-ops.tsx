@@ -1,28 +1,27 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Clock, Radio, Zap } from "lucide-react";
 
 import { Countdown } from "@/components/countdown";
-import { categoryStyles, dateKey, isSameMonth } from "@/lib/calendar";
-import { cn, formatDateShort, formatTime } from "@/lib/utils";
+import { useClock } from "@/components/time/clock-provider";
+import { categoryStyles, dateKey, eventOccursOn, isSameMonth } from "@/lib/calendar";
+import { cn } from "@/lib/utils";
 import type { CalendarEvent } from "@/lib/types";
 
-function nextSevenDays(now: number) {
-  const start = new Date(now);
+/**
+ * Seven days starting today, expressed as wall-clock dates in the active zone
+ * so the strip always opens on the current day and rolls over at midnight.
+ */
+function nextSevenDays(now: number, offset: number) {
+  const start = new Date(now + offset * 60_000);
   start.setUTCHours(12, 0, 0, 0);
   return Array.from({ length: 7 }, (_, index) => {
     const date = new Date(start);
     date.setUTCDate(start.getUTCDate() + index);
     return date;
   });
-}
-
-function occurs(event: CalendarEvent, key: string) {
-  const start = event.start.slice(0, 10);
-  const end = (event.end ?? event.start).slice(0, 10);
-  return key >= start && key <= end;
 }
 
 export function NextOps({
@@ -34,13 +33,9 @@ export function NextOps({
   initialDate: string;
   variant?: "panel" | "section";
 }) {
-  const [now, setNow] = useState(new Date(`${initialDate}T12:00:00Z`).getTime());
-
-  useEffect(() => {
-    setNow(Date.now());
-    const timer = window.setInterval(() => setNow(Date.now()), 60_000);
-    return () => window.clearInterval(timer);
-  }, []);
+  const clock = useClock();
+  const offset = clock.offset;
+  const now = clock.nowMs ?? new Date(`${initialDate}T12:00:00Z`).getTime();
 
   const upcoming = useMemo(
     () =>
@@ -50,8 +45,9 @@ export function NextOps({
     [events, now],
   );
 
-  const days = nextSevenDays(now);
-  const today = new Date(now);
+  const days = nextSevenDays(now, offset);
+  const today = new Date(now + offset * 60_000);
+  const todayKey = clock.dateKey(now);
 
   if (variant === "section") {
     return (
@@ -71,8 +67,8 @@ export function NextOps({
           <div className="grid grid-cols-7 gap-1">
             {days.map((date) => {
               const key = dateKey(date);
-              const dayEvents = events.filter((event) => occurs(event, key));
-              const isToday = dateKey(today) === key;
+              const dayEvents = events.filter((event) => eventOccursOn(event, key, offset));
+              const isToday = key === todayKey;
               return (
                 <Link
                   href="/calendar/"
@@ -143,7 +139,7 @@ export function NextOps({
               <Radio className="size-3.5" /> Upcoming windows
             </p>
             <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground/40">
-              UTC
+              {clock.zone}
             </span>
           </div>
           <div className="divide-y divide-border/40">
@@ -159,14 +155,16 @@ export function NextOps({
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-xs font-medium text-foreground">{event.title}</p>
                     <p className="mt-0.5 flex flex-wrap items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.06em] text-muted-foreground/50">
-                      <span>{formatDateShort(event.start)}</span>
+                      <span>{clock.formatDateShort(event.start)}</span>
                       <span>·</span>
-                      <span>{formatTime(event.start)} UTC</span>
+                      <span>
+                        {clock.formatTime(event.start)} {clock.zone}
+                      </span>
                       <span>·</span>
                       <span>{event.source}</span>
                     </p>
                   </div>
-                  <Countdown target={event.start} compact className="shrink-0 text-[9px]" />
+                  <Countdown target={event.start} end={event.end} compact className="shrink-0 text-[9px]" />
                 </div>
               </div>
             ))}
@@ -210,7 +208,7 @@ export function NextOps({
               {next.category}
             </span>
             <span className="font-mono text-[8px] uppercase tracking-[0.08em] text-muted-foreground/50">
-              {formatDateShort(next.start)} · {formatTime(next.start)} UTC
+              {clock.formatDateShort(next.start)} · {clock.formatTime(next.start)} {clock.zone}
             </span>
           </div>
           <Link href={next.href ?? "/calendar/"} className="mt-2 block">
@@ -222,10 +220,7 @@ export function NextOps({
             {next.description}
           </p>
           <div className="mt-4 rounded-sm border border-border/60 bg-background/50 p-2.5">
-            <p className="mb-2 font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground/50">
-              Window opens in
-            </p>
-            <Countdown target={next.start} />
+            <Countdown target={next.start} end={next.end} />
           </div>
 
           <div className="mt-3 space-y-2 border-t border-border/50 pt-3">
@@ -242,7 +237,7 @@ export function NextOps({
                   {event.title}
                 </span>
                 <span className="shrink-0 font-mono text-[8px] uppercase tracking-wide text-muted-foreground/40">
-                  {formatDateShort(event.start)}
+                  {clock.formatDateShort(event.start)}
                 </span>
               </Link>
             ))}

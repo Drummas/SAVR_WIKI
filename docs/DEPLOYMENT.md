@@ -157,7 +157,7 @@ Calendar updates require a rebuild because the site is static. The calendar JSON
 | CMS cannot log in | OAuth proxy URL, callback URL, repository name and collaborator access |
 | Images missing | Path is case-sensitive on Linux hosts; confirm `/images/...` paths and file extensions |
 | Fonts fail at build | `next/font/google` requires network access during build; retry or swap to local fonts |
-| Calendar dates shift | All display logic is UTC; check the ISO string in the JSON and the `source` label |
+| Calendar times look shifted | Data is stored on the in-game clock (UTC) and re-labelled live. Check the visitor's clock setting (server vs local offset) and the ISO string in the JSON |
 | Stale page after publishing | Wait for the static build; check the host's deployment log |
 
 ## 10. Taking the site offline

@@ -1,3 +1,4 @@
+import { zoneDateKey } from "@/lib/time";
 import type { CalendarCategory, CalendarEvent } from "@/lib/types";
 
 /**
@@ -70,16 +71,22 @@ export function isoDateKey(value: string) {
   return value.slice(0, 10);
 }
 
-export function eventStartKey(event: CalendarEvent) {
-  return isoDateKey(event.start);
+/**
+ * Calendar day keys honour the clock the visitor is reading. A window that
+ * opens at 23:30 UTC belongs to the next day for a player on UTC+2, and the
+ * grid should agree with the time printed inside the cell.
+ */
+export function eventStartKey(event: CalendarEvent, offset = 0) {
+  return offset === 0 ? isoDateKey(event.start) : zoneDateKey(event.start, offset);
 }
 
-export function eventEndKey(event: CalendarEvent) {
-  return isoDateKey(event.end ?? event.start);
+export function eventEndKey(event: CalendarEvent, offset = 0) {
+  const end = event.end ?? event.start;
+  return offset === 0 ? isoDateKey(end) : zoneDateKey(end, offset);
 }
 
-export function eventOccursOn(event: CalendarEvent, key: string) {
-  return key >= eventStartKey(event) && key <= eventEndKey(event);
+export function eventOccursOn(event: CalendarEvent, key: string, offset = 0) {
+  return key >= eventStartKey(event, offset) && key <= eventEndKey(event, offset);
 }
 
 export function utcDate(year: number, month: number, day: number) {

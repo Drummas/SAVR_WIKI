@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import { Countdown } from "@/components/countdown";
+import { useClock } from "@/components/time/clock-provider";
 import { Badge } from "@/components/ui/badge";
 import {
   addDaysUtc,
@@ -27,16 +28,17 @@ import {
   eventOccursOn,
   eventStartKey,
   isSameMonth,
-  longDayLabel,
   monthGrid,
   monthLabel,
   weekDays,
 } from "@/lib/calendar";
 import { calendarCategories } from "@/lib/navigation";
-import { cn, formatDateShort, formatTime } from "@/lib/utils";
+import { formatZoneMonthShort, zoneDateKey } from "@/lib/time";
+import { cn } from "@/lib/utils";
 import type { CalendarCategory, CalendarEvent } from "@/lib/types";
 
 type View = "month" | "week" | "agenda";
+type ClockFormats = ReturnType<typeof useClock>;
 
 function shortEventLabel(event: CalendarEvent) {
   const week = event.title.match(/Week (\d+)/)?.[1];
@@ -47,12 +49,12 @@ function shortEventLabel(event: CalendarEvent) {
   return base.length > 20 ? `${base.slice(0, 18)}…` : base;
 }
 
-function timeRange(event: CalendarEvent) {
-  if (!event.end) return `${formatTime(event.start)} UTC`;
-  if (eventStartKey(event) !== (event.end ?? event.start).slice(0, 10)) {
-    return `${formatDateShort(event.start)} – ${formatDateShort(event.end)}`;
+function timeRange(event: CalendarEvent, clock: ClockFormats) {
+  if (!event.end) return `${clock.formatTime(event.start)} ${clock.zone}`;
+  if (clock.dateKey(event.start) !== clock.dateKey(event.end)) {
+    return `${clock.formatDateShort(event.start)} – ${clock.formatDateShort(event.end)}`;
   }
-  return `${formatTime(event.start)} – ${formatTime(event.end)} UTC`;
+  return `${clock.formatTime(event.start)} – ${clock.formatTime(event.end)} ${clock.zone}`;
 }
 
 export function CalendarExplorer({
@@ -62,34 +64,28 @@ export function CalendarExplorer({
   events: CalendarEvent[];
   initialDate: string;
 }) {
-  const initial = new Date(`${initialDate}T12:00:00Z`);
-  const [cursor, setCursor] = useState(
-    new Date(Date.UTC(initial.getUTCFullYear(), initial.getUTCMonth(), 1, 12)),
-  );
+  const clock = useClock();
+  const offset = clock.offset;
+  const [cursor, setCursor] = useState(() => new Date(`${initialDate}T12:00:00Z`));
   const [selectedKey, setSelectedKey] = useState(initialDate);
   const [view, setView] = useState<View>("month");
   const [activeCategories, setActiveCategories] = useState<CalendarCategory[]>([
     ...calendarCategories,
   ]);
   const [query, setQuery] = useState("");
-  const [now, setNow] = useState<number | null>(null);
   const [highlightedEvent, setHighlightedEvent] = useState<string | null>(null);
 
-  useEffect(() => {
-    setNow(Date.now());
-    const timer = window.setInterval(() => setNow(Date.now()), 60_000);
-    return () => window.clearInterval(timer);
-  }, []);
-
+  // Anchor the grid on the live current day, not on the build date. The clock
+  // provider refreshes, so the "today" marker and the week view roll over at
+  // midnight without a rebuild.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const target = params.get("event");
     if (target) {
       const match = events.find((event) => event.id === target);
       if (match) {
-        const start = new Date(match.start);
-        setCursor(new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), 1, 12)));
-        setSelectedKey(eventStartKey(match));
+        setCursor(new Date(`${eventStartKey(match, offset)}T12:00:00Z`));
+        setSelectedKey(eventStartKey(match, offset));
         setHighlightedEvent(match.id);
         window.setTimeout(() => {
           document
@@ -99,10 +95,10 @@ export function CalendarExplorer({
         return;
       }
     }
-    const today = new Date();
-    setCursor(new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), 1, 12)));
-    setSelectedKey(dateKey(today));
-  }, [events]);
+    const today = zoneDateKey(Date.now(), offset);
+    setCursor(new Date(`${today}T12:00:00Z`));
+    setSelectedKey(today);
+  }, [events, offset]);
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase();
@@ -116,8 +112,8 @@ export function CalendarExplorer({
   }, [activeCategories, events, query]);
 
   const selectedDate = new Date(`${selectedKey}T12:00:00Z`);
-  const selectedEvents = filtered.filter((event) => eventOccursOn(event, selectedKey));
-  const nowMs = now ?? new Date(`${initialDate}T12:00:00Z`).getTime();
+  const selectedEvents = filtered.filter((event) => eventOccursOn(event, selectedKey, offset));
+  const nowMs = clock.nowMs ?? new Date(`${initialDate}T12:00:00Z`).getTime();
   const upcoming = filtered
     .filter((event) => new Date(event.end ?? event.start).getTime() >= nowMs)
     .slice(0, 4);
@@ -136,14 +132,14 @@ export function CalendarExplorer({
   }
 
   function goToday() {
-    const today = new Date();
-    setCursor(new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), 1, 12)));
-    setSelectedKey(dateKey(today));
+    const today = zoneDateKey(Date.now(), offset);
+    setCursor(new Date(`${today}T12:00:00Z`));
+    setSelectedKey(today);
   }
 
   const days = monthGrid(cursor);
   const week = weekDays(cursor);
-  const todayKey = now ? dateKey(new Date(now)) : initialDate;
+  const todayKey = clock.nowMs ? clock.dateKey(clock.nowMs) : initialDate;
   const windowLabel =
     view === "week"
       ? `${dayLabel(week[0])} – ${dayLabel(week[6])}`
@@ -287,7 +283,9 @@ export function CalendarExplorer({
               <div className="grid grid-cols-7">
                 {days.map((date) => {
                   const key = dateKey(date);
-                  const dayEvents = filtered.filter((event) => eventOccursOn(event, key));
+                  const dayEvents = filtered.filter((event) =>
+                    eventOccursOn(event, key, offset),
+                  );
                   const hasOverlap = dayEvents.some((event) => (event.overlapWith?.length ?? 0) > 0);
                   const isSelected = key === selectedKey;
                   const isToday = key === todayKey;
@@ -301,7 +299,7 @@ export function CalendarExplorer({
                         !isSameMonth(date, cursor) && "bg-background/40 text-muted-foreground/40",
                         isSelected ? "bg-primary/[0.06]" : "hover:bg-secondary/30",
                       )}
-                      aria-label={`${longDayLabel(date)}, ${dayEvents.length} events`}
+                      aria-label={`${clock.formatDayLong(date)}, ${dayEvents.length} events`}
                       aria-pressed={isSelected}
                     >
                       <div className="flex items-center justify-between">
@@ -358,7 +356,7 @@ export function CalendarExplorer({
                   <Zap className="size-2.5 text-primary/60" /> Overlap indicator · tap a day for detail
                 </p>
                 <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground/40">
-                  All times UTC
+                  All times {clock.zone}
                 </p>
               </div>
             </div>
@@ -369,7 +367,9 @@ export function CalendarExplorer({
               <div className="grid min-w-[760px] grid-cols-7">
                 {week.map((date) => {
                   const key = dateKey(date);
-                  const dayEvents = filtered.filter((event) => eventOccursOn(event, key));
+                  const dayEvents = filtered.filter((event) =>
+                    eventOccursOn(event, key, offset),
+                  );
                   return (
                     <div key={key} className="min-h-[420px] border-r border-border/40 last:border-r-0">
                       <button
@@ -401,7 +401,7 @@ export function CalendarExplorer({
                             )}
                           >
                             <p className="font-mono text-[8px] uppercase tracking-[0.08em] text-muted-foreground/60">
-                              {formatTime(event.start)} UTC
+                              {clock.formatTime(event.start)} {clock.zone}
                             </p>
                             <p className="mt-0.5 text-[9px] font-medium leading-tight text-foreground">
                               {event.title}
@@ -443,17 +443,14 @@ export function CalendarExplorer({
                           {start.getUTCDate().toString().padStart(2, "0")}
                         </span>
                         <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                          {new Intl.DateTimeFormat("en-GB", {
-                            month: "short",
-                            timeZone: "UTC",
-                          }).format(start)}
+                          {formatZoneMonthShort(start, offset)}
                         </span>
                       </div>
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
                           <Badge className={style.chip}>{event.category}</Badge>
                           <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground/50">
-                            {timeRange(event)}
+                            {timeRange(event, clock)}
                           </span>
                         </div>
                         <p className="mt-1 text-xs font-medium text-foreground">{event.title}</p>
@@ -463,7 +460,7 @@ export function CalendarExplorer({
                       </div>
                       <div className="flex items-center justify-between gap-3 sm:flex-col sm:items-end">
                         {new Date(event.end ?? event.start).getTime() >= nowMs ? (
-                          <Countdown target={event.start} compact />
+                          <Countdown target={event.start} end={event.end} compact />
                         ) : null}
                         {event.href && (
                           <Link
@@ -493,7 +490,7 @@ export function CalendarExplorer({
                     Selected day
                   </p>
                   <p className="mt-0.5 font-display text-xl uppercase tracking-wide text-foreground">
-                    {longDayLabel(selectedDate)}
+                    {clock.formatDayLong(selectedDate)}
                   </p>
                 </div>
                 <Badge variant="secondary">
@@ -516,7 +513,7 @@ export function CalendarExplorer({
                         <div className="flex flex-wrap items-center gap-2">
                           <Badge className={style.chip}>{event.category}</Badge>
                           <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground/60">
-                            {timeRange(event)}
+                            {timeRange(event, clock)}
                           </span>
                           {(event.overlapWith?.length ?? 0) > 0 && (
                             <Badge variant="outline">
@@ -527,7 +524,7 @@ export function CalendarExplorer({
                         <div className="mt-1.5 flex flex-wrap items-center justify-between gap-2">
                           <p className="text-sm font-medium text-foreground">{event.title}</p>
                           {new Date(event.end ?? event.start).getTime() >= nowMs && (
-                            <Countdown target={event.start} compact />
+                            <Countdown target={event.start} end={event.end} compact />
                           )}
                         </div>
                         <p className="mt-1 max-w-2xl text-xs leading-relaxed text-muted-foreground">
@@ -586,9 +583,10 @@ export function CalendarExplorer({
                   </div>
                   <div className="mt-1 flex items-center justify-between gap-2 pl-3">
                     <span className="font-mono text-[8px] uppercase tracking-[0.08em] text-muted-foreground/50">
-                      {formatDateShort(event.start)} · {formatTime(event.start)} UTC
+                      {clock.formatDateShort(event.start)} · {clock.formatTime(event.start)}{" "}
+                      {clock.zone}
                     </span>
-                    <Countdown target={event.start} compact />
+                    <Countdown target={event.start} end={event.end} compact />
                   </div>
                 </div>
               ))}
@@ -620,6 +618,7 @@ export function CalendarExplorer({
             </p>
             <Link
               href="/admin/cms/"
+              prefetch={false}
               className="mt-3 inline-flex items-center gap-1 text-[10px] font-medium text-primary hover:text-emerald-300"
             >
               Open studio <ArrowRight className="size-3" />

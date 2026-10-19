@@ -4,6 +4,7 @@ import { ArrowRight, CalendarDays, Clock, Info, Zap } from "lucide-react";
 
 import { PageHeader } from "@/components/page-header";
 import { CalendarExplorer } from "@/components/calendar/calendar-explorer";
+import { EventClockPanel } from "@/components/time/event-clock-panel";
 import { JsonLd } from "@/components/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -59,18 +60,20 @@ export default function CalendarPage() {
             <Zap className="size-3" /> Overlap indicators
           </Badge>
           <Badge variant="outline">
-            <Clock className="size-3" /> All times UTC
+            <Clock className="size-3" /> Server time or your own offset
           </Badge>
         </div>
       </PageHeader>
 
       <section className="container-page py-6">
+        <EventClockPanel className="mb-5" />
+
         <div className="mb-5 flex flex-col gap-3 rounded-md border border-border/70 bg-card/40 p-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex gap-2.5">
             <Info className="mt-0.5 size-4 shrink-0 text-teal-400" />
             <p className="text-xs leading-relaxed text-muted-foreground">
-              Calendar entries are planning aids, not official schedules. Community-reported phases,
-              limited-time windows and template slots are labelled by source. Confirm the live event tab
+              Calendar entries are stored on the in-game clock and re-labelled live in the timezone you
+              choose above. They are planning aids, not official schedules — confirm the live event tab
               before committing resources.
             </p>
           </div>

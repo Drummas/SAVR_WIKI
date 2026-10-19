@@ -50,7 +50,7 @@ Node 20+ is required. The site uses `output: "export"`, so `npm run build` produ
 | `/strategies/` | Strategy hub |
 | `/strategies/[slug]/` | Strategy brief with objective, actions, requirements, optimisation, metrics, failure modes |
 | `/alliance-vs-alliance/` | Advanced AvA command centre: scoring, five-phase plan, overlap diagram, planning, coordination, daily plan |
-| `/calendar/` | Monthly, weekly and agenda views, filters, countdowns, overlap indicators |
+| `/calendar/` | Monthly, weekly and agenda views, live server/local clock, filters, countdowns, overlap indicators |
 | `/gallery/` | Searchable image library with category/tag filters and zoomable lightbox |
 | `/faq/` | Searchable, category-filtered FAQ accordion with deep links |
 | `/search/` | Full local search archive with type/category filters |
@@ -106,6 +106,15 @@ Collections:
 - **Event calendar** — dates, category, description, source, overlap IDs, detail link
 - **Image library** — upload, caption, category, tags, credit
 - **Alliance identity** — alliance name, callsign, server, Discord, contact, stats, disclaimer
+
+### Event clock and timezones
+
+Every window in `data/calendar-events.json` is stored on the **in-game clock (UTC)**. The site renders those instants in whichever clock the visitor picked:
+
+- **Server** — the in-game clock, used by default.
+- **My local** — a fixed offset the player sets with the header clock chip (or the calendar panel), the way the game asks for a timezone. The choice is stored in `localStorage` and every calendar label, countdown, event list and day grid follows it.
+
+Nothing is stored in the visitor's timezone, so editors always enter UTC in the CMS. Countdowns read the device clock every second, so the current day rolls over at midnight without a rebuild. `lib/time.ts` holds the offset maths and `components/time/` the provider, clock chip, panel and time labels.
 
 ### Name, wordmark and crest
 

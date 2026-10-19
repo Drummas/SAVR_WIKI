@@ -53,6 +53,7 @@ export function Screenshot({
           </div>
           <Link
             href="/admin/cms/"
+            prefetch={false}
             className="inline-flex items-center gap-2 rounded-sm border border-primary/40 bg-primary/10 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-emerald-300 transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             <Upload className="size-3" /> Upload via studio

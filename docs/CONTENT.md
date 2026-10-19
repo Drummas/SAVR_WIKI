@@ -171,7 +171,9 @@ Category options are defined in the Decap config and rendered from the data. IDs
 
 Sources: `Alliance leadership`, `In-game screen`, `Community guide`, `Planning template`. The source appears in the calendar and search results. Use `Planning template` for anything you have not verified in-game.
 
-All times are interpreted and displayed in **UTC**. Do not use server-local dates.
+`start` and `end` are stored on the **in-game clock (UTC)** — always write them as `YYYY-MM-DDTHH:mm:ssZ`. The site re-labels them live for each visitor: the header clock chip switches between server time and the player's own offset, and the calendar, event lists and countdowns all follow that choice. Never store a player's local time in the JSON.
+
+The CMS datetime fields are set to UTC pickers (`picker_utc: true`), so what leadership picks is what gets saved on the server clock. Dates can be edited for any day, including today, and a window that has already opened stays listed as live until its `end` passes.
 
 ## Gallery JSON
 

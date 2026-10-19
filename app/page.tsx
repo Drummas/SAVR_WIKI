@@ -246,7 +246,7 @@ export default function HomePage() {
                 <span className="inline-flex items-center gap-1">
                   <span className="size-1 rounded-full bg-emerald-400" /> Calendar synced
                 </span>
-                <span>Times UTC · verify live</span>
+                <span>Server or local clock</span>
               </div>
             </div>
           </div>

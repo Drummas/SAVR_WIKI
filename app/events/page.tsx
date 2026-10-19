@@ -9,9 +9,10 @@ import { CategoryIcon } from "@/components/category-icon";
 import { JsonLd } from "@/components/json-ld";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ZonedTime } from "@/components/time/zoned-time";
 import { getCalendarEvents, getEvents } from "@/lib/content";
 import { breadcrumbSchema, buildMetadata } from "@/lib/seo";
-import { formatDateShort, formatTime } from "@/lib/utils";
+import { formatDateShort } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata({
   title: "Event Guides",
@@ -99,7 +100,7 @@ export default function EventsPage() {
           <SectionHeading
             eyebrow="Next windows"
             title="Upcoming operations"
-            description="Planning snapshot from the alliance calendar. Times are UTC; confirm the live event screen before acting."
+            description="Planning snapshot from the alliance calendar, shown on the server clock or your own offset. Confirm the live event screen before acting."
             href="/calendar/"
             linkLabel="Full calendar"
           />
@@ -126,7 +127,7 @@ export default function EventsPage() {
                   </p>
                   <p className="mt-1 flex flex-wrap items-center gap-2 font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground/60">
                     <span className="inline-flex items-center gap-1">
-                      <Clock className="size-2.5" /> {formatTime(event.start)} UTC
+                      <Clock className="size-2.5" /> <ZonedTime value={event.start} />
                     </span>
                     <span className="text-primary/50">·</span>
                     <span>{event.category}</span>

@@ -10,6 +10,10 @@ import siteConfig from "@/data/site.json";
 import { BrandMark } from "@/components/brand-mark";
 import { CategoryIcon } from "@/components/category-icon";
 import { SearchTrigger } from "@/components/search/search-trigger";
+import { ClockControls } from "@/components/time/clock-controls";
+import { ClockMenu } from "@/components/time/clock-menu";
+import { useClock } from "@/components/time/clock-provider";
+import { LiveClock } from "@/components/time/live-clock";
 import { eventCategories, primaryNav } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +25,7 @@ function isActive(pathname: string, href: string) {
 
 export function SiteHeader({ server }: { server: string }) {
   const pathname = usePathname();
+  const clock = useClock();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -41,8 +46,10 @@ export function SiteHeader({ server }: { server: string }) {
             <span className="h-3 w-px bg-border" />
             <span>{server}</span>
           </div>
-          <div className="flex items-center gap-4">
-            <span>Fan-made · verify live event data</span>
+          <div className="flex items-center gap-3">
+            <span className="hidden xl:inline">Fan-made · verify live event data</span>
+            <span className="hidden h-3 w-px bg-border xl:block" />
+            <ClockMenu />
             <span className="h-3 w-px bg-border" />
             <Link href="/admin/" className="transition-colors hover:text-primary">
               Admin
@@ -74,7 +81,7 @@ export function SiteHeader({ server }: { server: string }) {
                     <ChevronDown className="size-3 transition-transform group-hover:rotate-180" />
                   </Link>
                   <div className="invisible absolute left-0 top-full z-50 w-[520px] translate-y-1 pt-3 opacity-0 transition-all duration-150 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                    <div className="hud-corners rounded-lg border border-border bg-card/98 p-2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+                    <div className="hud-corners rounded-lg border border-border bg-popover p-2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]">
                       <div className="grid grid-cols-2 gap-1">
                         {eventCategories.map((category) => {
                           const child = item.children?.find((entry) => entry.label === category);
@@ -170,6 +177,19 @@ export function SiteHeader({ server }: { server: string }) {
             </div>
 
             <div className="no-scrollbar flex-1 overflow-y-auto px-4 py-4">
+              <div className="mb-5 rounded-sm border border-border bg-background/60 p-3">
+                <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-primary">
+                  Event clock
+                </p>
+                <LiveClock size="md" className="mt-1.5" />
+                <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground/60">
+                  {clock.nowMs
+                    ? `${clock.formatWeekday(clock.nowMs)} · ${clock.formatDate(clock.nowMs)}`
+                    : "\u00a0"}
+                </p>
+                <ClockControls className="mt-3" compact />
+              </div>
+
               <Link
                 href="/search/"
                 onClick={() => setMobileOpen(false)}
