@@ -153,6 +153,7 @@
       "archetype": "Warlock",
       "role": "Support",
       "summary": "Server Day 99 Hero Pass support with healing, fire damage, and Warlock attack-speed value.",
+      "image": "/images/heroes/nicole.webp",
       "skills": [
         "Inferno Array",
         "Heartwarming Flame",

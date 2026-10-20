@@ -154,7 +154,7 @@ npm run heroes:import   # rewrites data/heroes.json from last-asylum.com/heroes.
 npm run build           # rebuilds the search index and every page
 ```
 
-Portraits live in `public/images/heroes/{slug}.webp`. Drop a file in with the hero's slug and rerun the importer to wire it up; heroes without a portrait render a themed placeholder card. Each hero is also indexed into search, linking straight to `/guides/know-your-heroes/#hero-{slug}`.
+Portraits live in `public/images/heroes/{slug}.webp`. Drop a file in with the hero's slug and rerun the importer to wire it up; heroes without a portrait render a themed placeholder card. Cut the artwork out on a transparent background and keep it around 500×600 — the card draws it with `object-contain` above a dark HUD panel, so any leftover backdrop shows as a bright slab. Each hero is also indexed into search, linking straight to `/guides/know-your-heroes/#hero-{slug}`.
 
 ## Search
 
