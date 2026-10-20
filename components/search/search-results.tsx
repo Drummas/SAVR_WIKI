@@ -8,6 +8,7 @@ import {
   HelpCircle,
   ImageIcon,
   Radar,
+  Swords,
   type LucideIcon,
 } from "lucide-react";
 
@@ -19,6 +20,7 @@ import type { ContentType, SearchDoc } from "@/lib/types";
 export const searchTypeIcons: Record<ContentType, LucideIcon> = {
   event: Radar,
   guide: BookOpen,
+  hero: Swords,
   strategy: Crosshair,
   faq: HelpCircle,
   calendar: CalendarDays,

@@ -10,6 +10,7 @@ All content is file-based and typed. Pages are generated from filenames and fron
 | `content/guides/*.mdx` | MDX + YAML frontmatter | `/guides/{filename}/` |
 | `content/strategies/*.mdx` | MDX + YAML frontmatter | `/strategies/{filename}/` |
 | `content/faq/faq.json` | JSON list | `/faq/` |
+| `data/heroes.json` | JSON list (generated) | `/guides/know-your-heroes/` |
 | `data/calendar-events.json` | JSON list | `/calendar/` |
 | `data/gallery.json` | JSON list | `/gallery/` |
 | `data/site.json` | JSON object | Header, footer and metadata identity |
@@ -107,6 +108,23 @@ related: ["hero-events", "event-optimisation"]
 ```
 
 `related` can reference a guide slug, event slug or strategy slug. Unknown slugs are ignored gracefully.
+
+### Roster layout
+
+Add `layout: "roster"` to a guide to swap the numbered guide template for the hero roster body. The page keeps the header, sidebar, tips/mistakes and related links, but drops the priorities, resource and walkthrough sections, so the MDX body leads with the roster.
+
+## Hero roster
+
+`data/heroes.json` powers the “Know Your Heroes” cheat sheets. It is generated, not hand-edited:
+
+```bash
+npm run heroes:import   # scrapes the published roster into data/heroes.json
+npm run build:search    # also refreshes the search index (heroes become search results)
+```
+
+The importer reads `https://www.last-asylum.com/heroes.html`, splits `Warrior / Tank` into `archetype` and `role`, lifts “Key skills” into their own array, and keeps every other bullet as a `{ label, value }` fact. Portraits are wired up automatically when `public/images/heroes/{slug}.webp` exists; without one the card renders a themed “portrait pending” state.
+
+Each hero also becomes its own search document pointing at `/guides/know-your-heroes/#hero-{slug}`, so a member can jump straight from search to a single cheat sheet.
 
 ## Strategy frontmatter
 
@@ -215,6 +233,8 @@ Your text here.
 </Steps>
 
 <StaticChecklist items={["Confirm reset", "Post the plan"]} title="Pre-phase" />
+
+<HeroRoster />
 ```
 
 Callout types: `info`, `warning`, `danger`, `success`, `strategy`.

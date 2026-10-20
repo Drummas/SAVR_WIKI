@@ -204,6 +204,7 @@ export function getGuides(): Guide[] {
       category: string(data.category, "Core Systems"),
       difficulty: difficulty(data.difficulty),
       readingTime: string(data.readingTime, "8 min"),
+      layout: data.layout === "roster" ? ("roster" as const) : ("standard" as const),
       overview: string(data.overview, "Content to be added by Alliance Leadership."),
       priorities: stringArray(data.priorities),
       actions: stringArray(data.actions),

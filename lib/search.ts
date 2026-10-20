@@ -9,6 +9,7 @@ export interface SearchIndex {
 export const typeLabels: Record<ContentType, string> = {
   event: "Event",
   guide: "Guide",
+  hero: "Hero",
   strategy: "Strategy",
   faq: "FAQ",
   calendar: "Calendar",
@@ -18,6 +19,7 @@ export const typeLabels: Record<ContentType, string> = {
 export const typeOrder: ContentType[] = [
   "event",
   "guide",
+  "hero",
   "strategy",
   "faq",
   "calendar",
@@ -50,10 +52,11 @@ export function searchDocs(
     const order: Record<ContentType, number> = {
       event: 0,
       guide: 1,
-      strategy: 2,
-      faq: 3,
-      calendar: 4,
-      image: 5,
+      hero: 2,
+      strategy: 3,
+      faq: 4,
+      calendar: 5,
+      image: 6,
     };
     return filtered
       .map((doc) => ({ doc, score: 0 }))
@@ -111,6 +114,7 @@ export function searchDocs(
       const typeWeight: Record<ContentType, number> = {
         event: 8,
         guide: 7,
+        hero: 6,
         strategy: 7,
         faq: 3,
         calendar: 1,

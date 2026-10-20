@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { JsonLd } from "@/components/json-ld";
 import { getGuides } from "@/lib/content";
+import { getHeroes } from "@/lib/heroes";
 import { breadcrumbSchema, buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -24,6 +25,8 @@ export default function GuidesPage() {
   const core = guides.filter((guide) =>
     ["hero-development", "troop-development", "resource-management"].includes(guide.slug),
   );
+  const heroGuide = guides.find((guide) => guide.slug === "know-your-heroes");
+  const heroes = getHeroes();
   const advanced = guides.filter((guide) =>
     ["construction-priorities", "research-priorities", "advanced-player-progression"].includes(
       guide.slug,
@@ -97,6 +100,47 @@ export default function GuidesPage() {
             <GuideCard key={guide.slug} guide={guide} />
           ))}
         </div>
+
+        {heroGuide && (
+          <div className="mt-10 overflow-hidden rounded-lg border border-border/70 bg-card/40">
+            <div className="grid gap-5 border-b border-border/50 p-5 sm:p-6 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div>
+                <p className="eyebrow mb-2">
+                  <span className="inline-block size-1.5 rounded-full bg-primary" />
+                  Hero intel
+                </p>
+                <h3 className="font-display text-3xl uppercase leading-none tracking-wide text-foreground">
+                  {heroGuide.title}
+                </h3>
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                  {heroGuide.summary}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Badge variant="secondary">{heroes.length} cheat sheets</Badge>
+                  <Badge variant="secondary">{heroGuide.difficulty}</Badge>
+                  <Badge variant="secondary">{heroGuide.readingTime}</Badge>
+                </div>
+              </div>
+              <Link
+                href={`/guides/${heroGuide.slug}/`}
+                className="inline-flex items-center gap-2 self-start rounded-sm border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-emerald-300 transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                Open the roster <ArrowRight className="size-3.5" />
+              </Link>
+            </div>
+            <div className="flex flex-wrap gap-1.5 p-4 sm:p-5">
+              {heroes.map((hero) => (
+                <Link
+                  key={hero.slug}
+                  href={`/guides/${heroGuide.slug}/#hero-${hero.slug}`}
+                  className="rounded-sm border border-border/60 bg-background/40 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                >
+                  {hero.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="border-y border-border/60 bg-[#09110c]">

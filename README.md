@@ -46,7 +46,7 @@ Node 20+ is required. The site uses `output: "export"`, so `npm run build` produ
 | `/events/` | Event index |
 | `/events/[slug]/` | Full event template: objective, requirements, schedule, rewards, prep, practices, mistakes, tips, walkthrough, checklist, screenshots, notes, strategy |
 | `/guides/` | Learning path and guide index |
-| `/guides/[slug]/` | Guide template: overview, priorities, actions, resources, visual steps, tips, mistakes |
+| `/guides/[slug]/` | Guide template: overview, priorities, actions, resources, visual steps, tips, mistakes. `layout: "roster"` swaps in the filterable hero roster |
 | `/strategies/` | Strategy hub |
 | `/strategies/[slug]/` | Strategy brief with objective, actions, requirements, optimisation, metrics, failure modes |
 | `/alliance-vs-alliance/` | Advanced AvA command centre: scoring, five-phase plan, overlap diagram, planning, coordination, daily plan |
@@ -65,14 +65,15 @@ Node 20+ is required. The site uses `output: "export"`, so `npm run build` produ
 /components           UI primitives, layout, search, calendar, gallery, MDX components
 /content
   /events             7 MDX event files
-  /guides             7 MDX guide files
+  /guides             8 MDX guide files (incl. Know Your Heroes)
   /strategies         6 MDX strategy files
   /faq                faq.json
-/data                 site.json, calendar-events.json, gallery.json
+/data                 site.json, calendar-events.json, gallery.json, heroes.json
 /lib                  content loader, types, SEO, navigation, search and calendar helpers
 /public
   /brand              Savage Reign wordmark artwork + crest
   /images/gallery     generated placeholder artwork
+  /images/heroes      hero portraits for the Know Your Heroes cheat sheets
   /images/uploads     Decap CMS upload destination
   /admin/cms          Decap CMS entry point + config
 /assets/brand         source artwork used to generate the brand assets
@@ -140,13 +141,24 @@ The MDX body of event/guide/strategy files remains editable in the CMS markdown 
 
 Content is plain MDX + JSON in Git. Replace the placeholder text and images, update `updated` dates, and rebuild. The dynamic routes are generated from filenames.
 
+### Hero roster
+
+`/guides/know-your-heroes/` renders one cheat sheet per hero: rank, class/role, summary, key skills and planning facts, filterable by class, role and free text. The data is generated from the published roster rather than hand-written:
+
+```bash
+npm run heroes:import   # rewrites data/heroes.json from last-asylum.com/heroes.html
+npm run build           # rebuilds the search index and every page
+```
+
+Portraits live in `public/images/heroes/{slug}.webp`. Drop a file in with the hero's slug and rerun the importer to wire it up; heroes without a portrait render a themed placeholder card. Each hero is also indexed into search, linking straight to `/guides/know-your-heroes/#hero-{slug}`.
+
 ## Search
 
 `npm run build:search` reads every content file and generates `public/search-index.json` (gitignored — it is rebuilt at the start of both `npm run dev` and `npm run build`). The client loads it lazily and performs weighted local matching on titles, tags, descriptions and full text. Search works without a server or a page reload, and supports:
 
 - Instant results in a command dialog (`Ctrl/⌘ + K` or `/`)
 - Full search page with type and category filters
-- Results across events, guides, strategies, FAQ, calendar and images
+- Results across events, guides, heroes, strategies, FAQ, calendar and images
 
 ## Images
 

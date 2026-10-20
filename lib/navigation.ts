@@ -50,6 +50,7 @@ export const footerNav = [
     links: [
       { label: "Event guides", href: "/events/" },
       { label: "Field guides", href: "/guides/" },
+      { label: "Hero roster", href: "/guides/know-your-heroes/" },
       { label: "Strategy hub", href: "/strategies/" },
       { label: "AvA command", href: "/alliance-vs-alliance/" },
     ],

@@ -20,6 +20,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { ContentSection } from "@/components/content/content-section";
 import { Screenshot } from "@/components/content/screenshot";
 import { ContentSidebar } from "@/components/content-sidebar";
+import { HeroRosterSummary } from "@/components/heroes/hero-roster-summary";
 import { JsonLd } from "@/components/json-ld";
 import { mdxComponents } from "@/components/mdx-components";
 import { Badge } from "@/components/ui/badge";
@@ -117,6 +118,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   if (!guide) notFound();
 
   const site = getSiteConfig();
+  const isRoster = guide.layout === "roster";
   const sidebarItems = getGuides().map((item) => ({
     label: item.title,
     href: `/guides/${item.slug}/`,
@@ -180,14 +182,18 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 Updated {formatDate(guide.updated)} · {site.allianceName}
               </p>
             </div>
-            <Screenshot
-              src={guide.heroImage}
-              alt={`${guide.title} visual reference`}
-              caption="Reference visual. Replace with your own annotated capture."
-              code="GUIDE-HERO"
-              priority
-              className="my-0"
-            />
+            {isRoster ? (
+              <HeroRosterSummary />
+            ) : (
+              <Screenshot
+                src={guide.heroImage}
+                alt={`${guide.title} visual reference`}
+                caption="Reference visual. Replace with your own annotated capture."
+                code="GUIDE-HERO"
+                priority
+                className="my-0"
+              />
+            )}
           </div>
         </div>
       </header>
@@ -197,7 +203,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           <ContentSidebar title="Field guides" items={sidebarItems} />
 
           <article className="min-w-0">
-            <ContentSection index={1} title="Overview">
+            <ContentSection index={1} title={isRoster ? "Hero roster" : "Overview"}>
               <p className="text-sm leading-relaxed text-foreground/85">{guide.overview}</p>
               {guide.body && (
                 <div className="prose-tactical mt-6">
@@ -215,6 +221,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               )}
             </ContentSection>
 
+            {!isRoster && (
+              <>
             <ContentSection
               index={2}
               title="Priorities & recommended actions"
@@ -332,8 +340,14 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 <Screenshot caption="Visual examples to be added by Alliance Leadership." />
               )}
             </ContentSection>
+              </>
+            )}
 
-            <ContentSection index={5} title="Tips & common mistakes" className="mt-10">
+            <ContentSection
+              index={isRoster ? 2 : 5}
+              title="Tips & common mistakes"
+              className="mt-10"
+            >
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="rounded-md border border-emerald-500/20 bg-emerald-500/[0.025] p-4">
                   <p className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-emerald-300">
@@ -365,7 +379,11 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             </ContentSection>
 
             {guide.related.length > 0 && (
-              <ContentSection index={6} title="Continue the briefing" className="mt-10">
+              <ContentSection
+                index={isRoster ? 3 : 6}
+                title="Continue the briefing"
+                className="mt-10"
+              >
                 <div className="grid gap-2 sm:grid-cols-2">
                   {guide.related.map((relatedSlug) => (
                     <RelatedLink key={relatedSlug} slug={relatedSlug} />

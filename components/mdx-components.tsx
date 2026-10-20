@@ -4,6 +4,7 @@ import { ArrowUpRight, ListChecks } from "lucide-react";
 
 import { Callout } from "@/components/content/callout";
 import { Screenshot } from "@/components/content/screenshot";
+import { HeroRosterBoard } from "@/components/heroes/hero-roster-board";
 import { cn } from "@/lib/utils";
 
 function isInternal(href?: string) {
@@ -97,5 +98,6 @@ export function mdxComponents() {
     Steps,
     Step,
     StaticChecklist,
+    HeroRoster: HeroRosterBoard,
   };
 }

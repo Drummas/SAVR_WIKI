@@ -1,0 +1,365 @@
+{
+  "source": "https://www.last-asylum.com/heroes.html",
+  "updated": "2026-10-19",
+  "heroes": [
+    {
+      "slug": "arthur",
+      "name": "Arthur",
+      "rank": "UR",
+      "archetype": "Warrior",
+      "role": "Tank",
+      "summary": "Early Tavern tank and one of the clearest frontline anchors for survival-focused teams.",
+      "image": "/images/heroes/arthur.webp",
+      "skills": [
+        "Earthshattering",
+        "Rock Solid",
+        "Strong Will"
+      ],
+      "facts": [
+        {
+          "label": "Unlock",
+          "value": "Tavern early, diluted later as more heroes enter the pool"
+        },
+        {
+          "label": "Best use",
+          "value": "frontline shielding and damage reduction"
+        }
+      ]
+    },
+    {
+      "slug": "marlena",
+      "name": "Marlena",
+      "rank": "UR",
+      "archetype": "Warrior",
+      "role": "Carry",
+      "summary": "Energy burst carry available from the start through 1st Top Up, Top Up Bonus Reward, and Daily Offer.",
+      "image": "/images/heroes/marlena.webp",
+      "skills": [
+        "Peerless Blade",
+        "Crimson Bloom",
+        "War God's Will"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "boss pressure, PvE damage, burst windows"
+        },
+        {
+          "label": "Upgrade focus",
+          "value": "active burst and ultimate scaling"
+        }
+      ]
+    },
+    {
+      "slug": "shadow",
+      "name": "Shadow",
+      "rank": "UR",
+      "archetype": "Ranger",
+      "role": "Tank",
+      "summary": "Ranger tank unlocked through packs first and later added to Tavern pulls.",
+      "image": "/images/heroes/shadow.webp",
+      "skills": [
+        "Shadow Hunt",
+        "Shadow Strike",
+        "Shadow Veil"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "Physical AoE, DEF reduction, Energy damage mitigation"
+        },
+        {
+          "label": "Team value",
+          "value": "reduces enemy DEF to raise total squad damage"
+        }
+      ]
+    },
+    {
+      "slug": "daskal",
+      "name": "Daskal",
+      "rank": "UR",
+      "archetype": "Warrior",
+      "role": "Tank",
+      "summary": "Server Day 29 tank who wins by shields, damage absorption, and sustained survival.",
+      "image": "/images/heroes/daskal.webp",
+      "skills": [
+        "Bloodshed Defense",
+        "Deadly Pierce",
+        "Resolute Fight"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "long fights and burst defense"
+        },
+        {
+          "label": "Team value",
+          "value": "DEF-scaling shield coverage"
+        }
+      ]
+    },
+    {
+      "slug": "harper",
+      "name": "Harper",
+      "rank": "UR",
+      "archetype": "Warrior",
+      "role": "Support",
+      "summary": "Server Day 22 support who boosts team ATK, Energy damage, and low-HP survivability.",
+      "image": "/images/heroes/harper.webp",
+      "skills": [
+        "War Flute Sound",
+        "Vitality Bubble",
+        "Warrior's Anthem"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "burst compositions and Energy-heavy teams"
+        },
+        {
+          "label": "Team value",
+          "value": "team-wide amplification"
+        }
+      ]
+    },
+    {
+      "slug": "zoya",
+      "name": "Zoya",
+      "rank": "UR",
+      "archetype": "Warrior",
+      "role": "Carry",
+      "summary": "Server Day 57 Daily Offer carry with multi-target Energy damage, crit scaling, and AoE setup.",
+      "image": "/images/heroes/zoya.webp",
+      "skills": [
+        "Forest Hunter",
+        "Mountain God Wrath",
+        "Lady of the Forest"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "wave clearing and multi-hero fights"
+        },
+        {
+          "label": "Team value",
+          "value": "Energy damage vulnerability window"
+        }
+      ]
+    },
+    {
+      "slug": "nicole",
+      "name": "Nicole",
+      "rank": "UR",
+      "archetype": "Warlock",
+      "role": "Support",
+      "summary": "Server Day 99 Hero Pass support with healing, fire damage, and Warlock attack-speed value.",
+      "skills": [
+        "Inferno Array",
+        "Heartwarming Flame",
+        "Flame Soul Power"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "Warlock teams and sustain-heavy fights"
+        },
+        {
+          "label": "Team value",
+          "value": "lowest-HP healing plus Warlock speed buff"
+        }
+      ]
+    },
+    {
+      "slug": "annie",
+      "name": "Annie",
+      "rank": "UR",
+      "archetype": "Warlock",
+      "role": "Carry",
+      "summary": "Server Day 15 Hero Pass carry with burn setup, high-ATK target pressure, and Energy damage scaling.",
+      "image": "/images/heroes/annie.webp",
+      "skills": [
+        "Candy Jar",
+        "Surprise Gift",
+        "Charged Gummies"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "burn teams and priority-target damage"
+        },
+        {
+          "label": "Team value",
+          "value": "targets high-ATK enemies and stacks burn pressure"
+        }
+      ]
+    },
+    {
+      "slug": "jester",
+      "name": "Jester",
+      "rank": "UR",
+      "archetype": "Warlock",
+      "role": "Carry",
+      "summary": "Two-week server-age carry with low-HP targeting, multi-target cards, and crit scaling.",
+      "image": "/images/heroes/jester.webp",
+      "skills": [
+        "Joker Ace",
+        "Hearthunt Red Card",
+        "Frenzied Emotion"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "finishing weakened enemies"
+        },
+        {
+          "label": "Team value",
+          "value": "pressure on low-HP targets during routing phases"
+        }
+      ]
+    },
+    {
+      "slug": "red-lady",
+      "name": "Red Lady",
+      "rank": "UR",
+      "archetype": "Ranger",
+      "role": "Carry",
+      "summary": "Server Day 36 Daily Offer carry with Energy burst, damage-taken amplification, and stun chance.",
+      "image": "/images/heroes/red-lady.webp",
+      "skills": [
+        "Crimson Rose",
+        "Bloodthirsty Slaughter",
+        "Lone Flower"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "enemy carry pressure"
+        },
+        {
+          "label": "Team value",
+          "value": "debuffing priority targets for faster kills"
+        }
+      ]
+    },
+    {
+      "slug": "billy",
+      "name": "Billy",
+      "rank": "UR",
+      "archetype": "Warlock",
+      "role": "Tank",
+      "summary": "Server Day 85 tank with stun immunity support, reflection, and all-damage reduction.",
+      "image": "/images/heroes/billy.webp",
+      "skills": [
+        "Truth and Lies",
+        "Fate's Thread",
+        "Puppet"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "anti-control frontline and damage reflection"
+        },
+        {
+          "label": "Team value",
+          "value": "protects high-ATK allies from stun and Energy damage"
+        }
+      ]
+    },
+    {
+      "slug": "cynthia",
+      "name": "Cynthia",
+      "rank": "UR",
+      "archetype": "Ranger",
+      "role": "Carry",
+      "summary": "First-week Daily Offer carry later added to Tavern, built around crit rate and Energy blades.",
+      "image": "/images/heroes/cynthia.webp",
+      "skills": [
+        "Moonfall Dance",
+        "Lunar Hunt",
+        "Moon's Blessing"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "multi-target Energy damage"
+        },
+        {
+          "label": "Team value",
+          "value": "crit-driven pressure against grouped enemies"
+        }
+      ]
+    },
+    {
+      "slug": "bell",
+      "name": "Bell",
+      "rank": "UR",
+      "archetype": "Ranger",
+      "role": "Support",
+      "summary": "Server Day 71 Daily Offer support who buffs high-ATK allies and heals the lowest-HP ally.",
+      "image": "/images/heroes/bell.webp",
+      "skills": [
+        "Inspiration",
+        "Healing Sound",
+        "Battle Anthem"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "Ranger teams and carry protection"
+        },
+        {
+          "label": "Team value",
+          "value": "targeted ATK buff plus emergency healing"
+        }
+      ]
+    },
+    {
+      "slug": "brian",
+      "name": "Brian",
+      "rank": "UR",
+      "archetype": "Warlock",
+      "role": "Tank",
+      "summary": "Daily Offer tank with all-hero damage reduction, reflection, and strong personal durability.",
+      "image": "/images/heroes/brian.webp",
+      "skills": [
+        "Throat Bite",
+        "Lunar Howl",
+        "Wolf Bloodline"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "durable frontline in longer fights"
+        },
+        {
+          "label": "Team value",
+          "value": "reduces incoming damage for all allied heroes"
+        }
+      ]
+    },
+    {
+      "slug": "louis",
+      "name": "Louis",
+      "rank": "UR",
+      "archetype": "Ranger",
+      "role": "Tank",
+      "summary": "Server Day 64 Daily Offer tank with self-heal, Energy damage reduction, and one-time fatal survival.",
+      "image": "/images/heroes/louis.webp",
+      "skills": [
+        "Cross Whip",
+        "Force Link",
+        "Indomitable Spirit"
+      ],
+      "facts": [
+        {
+          "label": "Best use",
+          "value": "anti-Energy frontline"
+        },
+        {
+          "label": "Team value",
+          "value": "damage reduction coverage that expands with stars"
+        }
+      ]
+    }
+  ]
+}

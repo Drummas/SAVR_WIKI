@@ -15,6 +15,7 @@ const filters: { label: string; types?: ContentType[] }[] = [
   { label: "All" },
   { label: "Events", types: ["event", "calendar"] },
   { label: "Guides", types: ["guide"] },
+  { label: "Heroes", types: ["hero"] },
   { label: "Strategies", types: ["strategy"] },
   { label: "FAQ", types: ["faq"] },
   { label: "Images", types: ["image"] },

@@ -7,6 +7,7 @@
     "dev": "npm run build:search && next dev",
     "build": "npm run build:search && next build",
     "build:search": "node scripts/build-search-index.mjs",
+    "heroes:import": "node scripts/import-heroes.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "next lint",
     "preview": "serve out -l 4173",

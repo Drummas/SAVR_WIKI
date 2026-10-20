@@ -9,7 +9,14 @@ export type EventCategory =
 
 export type Difficulty = "Beginner" | "Intermediate" | "Advanced";
 
-export type ContentType = "event" | "guide" | "strategy" | "faq" | "calendar" | "image";
+export type ContentType =
+  | "event"
+  | "guide"
+  | "hero"
+  | "strategy"
+  | "faq"
+  | "calendar"
+  | "image";
 
 export interface BaseContent {
   slug: string;
@@ -82,6 +89,8 @@ export interface Guide extends BaseContent {
   category: string;
   difficulty: Difficulty;
   readingTime: string;
+  /** `roster` swaps the numbered guide template for the hero roster body. */
+  layout: "standard" | "roster";
   overview: string;
   priorities: string[];
   actions: string[];
@@ -91,6 +100,23 @@ export interface Guide extends BaseContent {
   steps: GuideStep[];
   related: string[];
   body: string;
+}
+
+export interface HeroFact {
+  label: string;
+  value: string;
+}
+
+export interface Hero {
+  slug: string;
+  name: string;
+  rank: string;
+  archetype: string;
+  role: string;
+  summary: string;
+  image?: string;
+  skills: string[];
+  facts: HeroFact[];
 }
 
 export interface Strategy extends BaseContent {

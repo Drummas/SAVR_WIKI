@@ -109,6 +109,27 @@ for (const { slug, data, body } of readFolder("strategies")) {
   });
 }
 
+const heroesPath = path.join(root, "data", "heroes.json");
+if (fs.existsSync(heroesPath)) {
+  const roster = JSON.parse(fs.readFileSync(heroesPath, "utf8"));
+  for (const hero of roster.heroes ?? []) {
+    const facts = (hero.facts ?? []).map((fact) => `${fact.label} ${fact.value}`);
+    docs.push({
+      id: `hero-${hero.slug}`,
+      type: "hero",
+      title: `${hero.name} — ${hero.archetype} ${hero.role}`,
+      description: hero.summary ?? "",
+      url: `/guides/know-your-heroes/#hero-${hero.slug}`,
+      category: "Hero roster",
+      tags: [hero.rank, hero.archetype, hero.role, ...(hero.skills ?? [])].filter(Boolean),
+      content: stripMarkdown(
+        [hero.summary, ...(hero.skills ?? []), ...facts].filter(Boolean).join(" "),
+      ).slice(0, 2000),
+      date: roster.updated,
+    });
+  }
+}
+
 const faqPath = path.join(root, "content", "faq", "faq.json");
 if (fs.existsSync(faqPath)) {
   const faq = JSON.parse(fs.readFileSync(faqPath, "utf8"));
