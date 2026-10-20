@@ -1,6 +1,6 @@
-# SAVR_WIKI — Savage Rebels (SAVR) alliance field manual
+# SAVR_WIKI — Savage Rebelz (SAVR) alliance field manual
 
-The alliance knowledge base for **Savage Rebels (SAVR)** on **Server #297** of the mobile strategy game **Last Asylum: Plague**. One static Next.js site holding every event file, field guide, strategy brief, FAQ answer and planning window the alliance needs — with a local instant search index, a visual event calendar, a screenshot library, an installable PWA shell and a Decap CMS workflow so leadership can publish without touching code.
+The alliance knowledge base for **Savage Rebelz (SAVR)** on **Server #297** of the mobile strategy game **Last Asylum: Plague**. One static Next.js site holding every event file, field guide, strategy brief, FAQ answer and planning window the alliance needs — with a local instant search index, a visual event calendar, a screenshot library, an installable PWA shell and a Decap CMS workflow so leadership can publish without touching code.
 
 **What it solves:** members stop guessing event windows. Each event page turns a schedule into an objective, a phase plan, a reward table, a checklist and the mistakes that cost points; the calendar shows where Survival Battle and Alliance Duel overlap so one action can feed two scoreboards; and the AvA command centre wires all of it into a six-day playbook.
 

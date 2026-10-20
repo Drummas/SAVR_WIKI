@@ -23,15 +23,18 @@ Filenames become URL slugs. Use lowercase, hyphenated names. Do not rename a liv
 
 ```json
 {
-  "allianceName": "Savage Rebels",
+  "allianceName": "Savage Rebelz",
   "callsign": "SAVR",
   "server": "Server #297",
+  "serverLaunch": "2026-07-26",
   "discordUrl": "https://discord.gg/…",
   "contactEmail": "command@…"
 }
 ```
 
-Name and callsign are rendered together as `Savage Rebels (SAVR)`. Keep the callsign short — it is used in the header subline, hero badge and app manifest.
+Name and callsign are rendered together as `Savage Rebelz (SAVR)`. Keep the callsign short — it is used in the header subline, hero badge and app manifest.
+
+`serverLaunch` is the day the server opened, written as a server-clock calendar day (`YYYY-MM-DD`, midnight UTC-4). The top bar reads it as `Day 87 · OCTOBER 20, 2026`: the launch day is day 1, so a launch of `2026-07-26` reads day 1 that morning and day 87 on `2026-10-20`. The counter is computed in the browser and rolls over at server midnight, so a static build never freezes on an old day — move the date forward whenever the server relaunches.
 
 The visual identity is separate from the text identity:
 

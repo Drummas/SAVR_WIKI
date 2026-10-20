@@ -6,6 +6,13 @@ const galleryDir = path.join(process.cwd(), "public", "images", "gallery");
 const publicDir = path.join(process.cwd(), "public");
 fs.mkdirSync(galleryDir, { recursive: true });
 
+// Read once at the top so the boards and the OG card always agree with the
+// alliance name in site.json — a rename is then a data edit, not a code edit.
+const siteConfig = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), "data", "site.json"), "utf8"),
+);
+const allianceStamp = `${siteConfig.allianceName.toUpperCase()} // ${siteConfig.callsign} OPS`;
+
 /* Green-family tones: each category stays distinguishable on the SAVR theme. */
 const accents = {
   Events: "#34e07f",
@@ -429,7 +436,7 @@ function artworkSvg(image) {
       <text x="64" y="700" fill="#f5f2ec" font-size="74" font-weight="700" letter-spacing="2">${image.title.toUpperCase()}</text>
       <text x="66" y="748" fill="#9aa4ad" font-family="monospace" font-size="20" letter-spacing="1">${image.subtitle.toUpperCase()}</text>
       <text x="1536" y="880" fill="#5c6872" font-family="monospace" font-size="12" letter-spacing="2" text-anchor="end">REFERENCE PLACEHOLDER · REPLACE WITH IN-GAME CAPTURE</text>
-      <text x="64" y="880" fill="#5c6872" font-family="monospace" font-size="12" letter-spacing="2">SAVAGE REBELS // SAVR OPS</text>
+      <text x="64" y="880" fill="#5c6872" font-family="monospace" font-size="12" letter-spacing="2">${allianceStamp}</text>
     </g>
     <g stroke="${accent}" stroke-opacity="0.8">
       <path d="M64 88h34M64 88v34" fill="none" />
@@ -452,7 +459,6 @@ for (const image of images) {
   fs.writeFileSync(path.join(galleryDir, `${image.id}.svg`), svg);
 }
 
-const siteConfig = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "site.json"), "utf8"));
 const wordmarkFile = path.join(process.cwd(), "assets", "brand", "savr-wordmark.png");
 const wordmarkData = fs.existsSync(wordmarkFile)
   ? `data:image/png;base64,${fs.readFileSync(wordmarkFile).toString("base64")}`

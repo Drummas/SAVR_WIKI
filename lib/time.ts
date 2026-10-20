@@ -177,6 +177,37 @@ export function zoneDateKey(value: string | number | Date, offset: number) {
   ).padStart(2, "0")}`;
 }
 
+/**
+ * Server day number, counting the launch day as day 1. The launch date is a
+ * server-clock calendar day (`YYYY-MM-DD`), so the number flips at server
+ * midnight, not at the visitor's midnight.
+ */
+export function serverDayNumber(launchKey: string, now = Date.now()): number | null {
+  const launch = Date.parse(`${launchKey}T00:00:00Z`);
+  const today = Date.parse(`${serverTodayKey(now)}T00:00:00Z`);
+  if (!Number.isFinite(launch) || !Number.isFinite(today)) return null;
+  return Math.round((today - launch) / 86_400_000) + 1;
+}
+
+/** Milliseconds until the next server-clock midnight (the day rollover). */
+export function msUntilServerMidnight(now = Date.now()) {
+  const wall = nowOnServerClock(now);
+  return 86_400_000 - (wall % 86_400_000);
+}
+
+/**
+ * Today's date on the server clock, e.g. `OCTOBER 20, 2026`. Built from single
+ * fields for the same hydration reason as `formatZoneDayLong`.
+ */
+export function formatServerDate(now = Date.now()) {
+  const wall = new Date(nowOnServerClock(now));
+  const part = (options: Intl.DateTimeFormatOptions) =>
+    new Intl.DateTimeFormat("en-US", { ...options, timeZone: "UTC" }).format(wall);
+  return `${part({ month: "long" }).toUpperCase()} ${part({ day: "numeric" })}, ${part({
+    year: "numeric",
+  })}`;
+}
+
 /** Weekday name plus date, built from single fields to stay hydration-safe. */
 export function formatZoneDayLong(value: string | number | Date, offset: number) {
   const wall = toWallClock(value, offset);

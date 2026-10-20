@@ -1,9 +1,10 @@
 {
-  "allianceName": "Savage Rebels",
+  "allianceName": "Savage Rebelz",
   "callsign": "SAVR",
   "server": "Server #297",
+  "serverLaunch": "2026-07-26",
   "tagline": "Events, Strategies, Optimisation, and Alliance Coordination",
-  "description": "The Savage Rebels (SAVR) alliance knowledge base for Last Asylum: Plague. Event breakdowns, Alliance vs Alliance scoring, Survival Battle overlap windows, visual walkthroughs and coordination plans.",
+  "description": "The Savage Rebelz (SAVR) alliance knowledge base for Last Asylum: Plague. Event breakdowns, Alliance vs Alliance scoring, Survival Battle overlap windows, visual walkthroughs and coordination plans.",
   "discordUrl": "https://discord.gg/your-alliance-invite",
   "contactEmail": "command@your-alliance.example",
   "updated": "2026-10-18",
@@ -25,5 +26,5 @@
       "value": "33"
     }
   ],
-  "disclaimer": "Savage Rebels (SAVR) fan-made alliance resource. Not affiliated with or endorsed by 37GAMES or Wiseness. Event timings, point values and rewards change by server, season and game version — always verify the live in-game event screen. Replace placeholder art with your own screenshots and any official assets you have permission to use."
+  "disclaimer": "Savage Rebelz (SAVR) fan-made alliance resource. Not affiliated with or endorsed by 37GAMES or Wiseness. Event timings, point values and rewards change by server, season and game version — always verify the live in-game event screen. Replace placeholder art with your own screenshots and any official assets you have permission to use."
 }

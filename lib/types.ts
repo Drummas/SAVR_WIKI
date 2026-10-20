@@ -200,6 +200,8 @@ export interface SiteConfig {
   allianceName: string;
   callsign: string;
   server: string;
+  /** Launch day on the server clock (`YYYY-MM-DD`); counts as day 1. */
+  serverLaunch: string;
   tagline: string;
   description: string;
   discordUrl: string;

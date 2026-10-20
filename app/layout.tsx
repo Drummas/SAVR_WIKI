@@ -28,16 +28,16 @@ const barlow = Barlow_Condensed({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Savage Rebels (SAVR) — Last Asylum: Plague Field Manual",
-    template: "%s | Savage Rebels (SAVR)",
+    default: "Savage Rebelz (SAVR) — Last Asylum: Plague Field Manual",
+    template: "%s | Savage Rebelz (SAVR)",
   },
   description:
-    "The Savage Rebels (SAVR) alliance knowledge base for Last Asylum: Plague. Event breakdowns, Alliance vs Alliance scoring, Survival Battle overlap windows, visual walkthroughs and coordination plans.",
+    "The Savage Rebelz (SAVR) alliance knowledge base for Last Asylum: Plague. Event breakdowns, Alliance vs Alliance scoring, Survival Battle overlap windows, visual walkthroughs and coordination plans.",
   applicationName: "SAVR Field Manual",
-  authors: [{ name: "Savage Rebels (SAVR)" }],
-  creator: "Savage Rebels (SAVR)",
+  authors: [{ name: "Savage Rebelz (SAVR)" }],
+  creator: "Savage Rebelz (SAVR)",
   keywords: [
-    "Savage Rebels",
+    "Savage Rebelz",
     "SAVR",
     "Last Asylum: Plague",
     "Last Asylum wiki",
@@ -55,22 +55,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     url: "/",
-    siteName: "Savage Rebels (SAVR) — Last Asylum Field Manual",
-    title: "Savage Rebels (SAVR) — Last Asylum: Plague Field Manual",
+    siteName: "Savage Rebelz (SAVR) — Last Asylum Field Manual",
+    title: "Savage Rebelz (SAVR) — Last Asylum: Plague Field Manual",
     description:
-      "Events, strategies, optimisation and alliance coordination. Built mobile-first for Savage Rebels (SAVR) members.",
+      "Events, strategies, optimisation and alliance coordination. Built mobile-first for Savage Rebelz (SAVR) members.",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Savage Rebels (SAVR) — Last Asylum: Plague field manual",
+        alt: "Savage Rebelz (SAVR) — Last Asylum: Plague field manual",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Savage Rebels (SAVR) — Last Asylum Field Manual",
+    title: "Savage Rebelz (SAVR) — Last Asylum Field Manual",
     description: "Events, strategies, optimisation and alliance coordination.",
     images: ["/og.png"],
   },

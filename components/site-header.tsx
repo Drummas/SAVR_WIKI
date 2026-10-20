@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
@@ -14,13 +14,110 @@ import { ClockControls } from "@/components/time/clock-controls";
 import { ClockMenu } from "@/components/time/clock-menu";
 import { useClock } from "@/components/time/clock-provider";
 import { LiveClock } from "@/components/time/live-clock";
-import { eventCategories, primaryNav } from "@/lib/navigation";
+import { ServerDay } from "@/components/time/server-day";
+import { eventCategories, primaryNav, type NavItem } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   const base = href.replace(/\/$/, "");
   return pathname === base || pathname === `${base}/` || pathname.startsWith(`${base}/`);
+}
+
+/**
+ * Events flyout. Hover/focus opens it, but the panel is stateful so picking an
+ * entry closes it immediately — a CSS-only menu stays open after the click
+ * because the pointer is still parked over the header.
+ */
+function EventsNavItem({ item }: { item: NavItem }) {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const wrapper = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
+  function close() {
+    setOpen(false);
+  }
+
+  return (
+    <div
+      ref={wrapper}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={close}
+      onFocus={() => setOpen(true)}
+      onBlur={(event) => {
+        const next = event.relatedTarget as Node | null;
+        if (next && event.currentTarget.contains(next)) return;
+        // let a click on an entry land before the panel disappears
+        window.setTimeout(() => {
+          if (!wrapper.current?.contains(document.activeElement)) close();
+        }, 0);
+      }}
+    >
+      <Link
+        href={item.href}
+        data-active={isActive(pathname, item.href)}
+        aria-haspopup="true"
+        aria-expanded={open}
+        className="nav-link uppercase tracking-wide"
+      >
+        {item.label}
+        <ChevronDown className={cn("size-3 transition-transform", open && "rotate-180")} />
+      </Link>
+      <div
+        className={cn(
+          "absolute left-0 top-full z-50 w-[520px] pt-3 transition-all duration-150",
+          open ? "visible translate-y-0 opacity-100" : "invisible translate-y-1 opacity-0",
+        )}
+      >
+        <div className="hud-corners rounded-lg border border-border bg-popover p-2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]">
+          <div className="grid grid-cols-2 gap-1">
+            {eventCategories.map((category) => {
+              const child = item.children?.find((entry) => entry.label === category);
+              return (
+                <Link
+                  key={category}
+                  href={child?.href ?? "/events/"}
+                  onClick={close}
+                  className="group/item flex items-start gap-2.5 rounded-sm px-3 py-2.5 transition-colors hover:bg-secondary"
+                >
+                  <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-sm border border-border bg-background/60 text-muted-foreground transition-colors group-hover/item:border-primary/40 group-hover/item:text-primary">
+                    <CategoryIcon category={category} className="size-3.5" />
+                  </span>
+                  <span>
+                    <span className="block text-xs font-medium text-foreground">{category}</span>
+                    <span className="mt-0.5 block font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground/60">
+                      Event file
+                    </span>
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+          <Link
+            href="/events/"
+            onClick={close}
+            className="mt-1 flex items-center justify-between rounded-sm border-t border-border/60 px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-primary transition-colors hover:bg-primary/5"
+          >
+            All event intelligence <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export function SiteHeader({ server }: { server: string }) {
@@ -45,6 +142,8 @@ export function SiteHeader({ server }: { server: string }) {
             </span>
             <span className="h-3 w-px bg-border" />
             <span>{server}</span>
+            <span className="h-3 w-px bg-border" />
+            <ServerDay />
           </div>
           <div className="flex items-center gap-3">
             <span className="hidden xl:inline">Fan-made · verify live event data</span>
@@ -71,50 +170,7 @@ export function SiteHeader({ server }: { server: string }) {
           <nav className="hidden items-center lg:flex" aria-label="Primary navigation">
             {navItems.map((item) =>
               item.children ? (
-                <div key={item.label} className="group relative">
-                  <Link
-                    href={item.href}
-                    data-active={isActive(pathname, item.href)}
-                    className="nav-link uppercase tracking-wide"
-                  >
-                    {item.label}
-                    <ChevronDown className="size-3 transition-transform group-hover:rotate-180" />
-                  </Link>
-                  <div className="invisible absolute left-0 top-full z-50 w-[520px] translate-y-1 pt-3 opacity-0 transition-all duration-150 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                    <div className="hud-corners rounded-lg border border-border bg-popover p-2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]">
-                      <div className="grid grid-cols-2 gap-1">
-                        {eventCategories.map((category) => {
-                          const child = item.children?.find((entry) => entry.label === category);
-                          return (
-                            <Link
-                              key={category}
-                              href={child?.href ?? "/events/"}
-                              className="group/item flex items-start gap-2.5 rounded-sm px-3 py-2.5 transition-colors hover:bg-secondary"
-                            >
-                              <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-sm border border-border bg-background/60 text-muted-foreground transition-colors group-hover/item:border-primary/40 group-hover/item:text-primary">
-                                <CategoryIcon category={category} className="size-3.5" />
-                              </span>
-                              <span>
-                                <span className="block text-xs font-medium text-foreground">
-                                  {category}
-                                </span>
-                                <span className="mt-0.5 block font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground/60">
-                                  Event file
-                                </span>
-                              </span>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                      <Link
-                        href="/events/"
-                        className="mt-1 flex items-center justify-between rounded-sm border-t border-border/60 px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-primary transition-colors hover:bg-primary/5"
-                      >
-                        All event intelligence <span aria-hidden="true">→</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                <EventsNavItem key={item.label} item={item} />
               ) : (
                 <Link
                   key={item.label}
@@ -187,6 +243,10 @@ export function SiteHeader({ server }: { server: string }) {
                     ? `${clock.formatWeekday(clock.nowMs)} · ${clock.formatDate(clock.nowMs)}`
                     : "\u00a0"}
                 </p>
+                <ServerDay
+                  showDate={false}
+                  className="mt-1 font-mono text-[9px] uppercase tracking-[0.12em]"
+                />
                 <ClockControls className="mt-3" compact />
               </div>
 

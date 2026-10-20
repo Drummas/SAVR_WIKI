@@ -39,15 +39,15 @@ import {
 import { buildMetadata } from "@/lib/seo";
 import { serverTodayKey } from "@/lib/time";
 
-const pageTitle = "Savage Rebels (SAVR) — Last Asylum: Plague Alliance Knowledge Base";
+const pageTitle = "Savage Rebelz (SAVR) — Last Asylum: Plague Alliance Knowledge Base";
 
 const baseMetadata = buildMetadata({
   title: pageTitle,
   description:
-    "Events, strategies, optimisation and alliance coordination for Last Asylum: Plague. Survival Battle guides, Alliance vs Alliance scoring, event overlap planning, hero and resource development for Savage Rebels (SAVR).",
+    "Events, strategies, optimisation and alliance coordination for Last Asylum: Plague. Survival Battle guides, Alliance vs Alliance scoring, event overlap planning, hero and resource development for Savage Rebelz (SAVR).",
   path: "/",
   keywords: [
-    "Savage Rebels",
+    "Savage Rebelz",
     "SAVR",
     "alliance knowledge base",
     "Last Asylum events",
