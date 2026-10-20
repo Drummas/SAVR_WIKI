@@ -4,6 +4,7 @@ import { Barlow_Condensed, Inter } from "next/font/google";
 import { JsonLd } from "@/components/json-ld";
 import { MobileBottomNav } from "@/components/mobile-bottom-nav";
 import { SearchProvider } from "@/components/search/search-provider";
+import { SiteBackdrop } from "@/components/site-backdrop";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { ClockProvider } from "@/components/time/clock-provider";
@@ -27,16 +28,16 @@ const barlow = Barlow_Condensed({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Savage Reign (SAVR) — Last Asylum: Plague Field Manual",
-    template: "%s | Savage Reign (SAVR)",
+    default: "Savage Rebels (SAVR) — Last Asylum: Plague Field Manual",
+    template: "%s | Savage Rebels (SAVR)",
   },
   description:
-    "The Savage Reign (SAVR) alliance knowledge base for Last Asylum: Plague. Event breakdowns, Alliance vs Alliance scoring, Survival Battle overlap windows, visual walkthroughs and coordination plans.",
+    "The Savage Rebels (SAVR) alliance knowledge base for Last Asylum: Plague. Event breakdowns, Alliance vs Alliance scoring, Survival Battle overlap windows, visual walkthroughs and coordination plans.",
   applicationName: "SAVR Field Manual",
-  authors: [{ name: "Savage Reign (SAVR)" }],
-  creator: "Savage Reign (SAVR)",
+  authors: [{ name: "Savage Rebels (SAVR)" }],
+  creator: "Savage Rebels (SAVR)",
   keywords: [
-    "Savage Reign",
+    "Savage Rebels",
     "SAVR",
     "Last Asylum: Plague",
     "Last Asylum wiki",
@@ -54,22 +55,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     url: "/",
-    siteName: "Savage Reign (SAVR) — Last Asylum Field Manual",
-    title: "Savage Reign (SAVR) — Last Asylum: Plague Field Manual",
+    siteName: "Savage Rebels (SAVR) — Last Asylum Field Manual",
+    title: "Savage Rebels (SAVR) — Last Asylum: Plague Field Manual",
     description:
-      "Events, strategies, optimisation and alliance coordination. Built mobile-first for Savage Reign (SAVR) members.",
+      "Events, strategies, optimisation and alliance coordination. Built mobile-first for Savage Rebels (SAVR) members.",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Savage Reign (SAVR) — Last Asylum: Plague field manual",
+        alt: "Savage Rebels (SAVR) — Last Asylum: Plague field manual",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Savage Reign (SAVR) — Last Asylum Field Manual",
+    title: "Savage Rebels (SAVR) — Last Asylum Field Manual",
     description: "Events, strategies, optimisation and alliance coordination.",
     images: ["/og.png"],
   },
@@ -103,6 +104,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en-GB" className={`dark ${inter.variable} ${barlow.variable}`}>
       <body className="min-h-screen font-sans pb-16 lg:pb-0">
+        <SiteBackdrop />
         <ClockProvider>
           <SearchProvider>
             <a href="#main" className="skip-link">

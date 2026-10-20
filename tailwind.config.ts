@@ -49,6 +49,16 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        /*
+         * Class/role language for the hero roster — tanks red, rangers blue,
+         * warlocks green — plus the gold reserved for UR marks.
+         */
+        hero: {
+          red: "#ff6156",
+          blue: "#4fa9ff",
+          green: "#34e07f",
+          gold: "#f3c96b",
+        },
         /* Green-family tones used across the site chrome. */
         tactical: {
           neon: "#34e07f", // wordmark highlight — primary actions

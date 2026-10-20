@@ -1,5 +1,5 @@
 /**
- * Builds the Savage Reign (SAVR) brand assets from the supplied artwork.
+ * Builds the Savage Rebels (SAVR) brand assets from the supplied artwork.
  *
  * Source: assets/brand/savr-wordmark-source.jpg (green neon "SAVR" lettering
  * with a crown, on a solid black background).

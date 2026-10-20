@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Search, X } from "lucide-react";
 
 import { HeroCard } from "@/components/heroes/hero-card";
+import { heroTone, type HeroTone } from "@/lib/hero-tones";
 import { cn } from "@/lib/utils";
 import type { Hero } from "@/lib/types";
 
@@ -12,11 +13,13 @@ const ALL = "All";
 function FilterChip({
   active,
   count,
+  tone,
   onClick,
   children,
 }: {
   active: boolean;
   count?: number;
+  tone?: HeroTone;
   onClick: () => void;
   children: React.ReactNode;
 }) {
@@ -28,16 +31,19 @@ function FilterChip({
       className={cn(
         "inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.12em] transition-colors",
         active
-          ? "border-primary/50 bg-primary/15 text-emerald-300"
+          ? (tone?.active ?? "border-primary/50 bg-primary/15 text-emerald-300")
           : "border-border/70 bg-background/40 text-muted-foreground hover:border-primary/30 hover:text-foreground",
       )}
     >
+      {!active && tone && (
+        <span className={cn("size-1.5 rounded-full", tone.dot)} aria-hidden="true" />
+      )}
       {children}
       {typeof count === "number" && (
         <span
           className={cn(
             "text-[8px] tabular-nums",
-            active ? "text-emerald-300/70" : "text-muted-foreground/50",
+            active ? (tone ? "opacity-70" : "text-emerald-300/70") : "text-muted-foreground/50",
           )}
         >
           {String(count).padStart(2, "0")}
@@ -162,6 +168,7 @@ export function HeroRoster({ heroes }: { heroes: Hero[] }) {
               <FilterChip
                 key={option}
                 active={archetype === option}
+                tone={option === ALL ? undefined : heroTone(option)}
                 count={
                   option === ALL
                     ? heroes.length

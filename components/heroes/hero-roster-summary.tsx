@@ -1,7 +1,8 @@
 import { ArrowUpRight, Shield, Sparkles, Swords } from "lucide-react";
 
 import { getHeroRosterMeta, getHeroes } from "@/lib/heroes";
-import { formatDate } from "@/lib/utils";
+import { heroTone } from "@/lib/hero-tones";
+import { cn, formatDate } from "@/lib/utils";
 
 /** Header dossier panel shown instead of a hero screenshot on roster guides. */
 export function HeroRosterSummary() {
@@ -28,7 +29,13 @@ export function HeroRosterSummary() {
           <dt className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground/45">
             <Sparkles className="size-3 text-primary/60" /> Classes
           </dt>
-          <dd className="mt-1 text-xs text-foreground/80">{classes.join(" · ")}</dd>
+          <dd className="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-foreground/80">
+            {classes.map((name) => (
+              <span key={name} className={cn("font-medium", heroTone(name).text)}>
+                {name}
+              </span>
+            ))}
+          </dd>
         </div>
         <div>
           <dt className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground/45">
@@ -37,7 +44,7 @@ export function HeroRosterSummary() {
           <dd className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs text-foreground/80">
             {roles.map((entry) => (
               <span key={entry.role} className="tabular-nums">
-                {entry.role} <span className="text-primary/70">{entry.count}</span>
+                {entry.role} <span className="text-muted-foreground/70">{entry.count}</span>
               </span>
             ))}
           </dd>

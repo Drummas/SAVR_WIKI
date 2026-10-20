@@ -39,15 +39,15 @@ import {
 import { buildMetadata } from "@/lib/seo";
 import { serverTodayKey } from "@/lib/time";
 
-const pageTitle = "Savage Reign (SAVR) — Last Asylum: Plague Alliance Knowledge Base";
+const pageTitle = "Savage Rebels (SAVR) — Last Asylum: Plague Alliance Knowledge Base";
 
 const baseMetadata = buildMetadata({
   title: pageTitle,
   description:
-    "Events, strategies, optimisation and alliance coordination for Last Asylum: Plague. Survival Battle guides, Alliance vs Alliance scoring, event overlap planning, hero and resource development for Savage Reign (SAVR).",
+    "Events, strategies, optimisation and alliance coordination for Last Asylum: Plague. Survival Battle guides, Alliance vs Alliance scoring, event overlap planning, hero and resource development for Savage Rebels (SAVR).",
   path: "/",
   keywords: [
-    "Savage Reign",
+    "Savage Rebels",
     "SAVR",
     "alliance knowledge base",
     "Last Asylum events",
@@ -182,7 +182,8 @@ export default function HomePage() {
             <div className="animate-fade-up">
               <div className="mb-5 flex items-center gap-3.5">
                 <BrandWordmark
-                  className="h-12 w-auto drop-shadow-[0_0_22px_rgba(74,222,128,0.28)] sm:h-14"
+                  art="game"
+                  className="h-12 w-auto drop-shadow-[0_0_22px_rgba(228,180,90,0.24)] sm:h-14"
                   sizes="(min-width: 640px) 280px, 230px"
                 />
                 <span className="hidden h-10 w-px bg-border/80 sm:block" aria-hidden="true" />

@@ -23,7 +23,7 @@ Filenames become URL slugs. Use lowercase, hyphenated names. Do not rename a liv
 
 ```json
 {
-  "allianceName": "Savage Reign",
+  "allianceName": "Savage Rebels",
   "callsign": "SAVR",
   "server": "Server #297",
   "discordUrl": "https://discord.gg/…",
@@ -31,15 +31,16 @@ Filenames become URL slugs. Use lowercase, hyphenated names. Do not rename a liv
 }
 ```
 
-Name and callsign are rendered together as `Savage Reign (SAVR)`. Keep the callsign short — it is used in the header subline, hero badge and app manifest.
+Name and callsign are rendered together as `Savage Rebels (SAVR)`. Keep the callsign short — it is used in the header subline, hero badge and app manifest.
 
 The visual identity is separate from the text identity:
 
-- **Wordmark** — `public/brand/savr-wordmark-*` renders in the header, hero, footer and mobile drawer. Replace `assets/brand/savr-wordmark-source.jpg` with new lettering on a black background and run `npm run assets:brand`; the script strips the background and rebuilds the AVIF/webp set, the square crest and the app icons.
+- **Alliance wordmark** — `public/brand/savr-wordmark-*` renders in the header, footer, mobile drawer, admin and OG art. Replace `assets/brand/savr-wordmark-source.jpg` with new lettering on a black background and run `npm run assets:brand`; the script knocks the background out and rebuilds the AVIF/webp set, the square crest and the app icons.
+- **Game wordmark** — `public/brand/la-wordmark-*` is the Last Asylum logo in the homepage hero only. Replace `assets/brand/last-asylum-wordmark-source.png` (transparent PNG) and run `npm run assets:logo`.
 - **Crest** — `public/brand/savr-mark.png` is the square badge in the hero dossier bar.
-- **Icons** — `app/icon.png`, `app/apple-icon.png` and the `public/icon-*.png` files all come from the same artwork.
+- **Icons** — `app/icon.png`, `app/apple-icon.png` and the `public/icon-*.png` files all come from the alliance artwork.
 
-Keep the wordmark and the JSON name in agreement: the wordmark spells the callsign, the JSON supplies the full name used in prose, titles and metadata.
+The alliance wordmark spells the callsign while the JSON supplies the full name used in prose, titles and metadata; keep the two in agreement so a rebrand updates copy and screenshots together.
 
 ## Event frontmatter
 

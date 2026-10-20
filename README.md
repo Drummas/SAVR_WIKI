@@ -1,12 +1,12 @@
-# SAVR_WIKI — Savage Reign (SAVR) alliance field manual
+# SAVR_WIKI — Savage Rebels (SAVR) alliance field manual
 
-The alliance knowledge base for **Savage Reign (SAVR)** on **Server #297** of the mobile strategy game **Last Asylum: Plague**. One static Next.js site holding every event file, field guide, strategy brief, FAQ answer and planning window the alliance needs — with a local instant search index, a visual event calendar, a screenshot library, an installable PWA shell and a Decap CMS workflow so leadership can publish without touching code.
+The alliance knowledge base for **Savage Rebels (SAVR)** on **Server #297** of the mobile strategy game **Last Asylum: Plague**. One static Next.js site holding every event file, field guide, strategy brief, FAQ answer and planning window the alliance needs — with a local instant search index, a visual event calendar, a screenshot library, an installable PWA shell and a Decap CMS workflow so leadership can publish without touching code.
 
 **What it solves:** members stop guessing event windows. Each event page turns a schedule into an objective, a phase plan, a reward table, a checklist and the mistakes that cost points; the calendar shows where Survival Battle and Alliance Duel overlap so one action can feed two scoreboards; and the AvA command centre wires all of it into a six-day playbook.
 
-Alliance identity (name, callsign, server, Discord, contact, stats) lives in [`data/site.json`](data/site.json) and flows into the header, footer, metadata, manifest and OpenGraph tags — change it there once to rebrand the text. The **SAVR wordmark artwork** ships in `public/brand` and is regenerated from `assets/brand` with `npm run assets:brand` (see [Name, wordmark and crest](#name-wordmark-and-crest)).
+Alliance identity (name, callsign, server, Discord, contact, stats) lives in [`data/site.json`](data/site.json) and flows into the header, footer, metadata, manifest and OpenGraph tags — change it there once to rebrand the text. The **Last Asylum wordmark artwork** ships in `public/brand` and is regenerated from `assets/brand` with `npm run assets:brand` (see [Name, wordmark and crest](#name-wordmark-and-crest)).
 
-> **Fan-made resource.** Not affiliated with or endorsed by 37GAMES or Wiseness. Event schedules, point values and rewards change by server, season and game version. Always verify the live in-game event screen. No official game art is included: the SAVR wordmark is the alliance's own artwork, and the gallery boards are clearly labelled placeholder material. Replace the placeholders with your own screenshots or assets you have permission to use.
+> **Fan-made resource.** Not affiliated with or endorsed by 37GAMES or Wiseness. Event schedules, point values and rewards change by server, season and game version. Always verify the live in-game event screen. The Last Asylum wordmark and backdrop are the game's own artwork, used here to identify the game; the gallery boards are clearly labelled placeholder material. Replace the placeholders with your own screenshots or assets you have permission to use.
 
 ## Quick start
 
@@ -71,7 +71,8 @@ Node 20+ is required. The site uses `output: "export"`, so `npm run build` produ
 /data                 site.json, calendar-events.json, gallery.json, heroes.json
 /lib                  content loader, types, SEO, navigation, search and calendar helpers
 /public
-  /brand              Savage Reign wordmark artwork + crest
+  /brand              alliance + game wordmark artwork, crest
+  /images/background.webp  site backdrop artwork
   /images/gallery     generated placeholder artwork
   /images/heroes      hero portraits for the Know Your Heroes cheat sheets
   /images/uploads     Decap CMS upload destination
@@ -119,21 +120,24 @@ Nothing is stored in the visitor's timezone, so editors always type the in-game 
 
 ### Name, wordmark and crest
 
-The alliance name and callsign in `data/site.json` drive the text identity (titles, metadata, footer, JSON-LD). The **wordmark artwork** is a separate asset so the logo can differ from the name's spelling:
+The alliance name and callsign in `data/site.json` drive the text identity (titles, metadata, footer, JSON-LD). Two pieces of artwork sit behind the branding:
 
 ```bash
-npm run assets:brand   # regenerates the wordmark, crest and app icons
+npm run assets:brand   # alliance wordmark, crest and app icons
+npm run assets:logo    # the game's Last Asylum wordmark (homepage hero)
 ```
 
-The generator reads `assets/brand/savr-wordmark-source.jpg`, knocks the black background out of it and writes:
+The alliance generator reads `assets/brand/savr-wordmark-source.jpg` and writes:
 
 | Output | Used by |
 | --- | --- |
-| `public/brand/savr-wordmark-420.avif` / `-840.avif` / `.webp` | header, hero, footer, mobile drawer |
+| `public/brand/savr-wordmark-420.avif` / `-840.avif` / `.webp` | header, footer, mobile drawer, admin, OG art |
 | `public/brand/savr-mark.png` | square crest in the hero dossier bar |
 | `app/icon.png`, `app/apple-icon.png`, `public/icon-192.png`, `public/icon-512.png`, `public/favicon-32.png` | browser tab, PWA install, home screen |
 
-To rebrand: drop the new artwork over `assets/brand/savr-wordmark-source.jpg` (black background, landscape lettering) and rerun `npm run assets:brand`. Keep the name/callsign in `data/site.json` in sync so the wordmark and the text identity agree.
+The logo generator reads `assets/brand/last-asylum-wordmark-source.png` (transparent PNG) and writes `public/brand/la-wordmark-245.avif` / `-490.avif` / `.webp`, which appear only where the page refers to the game itself — the homepage hero lockup (`<BrandWordmark art="game" />`).
+
+To rebrand the alliance: drop the new artwork over `assets/brand/savr-wordmark-source.jpg` (black background, landscape lettering) and rerun `npm run assets:brand`. Keep the name/callsign in `data/site.json` in sync so the artwork and the text identity agree. To swap the game artwork, replace `assets/brand/last-asylum-wordmark-source.png` and run `npm run assets:logo`.
 
 The MDX body of event/guide/strategy files remains editable in the CMS markdown pane, but advanced visual components (`<Callout>`, `<Screenshot>`) are best left to the templated fields. See [docs/CONTENT.md](docs/CONTENT.md).
 

@@ -9,6 +9,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import { heroTone, rankGold } from "@/lib/hero-tones";
 import type { Hero } from "@/lib/types";
 
 const archetypeIcons: Record<string, LucideIcon> = {
@@ -31,6 +32,7 @@ const roleIcons: Record<string, LucideIcon> = {
 export function HeroCard({ hero, code }: { hero: Hero; code?: string }) {
   const ArchetypeIcon = archetypeIcons[hero.archetype] ?? Sword;
   const RoleIcon = roleIcons[hero.role] ?? Crosshair;
+  const tone = heroTone(hero.archetype);
 
   return (
     <article
@@ -66,7 +68,9 @@ export function HeroCard({ hero, code }: { hero: Hero; code?: string }) {
           className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-card/95 to-transparent"
           aria-hidden="true"
         />
-        <span className="absolute left-3 top-3 flex size-8 items-center justify-center rounded-sm border border-primary/45 bg-background/80 font-mono text-[10px] font-medium tracking-[0.06em] text-emerald-300 backdrop-blur">
+        <span
+          className={`absolute left-3 top-3 flex size-8 items-center justify-center rounded-sm border font-mono text-[10px] font-medium tracking-[0.06em] backdrop-blur ${rankGold.chip}`}
+        >
           {hero.rank}
         </span>
         {code && (
@@ -80,15 +84,15 @@ export function HeroCard({ hero, code }: { hero: Hero; code?: string }) {
         <h3 className="font-display text-2xl uppercase leading-none tracking-wide text-foreground group-hover:text-emerald-100">
           {hero.name}
         </h3>
-        <p className="mt-1.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-primary">
-          <span className="inline-flex items-center gap-1">
+        <p className="mt-1.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em]">
+          <span className={`inline-flex items-center gap-1 ${tone.text}`}>
             <ArchetypeIcon className="size-3" />
             {hero.archetype}
           </span>
-          <span className="text-primary/35" aria-hidden="true">
+          <span className="text-muted-foreground/30" aria-hidden="true">
             /
           </span>
-          <span className="inline-flex items-center gap-1">
+          <span className="inline-flex items-center gap-1 text-muted-foreground">
             <RoleIcon className="size-3" />
             {hero.role}
           </span>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   ...buildMetadata({
     title: "Search the Archive",
     description:
-      "Instant local search across every Last Asylum: Plague event, guide, strategy, FAQ, calendar entry and image in the Savage Reign (SAVR) alliance wiki.",
+      "Instant local search across every Last Asylum: Plague event, guide, strategy, FAQ, calendar entry and image in the Savage Rebels (SAVR) alliance wiki.",
     path: "/search/",
   }),
   robots: { index: false, follow: true },
@@ -22,7 +22,7 @@ export default function SearchPage() {
       <PageHeader
         eyebrow="Local index · instant results"
         title="Search the archive"
-        description="No page reloads, no external search service. Query every event brief, guide, strategy, FAQ answer, calendar entry and image description in the Savage Reign (SAVR) knowledge base."
+        description="No page reloads, no external search service. Query every event brief, guide, strategy, FAQ answer, calendar entry and image description in the Savage Rebels (SAVR) knowledge base."
         crumbs={[{ label: "Search" }]}
       >
         <div className="flex flex-wrap gap-2">
