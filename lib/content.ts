@@ -3,6 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 
 import type {
+  AllianceRoster,
   BaseContent,
   CalendarEvent,
   Difficulty,
@@ -306,6 +307,28 @@ export function getGiftCodes(): GiftCodeConfig {
   });
   giftCodeCache = { ...data, codes };
   return giftCodeCache;
+}
+
+let rosterCache: AllianceRoster | null = null;
+
+/**
+ * The roster is scraped by the daily workflow at server reset and committed
+ * here. The loader only guards against a malformed or manually edited row.
+ */
+export function getRoster(): AllianceRoster {
+  if (rosterCache) return rosterCache;
+  const data = readJson<AllianceRoster>("data/roster.json");
+  const members = (data.members ?? []).filter(
+    (member) =>
+      !!member &&
+      typeof member.name === "string" &&
+      typeof member.power === "number" &&
+      typeof member.kills === "number" &&
+      typeof member.sanctuary === "number" &&
+      typeof member.joined === "string",
+  );
+  rosterCache = { ...data, members };
+  return rosterCache;
 }
 
 let galleryCache: GalleryImage[] | null = null;

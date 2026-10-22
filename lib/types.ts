@@ -232,3 +232,31 @@ export interface GiftCodeConfig {
   codes: GiftCode[];
   sources: GiftCodeSource[];
 }
+
+export interface AllianceMember {
+  name: string;
+  power: number;
+  kills: number;
+  /** The source calls this a castle; the page calls it a sanctuary. */
+  sanctuary: number;
+  /** ISO timestamp of when the member joined the alliance. */
+  joined: string;
+}
+
+export interface AllianceRoster {
+  /** Date the roster was last scraped (`YYYY-MM-DD`). */
+  updated: string;
+  /** Public leaderboard page the data was read from. */
+  source: string;
+  alliance: {
+    name: string;
+    tag: string;
+    server: number;
+    power: number;
+    kills: number;
+    members: number;
+    /** ISO timestamp of the source snapshot. */
+    asOf: string;
+  };
+  members: AllianceMember[];
+}

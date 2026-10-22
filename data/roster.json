@@ -1,0 +1,715 @@
+{
+  "updated": "2026-10-22",
+  "source": "https://lastasylum.gg/en/leaderboard/alliance/50375557",
+  "alliance": {
+    "name": "SavageRebelz",
+    "tag": "SAVR",
+    "server": 297,
+    "power": 4039549414,
+    "kills": 21767842,
+    "members": 100,
+    "asOf": "2026-10-22T01:26:24.000Z"
+  },
+  "members": [
+    {
+      "name": "T-MoneyCanada",
+      "power": 74946022,
+      "kills": 1706563,
+      "sanctuary": 26,
+      "joined": "2026-10-04T04:32:41.985Z"
+    },
+    {
+      "name": "violette006",
+      "power": 73964323,
+      "kills": 648749,
+      "sanctuary": 28,
+      "joined": "2026-10-04T15:34:48.020Z"
+    },
+    {
+      "name": "Big-Sam-28",
+      "power": 68093613,
+      "kills": 1304119,
+      "sanctuary": 27,
+      "joined": "2026-10-05T22:32:41.730Z"
+    },
+    {
+      "name": "DoctorPeePee",
+      "power": 66537388,
+      "kills": 1644656,
+      "sanctuary": 28,
+      "joined": "2026-10-04T03:59:51.072Z"
+    },
+    {
+      "name": "mskardea",
+      "power": 66333638,
+      "kills": 640509,
+      "sanctuary": 26,
+      "joined": "2026-10-18T23:58:58.844Z"
+    },
+    {
+      "name": "Jesalin",
+      "power": 65011982,
+      "kills": 649780,
+      "sanctuary": 25,
+      "joined": "2026-10-04T05:29:27.767Z"
+    },
+    {
+      "name": "Echoing",
+      "power": 63872011,
+      "kills": 1900972,
+      "sanctuary": 28,
+      "joined": "2026-10-04T03:19:05.827Z"
+    },
+    {
+      "name": "MiniKimy25",
+      "power": 63243668,
+      "kills": 1409936,
+      "sanctuary": 29,
+      "joined": "2026-10-21T00:39:32.746Z"
+    },
+    {
+      "name": "Ąrson",
+      "power": 62911539,
+      "kills": 1529875,
+      "sanctuary": 27,
+      "joined": "2026-09-15T19:21:29.451Z"
+    },
+    {
+      "name": "~destiny~",
+      "power": 62467368,
+      "kills": 126617,
+      "sanctuary": 27,
+      "joined": "2026-10-18T22:17:22.818Z"
+    },
+    {
+      "name": "Kataia",
+      "power": 61540307,
+      "kills": 705195,
+      "sanctuary": 26,
+      "joined": "2026-10-21T00:50:46.739Z"
+    },
+    {
+      "name": "HR-V",
+      "power": 60978885,
+      "kills": 221384,
+      "sanctuary": 27,
+      "joined": "2026-10-18T21:31:08.545Z"
+    },
+    {
+      "name": "ayameyx",
+      "power": 59177593,
+      "kills": 305225,
+      "sanctuary": 28,
+      "joined": "2026-10-04T18:50:48.328Z"
+    },
+    {
+      "name": "DocOlive808",
+      "power": 58725189,
+      "kills": 292279,
+      "sanctuary": 25,
+      "joined": "2026-10-18T23:37:33.580Z"
+    },
+    {
+      "name": "wazupdoc",
+      "power": 58126384,
+      "kills": 60511,
+      "sanctuary": 25,
+      "joined": "2026-10-19T02:56:59.286Z"
+    },
+    {
+      "name": "Drummas",
+      "power": 56915175,
+      "kills": 971427,
+      "sanctuary": 27,
+      "joined": "2026-10-04T11:57:05.105Z"
+    },
+    {
+      "name": "EffervescentBee",
+      "power": 56461773,
+      "kills": 351785,
+      "sanctuary": 25,
+      "joined": "2026-10-04T16:45:10.540Z"
+    },
+    {
+      "name": "FrostyFrenchFry",
+      "power": 55759034,
+      "kills": 35552,
+      "sanctuary": 25,
+      "joined": "2026-10-19T00:59:26.544Z"
+    },
+    {
+      "name": "MsDoctor30",
+      "power": 55105219,
+      "kills": 269935,
+      "sanctuary": 25,
+      "joined": "2026-10-14T02:20:20.722Z"
+    },
+    {
+      "name": "DocScratchnSniff",
+      "power": 53611371,
+      "kills": 162557,
+      "sanctuary": 25,
+      "joined": "2026-10-07T02:16:09.766Z"
+    },
+    {
+      "name": "Kairos669",
+      "power": 52568650,
+      "kills": 757473,
+      "sanctuary": 27,
+      "joined": "2026-10-18T22:04:32.748Z"
+    },
+    {
+      "name": "BaddieKee",
+      "power": 51471798,
+      "kills": 362918,
+      "sanctuary": 25,
+      "joined": "2026-07-27T04:37:40.339Z"
+    },
+    {
+      "name": "DoctorJubie",
+      "power": 51380932,
+      "kills": 91267,
+      "sanctuary": 25,
+      "joined": "2026-10-04T17:52:05.240Z"
+    },
+    {
+      "name": "Bluey80",
+      "power": 51255103,
+      "kills": 383844,
+      "sanctuary": 26,
+      "joined": "2026-10-04T15:56:39.883Z"
+    },
+    {
+      "name": "Dusked",
+      "power": 51039964,
+      "kills": 184813,
+      "sanctuary": 25,
+      "joined": "2026-10-19T00:11:03.249Z"
+    },
+    {
+      "name": "MysticalPixie",
+      "power": 50517090,
+      "kills": 25602,
+      "sanctuary": 24,
+      "joined": "2026-10-04T17:43:46.458Z"
+    },
+    {
+      "name": "DrArisenVase",
+      "power": 50054264,
+      "kills": 14213,
+      "sanctuary": 24,
+      "joined": "2026-10-04T17:57:00.014Z"
+    },
+    {
+      "name": "ButoKing",
+      "power": 50029718,
+      "kills": 362187,
+      "sanctuary": 24,
+      "joined": "2026-10-20T02:56:24.303Z"
+    },
+    {
+      "name": "calixte39646",
+      "power": 49317375,
+      "kills": 190126,
+      "sanctuary": 25,
+      "joined": "2026-10-04T15:37:15.611Z"
+    },
+    {
+      "name": "I-Eat-Glue",
+      "power": 48994416,
+      "kills": 201290,
+      "sanctuary": 24,
+      "joined": "2026-10-05T12:21:28.787Z"
+    },
+    {
+      "name": "Frisolac",
+      "power": 48617376,
+      "kills": 146047,
+      "sanctuary": 25,
+      "joined": "2026-10-05T07:44:20.482Z"
+    },
+    {
+      "name": "ZpedeX",
+      "power": 48581411,
+      "kills": 30547,
+      "sanctuary": 25,
+      "joined": "2026-10-19T00:53:19.314Z"
+    },
+    {
+      "name": "UnstableInHeels",
+      "power": 48564235,
+      "kills": 335597,
+      "sanctuary": 26,
+      "joined": "2026-09-11T20:11:30.367Z"
+    },
+    {
+      "name": "MasterJacksta",
+      "power": 48202380,
+      "kills": 101339,
+      "sanctuary": 25,
+      "joined": "2026-10-04T03:59:50.447Z"
+    },
+    {
+      "name": "doctorphilly",
+      "power": 47967719,
+      "kills": 113411,
+      "sanctuary": 26,
+      "joined": "2026-10-18T21:37:02.908Z"
+    },
+    {
+      "name": "belcanto",
+      "power": 46253958,
+      "kills": 517540,
+      "sanctuary": 26,
+      "joined": "2026-10-05T01:32:22.237Z"
+    },
+    {
+      "name": "Gargiulo",
+      "power": 45639666,
+      "kills": 98357,
+      "sanctuary": 25,
+      "joined": "2026-10-04T06:12:31.284Z"
+    },
+    {
+      "name": "Josslynlyn",
+      "power": 45302177,
+      "kills": 4418,
+      "sanctuary": 25,
+      "joined": "2026-08-19T23:31:03.734Z"
+    },
+    {
+      "name": "Evcha",
+      "power": 44812309,
+      "kills": 203581,
+      "sanctuary": 24,
+      "joined": "2026-10-18T21:29:01.545Z"
+    },
+    {
+      "name": "Ryleee",
+      "power": 44180570,
+      "kills": 348490,
+      "sanctuary": 25,
+      "joined": "2026-10-08T16:37:52.237Z"
+    },
+    {
+      "name": "SheevPalpatine",
+      "power": 43727721,
+      "kills": 54693,
+      "sanctuary": 22,
+      "joined": "2026-10-04T22:37:16.971Z"
+    },
+    {
+      "name": "SasquatchSeeker",
+      "power": 41700943,
+      "kills": 89329,
+      "sanctuary": 24,
+      "joined": "2026-10-04T04:37:49.938Z"
+    },
+    {
+      "name": "Monstarah",
+      "power": 41479904,
+      "kills": 386865,
+      "sanctuary": 26,
+      "joined": "2026-10-04T15:47:31.341Z"
+    },
+    {
+      "name": "Habu1",
+      "power": 40689363,
+      "kills": 178728,
+      "sanctuary": 24,
+      "joined": "2026-10-18T22:50:45.325Z"
+    },
+    {
+      "name": "IslaCHUNKY",
+      "power": 40645471,
+      "kills": 47231,
+      "sanctuary": 23,
+      "joined": "2026-10-05T22:33:36.254Z"
+    },
+    {
+      "name": "Darko-121",
+      "power": 40284688,
+      "kills": 26887,
+      "sanctuary": 24,
+      "joined": "2026-10-04T22:48:39.055Z"
+    },
+    {
+      "name": "AlaskaLune",
+      "power": 40210431,
+      "kills": 69888,
+      "sanctuary": 25,
+      "joined": "2026-10-19T00:53:18.569Z"
+    },
+    {
+      "name": "OliveEater123",
+      "power": 40152614,
+      "kills": 123383,
+      "sanctuary": 24,
+      "joined": "2026-10-20T00:27:27.761Z"
+    },
+    {
+      "name": "DrDarkJustice",
+      "power": 39702674,
+      "kills": 16650,
+      "sanctuary": 23,
+      "joined": "2026-07-28T19:29:04.297Z"
+    },
+    {
+      "name": "Ironwight",
+      "power": 39182927,
+      "kills": 75277,
+      "sanctuary": 22,
+      "joined": "2026-10-19T01:06:03.419Z"
+    },
+    {
+      "name": "Psychotic373",
+      "power": 38784118,
+      "kills": 207323,
+      "sanctuary": 24,
+      "joined": "2026-09-18T13:43:41.517Z"
+    },
+    {
+      "name": "Mizari",
+      "power": 38685015,
+      "kills": 14596,
+      "sanctuary": 24,
+      "joined": "2026-09-10T07:09:33.546Z"
+    },
+    {
+      "name": "Uriuss",
+      "power": 38661900,
+      "kills": 18797,
+      "sanctuary": 23,
+      "joined": "2026-10-04T23:55:41.252Z"
+    },
+    {
+      "name": "Escobar1982",
+      "power": 37424372,
+      "kills": 15244,
+      "sanctuary": 25,
+      "joined": "2026-10-07T13:14:48.011Z"
+    },
+    {
+      "name": "Hazelrah",
+      "power": 37390327,
+      "kills": 16401,
+      "sanctuary": 22,
+      "joined": "2026-10-04T15:36:17.699Z"
+    },
+    {
+      "name": "TornadoSmuggler",
+      "power": 36975882,
+      "kills": 115090,
+      "sanctuary": 25,
+      "joined": "2026-10-04T06:20:03.026Z"
+    },
+    {
+      "name": "Nawalonyszpak",
+      "power": 36970426,
+      "kills": 15727,
+      "sanctuary": 22,
+      "joined": "2026-09-04T14:11:33.259Z"
+    },
+    {
+      "name": "smilingdragon",
+      "power": 36869148,
+      "kills": 38200,
+      "sanctuary": 23,
+      "joined": "2026-10-19T14:17:48.416Z"
+    },
+    {
+      "name": "MelonBarn",
+      "power": 35362342,
+      "kills": 4159,
+      "sanctuary": 20,
+      "joined": "2026-08-27T02:20:29.890Z"
+    },
+    {
+      "name": "M0RAX",
+      "power": 34935949,
+      "kills": 16023,
+      "sanctuary": 22,
+      "joined": "2026-10-04T12:04:12.363Z"
+    },
+    {
+      "name": "DarkestSky",
+      "power": 34682918,
+      "kills": 25722,
+      "sanctuary": 24,
+      "joined": "2026-10-18T22:58:11.383Z"
+    },
+    {
+      "name": "IBO123",
+      "power": 34307107,
+      "kills": 101906,
+      "sanctuary": 23,
+      "joined": "2026-10-19T06:57:36.688Z"
+    },
+    {
+      "name": "MazanJanos",
+      "power": 34139531,
+      "kills": 2005,
+      "sanctuary": 24,
+      "joined": "2026-10-19T08:26:10.831Z"
+    },
+    {
+      "name": "JMP97",
+      "power": 33346584,
+      "kills": 104249,
+      "sanctuary": 22,
+      "joined": "2026-10-04T20:57:48.250Z"
+    },
+    {
+      "name": "Scover",
+      "power": 33056343,
+      "kills": 41831,
+      "sanctuary": 20,
+      "joined": "2026-10-18T21:37:03.987Z"
+    },
+    {
+      "name": "BigRedkg4eyu",
+      "power": 32665219,
+      "kills": 13804,
+      "sanctuary": 20,
+      "joined": "2026-10-18T21:37:07.480Z"
+    },
+    {
+      "name": "Ailisi5",
+      "power": 31875691,
+      "kills": 32884,
+      "sanctuary": 22,
+      "joined": "2026-10-19T18:14:32.631Z"
+    },
+    {
+      "name": "AbsolutBrat",
+      "power": 30856809,
+      "kills": 22684,
+      "sanctuary": 22,
+      "joined": "2026-10-19T00:16:03.706Z"
+    },
+    {
+      "name": "drRain",
+      "power": 30749786,
+      "kills": 20939,
+      "sanctuary": 23,
+      "joined": "2026-10-07T12:48:28.187Z"
+    },
+    {
+      "name": "danno77",
+      "power": 30630463,
+      "kills": 6244,
+      "sanctuary": 23,
+      "joined": "2026-09-14T21:51:17.125Z"
+    },
+    {
+      "name": "Upnorth",
+      "power": 30534131,
+      "kills": 5404,
+      "sanctuary": 20,
+      "joined": "2026-10-19T00:00:18.751Z"
+    },
+    {
+      "name": "verunkam",
+      "power": 30346092,
+      "kills": 6656,
+      "sanctuary": 23,
+      "joined": "2026-10-18T22:11:30.541Z"
+    },
+    {
+      "name": "scarangel",
+      "power": 29990168,
+      "kills": 127965,
+      "sanctuary": 25,
+      "joined": "2026-10-04T05:17:21.655Z"
+    },
+    {
+      "name": "TazTess",
+      "power": 29961167,
+      "kills": 6426,
+      "sanctuary": 23,
+      "joined": "2026-08-28T09:57:54.620Z"
+    },
+    {
+      "name": "Dayanera",
+      "power": 29886612,
+      "kills": 4946,
+      "sanctuary": 20,
+      "joined": "2026-08-26T16:30:54.409Z"
+    },
+    {
+      "name": "SummerWars01",
+      "power": 29238896,
+      "kills": 6612,
+      "sanctuary": 23,
+      "joined": "2026-10-07T04:55:25.085Z"
+    },
+    {
+      "name": "Faceiam",
+      "power": 28906903,
+      "kills": 6117,
+      "sanctuary": 24,
+      "joined": "2026-08-07T12:48:17.839Z"
+    },
+    {
+      "name": "kinkajou",
+      "power": 28840588,
+      "kills": 22275,
+      "sanctuary": 22,
+      "joined": "2026-10-19T00:11:29.759Z"
+    },
+    {
+      "name": "GinKitty",
+      "power": 28420099,
+      "kills": 35723,
+      "sanctuary": 23,
+      "joined": "2026-10-19T15:51:43.683Z"
+    },
+    {
+      "name": "highme420",
+      "power": 26962858,
+      "kills": 23935,
+      "sanctuary": 21,
+      "joined": "2026-08-03T09:49:17.803Z"
+    },
+    {
+      "name": "Acesz",
+      "power": 26728269,
+      "kills": 1384,
+      "sanctuary": 20,
+      "joined": "2026-10-19T09:18:18.477Z"
+    },
+    {
+      "name": "SixBites",
+      "power": 26496649,
+      "kills": 2967,
+      "sanctuary": 21,
+      "joined": "2026-09-30T03:33:55.987Z"
+    },
+    {
+      "name": "Verkana111",
+      "power": 26126695,
+      "kills": 20114,
+      "sanctuary": 22,
+      "joined": "2026-09-21T11:21:34.889Z"
+    },
+    {
+      "name": "Bumthegreat",
+      "power": 24956768,
+      "kills": 14212,
+      "sanctuary": 23,
+      "joined": "2026-10-03T20:15:28.495Z"
+    },
+    {
+      "name": "SimonKing",
+      "power": 23490844,
+      "kills": 4909,
+      "sanctuary": 24,
+      "joined": "2026-10-19T01:05:44.988Z"
+    },
+    {
+      "name": "RealMD",
+      "power": 23407362,
+      "kills": 56327,
+      "sanctuary": 22,
+      "joined": "2026-08-24T22:02:56.762Z"
+    },
+    {
+      "name": "PHL-BabyAi",
+      "power": 23203419,
+      "kills": 8090,
+      "sanctuary": 20,
+      "joined": "2026-10-18T23:19:41.294Z"
+    },
+    {
+      "name": "Doc33823",
+      "power": 22590853,
+      "kills": 8508,
+      "sanctuary": 22,
+      "joined": "2026-10-18T23:07:07.335Z"
+    },
+    {
+      "name": "3RedToes",
+      "power": 21783331,
+      "kills": 21633,
+      "sanctuary": 17,
+      "joined": "2026-09-10T12:38:47.954Z"
+    },
+    {
+      "name": "LuAwesome",
+      "power": 21352002,
+      "kills": 7698,
+      "sanctuary": 18,
+      "joined": "2026-10-21T05:43:32.477Z"
+    },
+    {
+      "name": "DoctorFunseys",
+      "power": 21111010,
+      "kills": 4991,
+      "sanctuary": 22,
+      "joined": "2026-10-18T22:32:11.993Z"
+    },
+    {
+      "name": "helloall",
+      "power": 20391527,
+      "kills": 1175,
+      "sanctuary": 19,
+      "joined": "2026-09-15T07:54:09.209Z"
+    },
+    {
+      "name": "7thsky",
+      "power": 20231788,
+      "kills": 2993,
+      "sanctuary": 21,
+      "joined": "2026-10-19T17:35:57.320Z"
+    },
+    {
+      "name": "SebaARG",
+      "power": 19969742,
+      "kills": 2022,
+      "sanctuary": 22,
+      "joined": "2026-08-17T03:46:46.268Z"
+    },
+    {
+      "name": "DrDanubius",
+      "power": 19423432,
+      "kills": 6060,
+      "sanctuary": 17,
+      "joined": "2026-09-11T03:02:43.511Z"
+    },
+    {
+      "name": "Carlypierce",
+      "power": 19111172,
+      "kills": 9708,
+      "sanctuary": 21,
+      "joined": "2026-09-26T13:42:33.355Z"
+    },
+    {
+      "name": "Divinity833",
+      "power": 17280912,
+      "kills": 16022,
+      "sanctuary": 18,
+      "joined": "2026-09-27T15:11:29.204Z"
+    },
+    {
+      "name": "Evo3evo",
+      "power": 17081562,
+      "kills": 7119,
+      "sanctuary": 17,
+      "joined": "2026-08-18T20:11:59.881Z"
+    },
+    {
+      "name": "JuLika",
+      "power": 15834556,
+      "kills": 3914,
+      "sanctuary": 15,
+      "joined": "2026-10-18T22:22:13.188Z"
+    },
+    {
+      "name": "SCP-049-Keter3",
+      "power": 10564337,
+      "kills": 8492,
+      "sanctuary": 20,
+      "joined": "2026-10-20T14:26:04.590Z"
+    }
+  ]
+}

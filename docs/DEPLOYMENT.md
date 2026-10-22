@@ -135,6 +135,8 @@ Any CMS publish commits to the default branch. Vercel and Cloudflare Pages rebui
 
 The gift-code refresh is a separate schedule: `.github/workflows/refresh-gift-codes.yml` runs at minute 0 of every hour (UTC), checks the source lists and commits `data/gift-codes.json` only when the working set changes. The commit then triggers the host's normal rebuild. Scheduled workflows only run from the default branch, and GitHub may start a run a few minutes late under load; the page itself remains static and makes no runtime requests.
 
+The alliance roster follows the server clock: `.github/workflows/refresh-roster.yml` runs at 02:00 UTC, which is 00:00 (server reset) on the in-game UTC-2 clock. It commits `data/roster.json`, and that commit triggers the same rebuild pipeline. GitHub delays the start slightly under load, so the page may lag the reset by a few minutes.
+
 Calendar updates require a rebuild because the site is static. The calendar JSON is read at build time. If you need instant in-browser calendar editing without a deploy, that is a future Supabase/member-portal feature, not part of the static build.
 
 ## 8. Custom domain and SEO

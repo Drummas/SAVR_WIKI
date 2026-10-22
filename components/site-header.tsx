@@ -271,7 +271,7 @@ export function SiteHeader({ server }: { server: string }) {
               {siteConfig.allianceName} navigation
             </DialogPrimitive.Title>
             <DialogPrimitive.Description className="sr-only">
-              Browse events, guides, strategies, AvA, calendar, tools, gallery and FAQ.
+              Browse events, guides, strategies, AvA, calendar, tools, roster, gallery and FAQ.
             </DialogPrimitive.Description>
             <div className="flex items-center justify-between border-b border-border/70 px-4 py-3.5">
               <Link href="/" onClick={() => setMobileOpen(false)}>

@@ -14,6 +14,7 @@ All content is file-based and typed. Pages are generated from filenames and fron
 | `data/calendar-events.json` | JSON list | `/calendar/` |
 | `data/gallery.json` | JSON list | `/gallery/` |
 | `data/gift-codes.json` | JSON object | `/tools/gift-codes/` |
+| `data/roster.json` | JSON object (generated) | `/roster/` |
 | `data/site.json` | JSON object | Header, footer and metadata identity |
 
 Filenames become URL slugs. Use lowercase, hyphenated names. Do not rename a live file without adding a redirect or updating incoming links.
@@ -54,6 +55,37 @@ Manual edits are still supported when a source cannot be fetched:
 4. If the official redemption portal URL changes, update `redemptionUrl` — it is the only iPhone redemption route. The next hourly run preserves it.
 
 Rewards are optional (`reward` on a code entry). Only add them when a source states the exact contents; otherwise the row stays clean.
+
+## Alliance roster
+
+`data/roster.json` is generated; edit it by running the scraper rather than by hand. The site is a static export, so [`.github/workflows/refresh-roster.yml`](../.github/workflows/refresh-roster.yml) runs [`scripts/refresh-roster.mjs`](../scripts/refresh-roster.mjs) at **00:00 on the in-game clock (UTC-2)**, which GitHub cron expresses as `0 2 * * *` UTC.
+
+What the daily job does:
+
+1. Reads the alliance JSON behind `https://lastasylum.gg/en/leaderboard/alliance/50375557`.
+2. Refuses to write if the alliance ID changed, the roster is empty, the row count does not match the alliance's member count, or a row is missing a name, power, kills, castle level or join timestamp. A failed read fails the workflow and leaves the previous roster live.
+3. Writes each member's name, power, kills, castle level (stored as `sanctuary` for the page) and join timestamp, plus the alliance totals and snapshot time.
+4. Commits `data/roster.json` when it changed. The commit triggers the normal static deployment.
+
+Run it locally before changing the script:
+
+```bash
+node scripts/refresh-roster.mjs --dry-run
+ROSTER_FILE=./roster-test.tmp.json node scripts/refresh-roster.mjs
+```
+
+```json
+{
+  "updated": "2026-10-22",
+  "source": "https://lastasylum.gg/en/leaderboard/alliance/50375557",
+  "alliance": { "name": "SavageRebelz", "tag": "SAVR", "server": 297, "members": 100 },
+  "members": [
+    { "name": "T-MoneyCanada", "power": 74946022, "kills": 1706563, "sanctuary": 26, "joined": "2026-10-04T04:32:41.985Z" }
+  ]
+}
+```
+
+`joined` is stored as an ISO timestamp and rendered as a UTC date. The page labels the source's castle column **Sanctuary**, matching in-game language.
 
 ## Alliance identity
 

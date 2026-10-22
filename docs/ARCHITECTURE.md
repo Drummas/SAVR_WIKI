@@ -56,7 +56,7 @@ capture matters more than a cohesive palette.
 - Reads MDX and parses frontmatter with `gray-matter`.
 - Applies safe defaults so partial content never crashes a page.
 - Sorts collections by `order` then title.
-- Exposes typed getters (`getEvents`, `getGuides`, `getStrategies`, `getFaq`, `getCalendarEvents`, `getGallery`, `getSiteConfig`).
+- Exposes typed getters (`getEvents`, `getGuides`, `getStrategies`, `getFaq`, `getCalendarEvents`, `getGallery`, `getRoster`, `getSiteConfig`).
 - Resolves related content by tags/slug where appropriate.
 
 `lib/types.ts` is the contract. Any future database adapter must return these shapes to keep pages unchanged.

@@ -52,6 +52,7 @@ Node 20+ is required. The site uses `output: "export"`, so `npm run build` produ
 | `/alliance-vs-alliance/` | Advanced AvA command centre: scoring, five-phase plan, overlap diagram, planning, coordination, daily plan |
 | `/calendar/` | Monthly, weekly and agenda views, live server/local clock, filters, countdowns, overlap indicators |
 | `/tools/gift-codes/` | Active gift codes, auto-refreshed hourly, with copy/filter, Android redemption steps, iPhone portal link and source freshness |
+| `/roster/` | Full alliance roster — player, power, kills, sanctuary and join date — refreshed daily at server reset |
 | `/gallery/` | Searchable image library with category/tag filters and zoomable lightbox |
 | `/faq/` | Searchable, category-filtered FAQ accordion with deep links |
 | `/search/` | Full local search archive with type/category filters |
@@ -69,7 +70,7 @@ Node 20+ is required. The site uses `output: "export"`, so `npm run build` produ
   /guides             8 MDX guide files (incl. Know Your Heroes)
   /strategies         6 MDX strategy files
   /faq                faq.json
-/data                 site.json, calendar-events.json, gallery.json, heroes.json, gift-codes.json
+/data                 site.json, calendar-events.json, gallery.json, heroes.json, gift-codes.json, roster.json
 /lib                  content loader, types, SEO, navigation, search and calendar helpers
 /public
   /brand              alliance + game wordmark artwork, crest
@@ -149,6 +150,10 @@ Content is plain MDX + JSON in Git. Replace the placeholder text and images, upd
 ### Gift codes
 
 `/tools/gift-codes/` reads [`data/gift-codes.json`](data/gift-codes.json). A GitHub Actions schedule runs [`scripts/refresh-gift-codes.mjs`](scripts/refresh-gift-codes.mjs) at minute 0 of every hour (UTC), follows the newest in-game-checked list, removes expired and duplicate codes, and commits only when the working set changes. That commit triggers the normal static deployment. The workflow starts once it is pushed to the default branch; see [docs/CONTENT.md](docs/CONTENT.md#gift-codes).
+
+### Alliance roster
+
+`/roster/` reads [`data/roster.json`](data/roster.json). [`scripts/refresh-roster.mjs`](scripts/refresh-roster.mjs) reads the public alliance leaderboard at server reset (00:00 on the in-game clock, UTC-2) and the GitHub Actions schedule commits the result, which triggers the normal static deployment. The script refuses to publish a truncated or malformed roster, so a failed read leaves the previous list live; see [docs/CONTENT.md](docs/CONTENT.md#alliance-roster).
 
 ### Hero roster
 
