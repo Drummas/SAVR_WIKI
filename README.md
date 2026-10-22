@@ -52,7 +52,7 @@ Node 20+ is required. The site uses `output: "export"`, so `npm run build` produ
 | `/alliance-vs-alliance/` | Advanced AvA command centre: scoring, five-phase plan, overlap diagram, planning, coordination, daily plan |
 | `/calendar/` | Monthly, weekly and agenda views, live server/local clock, filters, countdowns, overlap indicators |
 | `/tools/gift-codes/` | Active gift codes, auto-refreshed hourly, with copy/filter, Android redemption steps, iPhone portal link and source freshness |
-| `/roster/` | Full alliance roster — player, power, kills, sanctuary and join date — refreshed daily at server reset |
+| `/roster/` | Sortable alliance roster — player, total might, total hero might, hero highest might, kills, sanctuary and join date — refreshed daily at server reset |
 | `/gallery/` | Searchable image library with category/tag filters and zoomable lightbox |
 | `/faq/` | Searchable, category-filtered FAQ accordion with deep links |
 | `/search/` | Full local search archive with type/category filters |

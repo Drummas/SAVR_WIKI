@@ -63,9 +63,12 @@ Rewards are optional (`reward` on a code entry). Only add them when a source sta
 What the daily job does:
 
 1. Reads the alliance JSON behind `https://lastasylum.gg/en/leaderboard/alliance/50375557`.
-2. Refuses to write if the alliance ID changed, the roster is empty, the row count does not match the alliance's member count, or a row is missing a name, power, kills, castle level or join timestamp. A failed read fails the workflow and leaves the previous roster live.
-3. Writes each member's name, power, kills, castle level (stored as `sanctuary` for the page) and join timestamp, plus the alliance totals and snapshot time.
-4. Commits `data/roster.json` when it changed. The commit triggers the normal static deployment.
+2. Reads each member's player page, linked from their name in the alliance list, for **Total Hero Might** and **Hero Highest Might**. The pages are fetched one at a time; a rate-limit response is retried after 60 seconds rather than stored as a blank.
+3. Refuses to write if the alliance ID changed, the roster is empty, the row count does not match the alliance's member count, or a row is missing a name, power, kills, castle level or join timestamp. A failed read fails the workflow and leaves the previous roster live.
+4. Writes each member's name, power (displayed as **Total Might**), total hero might, hero highest might, kills, castle level (stored as `sanctuary` for the page) and join timestamp, plus the alliance totals and snapshot time.
+5. Commits `data/roster.json` when it changed. The commit triggers the normal static deployment.
+
+The source only publishes hero might on player pages for members who appear on the server hero boards. Those values are stored as `null` for everyone else and shown as a dash; the columns are not estimated. The roster keeps the previous file if no player-page hero stats are found at all, which catches a layout change.
 
 Run it locally before changing the script:
 
@@ -80,12 +83,20 @@ ROSTER_FILE=./roster-test.tmp.json node scripts/refresh-roster.mjs
   "source": "https://lastasylum.gg/en/leaderboard/alliance/50375557",
   "alliance": { "name": "SavageRebelz", "tag": "SAVR", "server": 297, "members": 100 },
   "members": [
-    { "name": "T-MoneyCanada", "power": 74946022, "kills": 1706563, "sanctuary": 26, "joined": "2026-10-04T04:32:41.985Z" }
+    {
+      "name": "T-MoneyCanada",
+      "power": 74946022,
+      "totalHeroMight": 40690243,
+      "heroHighestMight": 2547618,
+      "kills": 1706563,
+      "sanctuary": 26,
+      "joined": "2026-10-04T04:32:41.985Z"
+    }
   ]
 }
 ```
 
-`joined` is stored as an ISO timestamp and rendered as a UTC date. The page labels the source's castle column **Sanctuary**, matching in-game language.
+`joined` is stored as an ISO timestamp and rendered as a UTC date. The page labels the source's castle column **Sanctuary**, matching in-game language, and the source's power column **Total Might**.
 
 ## Alliance identity
 

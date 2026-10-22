@@ -323,6 +323,8 @@ export function getRoster(): AllianceRoster {
       !!member &&
       typeof member.name === "string" &&
       typeof member.power === "number" &&
+      (member.totalHeroMight === null || typeof member.totalHeroMight === "number") &&
+      (member.heroHighestMight === null || typeof member.heroHighestMight === "number") &&
       typeof member.kills === "number" &&
       typeof member.sanctuary === "number" &&
       typeof member.joined === "string",

@@ -236,6 +236,10 @@ export interface GiftCodeConfig {
 export interface AllianceMember {
   name: string;
   power: number;
+  /** Total might of every hero combined; null when the source does not publish it. */
+  totalHeroMight: number | null;
+  /** Might of the member's strongest single hero; null when the source does not publish it. */
+  heroHighestMight: number | null;
   kills: number;
   /** The source calls this a castle; the page calls it a sanctuary. */
   sanctuary: number;
