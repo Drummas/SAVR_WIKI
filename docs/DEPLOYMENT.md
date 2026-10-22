@@ -133,6 +133,8 @@ Image guidance:
 
 Any CMS publish commits to the default branch. Vercel and Cloudflare Pages rebuild automatically. If you edit files directly, run `npm run build` and deploy the resulting `out/` directory.
 
+The gift-code refresh is a separate schedule: `.github/workflows/refresh-gift-codes.yml` runs at minute 0 of every hour (UTC), checks the source lists and commits `data/gift-codes.json` only when the working set changes. The commit then triggers the host's normal rebuild. Scheduled workflows only run from the default branch, and GitHub may start a run a few minutes late under load; the page itself remains static and makes no runtime requests.
+
 Calendar updates require a rebuild because the site is static. The calendar JSON is read at build time. If you need instant in-browser calendar editing without a deploy, that is a future Supabase/member-portal feature, not part of the static build.
 
 ## 8. Custom domain and SEO
@@ -157,7 +159,8 @@ Calendar updates require a rebuild because the site is static. The calendar JSON
 | CMS cannot log in | OAuth proxy URL, callback URL, repository name and collaborator access |
 | Images missing | Path is case-sensitive on Linux hosts; confirm `/images/...` paths and file extensions |
 | Fonts fail at build | `next/font/google` requires network access during build; retry or swap to local fonts |
-| Calendar times look shifted | Data is stored on the in-game clock (`UTC-4`) and re-labelled live. Check the visitor's clock setting (server vs local offset), `SERVER_OFFSET` in `lib/time.ts`, and the ISO string in the JSON |
+| Theme resets or flashes on load | Theme is stored per browser in `localStorage` (`savr.theme`) and applied by an inline script in the root layout. A CSP that blocks inline scripts will skip the pre-paint step; the provider still applies the saved theme after hydration. Confirm the stored id matches `vivid`, `aurora` or `green` |
+| Calendar times look shifted | Data is stored on the in-game clock (`UTC-2`) and re-labelled live. Check the visitor's clock setting (server vs local offset), `SERVER_OFFSET` in `lib/time.ts`, and the ISO string in the JSON |
 | Stale page after publishing | Wait for the static build; check the host's deployment log |
 
 ## 10. Taking the site offline

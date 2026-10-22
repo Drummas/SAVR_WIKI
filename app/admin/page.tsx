@@ -51,7 +51,7 @@ const collections = [
     description: "Objectives, phases, rewards, checklists and visual walkthroughs.",
     href: "/admin/cms/#/collections/events",
     icon: Radar,
-    accent: "text-emerald-300",
+    accent: "text-primary",
   },
   {
     name: "Field guides",
@@ -65,14 +65,14 @@ const collections = [
     description: "Objectives, actions, requirements, metrics and failure modes.",
     href: "/admin/cms/#/collections/strategies",
     icon: Swords,
-    accent: "text-lime-300",
+    accent: "text-warning",
   },
   {
     name: "Event calendar",
     description: "Dates, categories, overlap links and source labels.",
     href: "/admin/cms/#/collections/calendar",
     icon: CalendarDays,
-    accent: "text-emerald-300",
+    accent: "text-primary",
   },
   {
     name: "Image library",
@@ -86,7 +86,7 @@ const collections = [
     description: "Questions, answers, categories and searchable tags.",
     href: "/admin/cms/#/collections/faq",
     icon: FileText,
-    accent: "text-lime-300",
+    accent: "text-warning",
   },
   {
     name: "Alliance identity",
@@ -145,7 +145,7 @@ export default function AdminPage() {
               prefetch={stat.href.startsWith("/admin/cms") ? false : undefined}
               className="group rounded-md border border-border/70 bg-card/40 p-4 transition-colors hover:border-primary/40"
             >
-              <p className="font-display text-3xl leading-none text-foreground group-hover:text-emerald-100">
+              <p className="font-display text-3xl leading-none text-foreground group-hover:text-primary-soft">
                 {String(stat.value).padStart(2, "0")}
               </p>
               <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground/60">
@@ -155,17 +155,17 @@ export default function AdminPage() {
           ))}
         </div>
 
-        <div className="mt-4 flex flex-col gap-3 rounded-md border border-lime-500/25 bg-lime-500/[0.045] p-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-4 flex flex-col gap-3 rounded-md border border-warning/25 bg-warning/[0.045] p-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex gap-3">
-            <Wrench className="mt-0.5 size-4 shrink-0 text-lime-400" />
+            <Wrench className="mt-0.5 size-4 shrink-0 text-warning" />
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-lime-300">
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-warning">
                 One-time production setup required
               </p>
               <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                Local editing works immediately with <code className="text-emerald-300">npm run decap</code>.
+                Local editing works immediately with <code className="text-primary">npm run decap</code>.
                 Production publishing needs the GitHub repository and OAuth details in{" "}
-                <code className="text-emerald-300">public/admin/cms/config.yml</code>.
+                <code className="text-primary">public/admin/cms/config.yml</code>.
               </p>
             </div>
           </div>
@@ -203,7 +203,7 @@ export default function AdminPage() {
                 <collection.icon className={`size-4 ${collection.accent}`} />
               </span>
               <span className="min-w-0">
-                <span className="flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-emerald-100">
+                <span className="flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-primary-soft">
                   {collection.name}
                   <ArrowRight className="size-3 opacity-0 transition-opacity group-hover:opacity-100" />
                 </span>

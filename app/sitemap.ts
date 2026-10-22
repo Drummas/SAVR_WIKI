@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/strategies/", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/alliance-vs-alliance/", priority: 0.95, changeFrequency: "weekly" as const },
     { path: "/calendar/", priority: 0.85, changeFrequency: "daily" as const },
+    { path: "/tools/gift-codes/", priority: 0.6, changeFrequency: "weekly" as const },
     { path: "/gallery/", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/faq/", priority: 0.75, changeFrequency: "monthly" as const },
   ];

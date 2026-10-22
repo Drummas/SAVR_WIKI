@@ -4,35 +4,48 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { ChevronDown, Menu, Search, X } from "lucide-react";
+import { Calculator, ChevronDown, Gift, Menu, Search, X } from "lucide-react";
 
 import siteConfig from "@/data/site.json";
 import { BrandMark } from "@/components/brand-mark";
 import { CategoryIcon } from "@/components/category-icon";
 import { SearchTrigger } from "@/components/search/search-trigger";
+import { ThemeMenu, ThemePicker } from "@/components/theme/theme-switcher";
 import { ClockControls } from "@/components/time/clock-controls";
 import { ClockMenu } from "@/components/time/clock-menu";
 import { useClock } from "@/components/time/clock-provider";
 import { LiveClock } from "@/components/time/live-clock";
 import { ServerDay } from "@/components/time/server-day";
-import { eventCategories, primaryNav, type NavItem } from "@/lib/navigation";
+import { primaryNav, type NavItem } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
-function isActive(pathname: string, href: string) {
+function isActive(pathname: string, href?: string) {
+  if (!href) return false;
   if (href === "/") return pathname === "/";
   const base = href.replace(/\/$/, "");
   return pathname === base || pathname === `${base}/` || pathname.startsWith(`${base}/`);
 }
 
+function NavChildIcon({ item, className }: { item: NavItem; className?: string }) {
+  if (item.icon === "calculator") return <Calculator className={className} aria-hidden="true" />;
+  if (item.icon === "gift") return <Gift className={className} aria-hidden="true" />;
+  if (item.icon === "category") return <CategoryIcon category={item.label} className={className} />;
+  return null;
+}
+
 /**
- * Events flyout. Hover/focus opens it, but the panel is stateful so picking an
- * entry closes it immediately — a CSS-only menu stays open after the click
- * because the pointer is still parked over the header.
+ * Shared flyout for header sections (Events, Tools). Hover/focus opens it, but
+ * the panel is stateful so picking an entry closes it immediately — a CSS-only
+ * menu stays open after the click because the pointer is still parked over the
+ * header. A section without a landing page (Tools) uses a button trigger so it
+ * never navigates to a missing route.
  */
-function EventsNavItem({ item }: { item: NavItem }) {
+function NavFlyout({ item }: { item: NavItem }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const wrapper = useRef<HTMLDivElement>(null);
+  const active = isActive(pathname, item.href ?? item.activePath ?? "");
+  const wide = (item.children?.length ?? 0) > 4;
 
   useEffect(() => {
     setOpen(false);
@@ -67,53 +80,93 @@ function EventsNavItem({ item }: { item: NavItem }) {
         }, 0);
       }}
     >
-      <Link
-        href={item.href}
-        data-active={isActive(pathname, item.href)}
-        aria-haspopup="true"
-        aria-expanded={open}
-        className="nav-link uppercase tracking-wide"
-      >
-        {item.label}
-        <ChevronDown className={cn("size-3 transition-transform", open && "rotate-180")} />
-      </Link>
+      {item.href ? (
+        <Link
+          href={item.href}
+          data-active={active}
+          aria-haspopup="true"
+          aria-expanded={open}
+          className="nav-link uppercase tracking-wide"
+        >
+          {item.label}
+          <ChevronDown className={cn("size-3 transition-transform", open && "rotate-180")} />
+        </Link>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          data-active={active}
+          aria-haspopup="true"
+          aria-expanded={open}
+          aria-label={`${item.label} menu`}
+          className="nav-link uppercase tracking-wide"
+        >
+          {item.label}
+          <ChevronDown className={cn("size-3 transition-transform", open && "rotate-180")} />
+        </button>
+      )}
       <div
         className={cn(
-          "absolute left-0 top-full z-50 w-[520px] pt-3 transition-all duration-150",
+          "absolute top-full z-50 pt-3 transition-all duration-150",
+          wide ? "left-0 w-[520px]" : "right-0 w-[340px]",
           open ? "visible translate-y-0 opacity-100" : "invisible translate-y-1 opacity-0",
         )}
       >
         <div className="hud-corners rounded-lg border border-border bg-popover p-2 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)]">
-          <div className="grid grid-cols-2 gap-1">
-            {eventCategories.map((category) => {
-              const child = item.children?.find((entry) => entry.label === category);
+          <div className={cn("grid gap-1", wide ? "grid-cols-2" : "grid-cols-1")}>
+            {item.children?.map((child) => {
+              const body = (
+                <>
+                  <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-sm border border-border bg-background/60 text-muted-foreground transition-colors group-hover/item:border-primary/40 group-hover/item:text-primary">
+                    <NavChildIcon item={child} className="size-3.5" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-xs font-medium text-foreground">{child.label}</span>
+                    <span className="mt-0.5 block font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground/60">
+                      {child.description ?? (item.label === "Events" ? "Event file" : "Tool")}
+                    </span>
+                  </span>
+                  {child.disabled && (
+                    <span className="ml-auto shrink-0 rounded-sm border border-border/70 bg-background/60 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground/50">
+                      Soon
+                    </span>
+                  )}
+                </>
+              );
+
+              if (!child.href || child.disabled) {
+                return (
+                  <div
+                    key={child.label}
+                    aria-disabled="true"
+                    className="flex cursor-not-allowed items-start gap-2.5 rounded-sm px-3 py-2.5 opacity-55"
+                  >
+                    {body}
+                  </div>
+                );
+              }
+
               return (
                 <Link
-                  key={category}
-                  href={child?.href ?? "/events/"}
+                  key={child.label}
+                  href={child.href}
                   onClick={close}
                   className="group/item flex items-start gap-2.5 rounded-sm px-3 py-2.5 transition-colors hover:bg-secondary"
                 >
-                  <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-sm border border-border bg-background/60 text-muted-foreground transition-colors group-hover/item:border-primary/40 group-hover/item:text-primary">
-                    <CategoryIcon category={category} className="size-3.5" />
-                  </span>
-                  <span>
-                    <span className="block text-xs font-medium text-foreground">{category}</span>
-                    <span className="mt-0.5 block font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground/60">
-                      Event file
-                    </span>
-                  </span>
+                  {body}
                 </Link>
               );
             })}
           </div>
-          <Link
-            href="/events/"
-            onClick={close}
-            className="mt-1 flex items-center justify-between rounded-sm border-t border-border/60 px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-primary transition-colors hover:bg-primary/5"
-          >
-            All event intelligence <span aria-hidden="true">→</span>
-          </Link>
+          {item.href && item.footerLabel && (
+            <Link
+              href={item.href}
+              onClick={close}
+              className="mt-1 flex items-center justify-between rounded-sm border-t border-border/60 px-3 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-primary transition-colors hover:bg-primary/5"
+            >
+              {item.footerLabel} <span aria-hidden="true">→</span>
+            </Link>
+          )}
         </div>
       </div>
     </div>
@@ -133,7 +186,7 @@ export function SiteHeader({ server }: { server: string }) {
 
   return (
     <>
-      <div className="hidden border-b border-border/50 bg-[#060b08] lg:block">
+      <div className="hidden border-b border-border/50 bg-ink lg:block">
         <div className="container-page flex h-8 items-center justify-between font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground/70">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 text-primary/80">
@@ -148,6 +201,8 @@ export function SiteHeader({ server }: { server: string }) {
           <div className="flex items-center gap-3">
             <span className="hidden xl:inline">Fan-made · verify live event data</span>
             <span className="hidden h-3 w-px bg-border xl:block" />
+            <ThemeMenu />
+            <span className="h-3 w-px bg-border" />
             <ClockMenu />
             <span className="h-3 w-px bg-border" />
             <Link href="/admin/" className="transition-colors hover:text-primary">
@@ -170,23 +225,21 @@ export function SiteHeader({ server }: { server: string }) {
           <nav className="hidden items-center lg:flex" aria-label="Primary navigation">
             {navItems.map((item) =>
               item.children ? (
-                <EventsNavItem key={item.label} item={item} />
-              ) : (
+                <NavFlyout key={item.label} item={item} />
+              ) : item.href ? (
                 <Link
                   key={item.label}
                   href={item.href}
                   data-active={isActive(pathname, item.href)}
-                  className={cn(
-                    "nav-link uppercase tracking-wide",
-                    item.label === "Alliance vs Alliance" && "xl:px-2",
-                  )}
+                  aria-label={
+                    item.label === "Alliance vs Alliance" ? "Alliance vs Alliance" : undefined
+                  }
+                  title={item.label === "Alliance vs Alliance" ? "Alliance vs Alliance" : undefined}
+                  className="nav-link uppercase tracking-wide"
                 >
-                  <span className="xl:hidden">
-                    {item.label === "Alliance vs Alliance" ? "AvA" : item.label}
-                  </span>
-                  <span className="hidden xl:inline">{item.label}</span>
+                  {item.label === "Alliance vs Alliance" ? "AvA" : item.label}
                 </Link>
-              ),
+              ) : null,
             )}
           </nav>
 
@@ -194,7 +247,7 @@ export function SiteHeader({ server }: { server: string }) {
             <SearchTrigger />
             <Link
               href="/calendar/"
-              className="hidden h-9 items-center rounded-sm border border-primary/40 bg-primary/10 px-3 font-mono text-[10px] uppercase tracking-[0.12em] text-emerald-300 transition-colors hover:bg-primary hover:text-primary-foreground xl:inline-flex"
+              className="hidden h-9 items-center rounded-sm border border-primary/40 bg-primary/10 px-3 font-mono text-[10px] uppercase tracking-[0.12em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground xl:inline-flex"
             >
               Event clock
             </Link>
@@ -213,12 +266,12 @@ export function SiteHeader({ server }: { server: string }) {
       <DialogPrimitive.Root open={mobileOpen} onOpenChange={setMobileOpen}>
         <DialogPrimitive.Portal>
           <DialogPrimitive.Overlay className="fixed inset-0 z-[70] bg-black/75 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-          <DialogPrimitive.Content className="fixed inset-y-0 right-0 z-[71] flex w-[min(92vw,380px)] flex-col border-l border-border bg-[#0a120e] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right">
+          <DialogPrimitive.Content className="fixed inset-y-0 right-0 z-[71] flex w-[min(92vw,380px)] flex-col border-l border-border bg-panel data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right">
             <DialogPrimitive.Title className="sr-only">
               {siteConfig.allianceName} navigation
             </DialogPrimitive.Title>
             <DialogPrimitive.Description className="sr-only">
-              Browse events, guides, strategies, AvA, calendar, gallery and FAQ.
+              Browse events, guides, strategies, AvA, calendar, tools, gallery and FAQ.
             </DialogPrimitive.Description>
             <div className="flex items-center justify-between border-b border-border/70 px-4 py-3.5">
               <Link href="/" onClick={() => setMobileOpen(false)}>
@@ -250,6 +303,16 @@ export function SiteHeader({ server }: { server: string }) {
                 <ClockControls className="mt-3" compact />
               </div>
 
+              <div className="mb-5 rounded-sm border border-border bg-background/60 p-3">
+                <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-primary">
+                  Appearance
+                </p>
+                <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground/70">
+                  Palette for this device
+                </p>
+                <ThemePicker className="mt-2.5" />
+              </div>
+
               <Link
                 href="/search/"
                 onClick={() => setMobileOpen(false)}
@@ -264,38 +327,73 @@ export function SiteHeader({ server }: { server: string }) {
 
               <p className="eyebrow-muted mb-2">Navigation</p>
               <nav className="flex flex-col" aria-label="Mobile navigation">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={cn(
-                      "flex items-center justify-between border-b border-border/50 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
-                      isActive(pathname, item.href) && "text-primary",
-                    )}
-                  >
-                    {item.label}
-                    <span aria-hidden="true" className="font-mono text-xs text-muted-foreground/50">
-                      →
-                    </span>
-                  </Link>
-                ))}
+                {navItems.map((item) =>
+                  item.href ? (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={cn(
+                        "flex items-center justify-between border-b border-border/50 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
+                        isActive(pathname, item.href) && "text-primary",
+                      )}
+                    >
+                      {item.label}
+                      <span aria-hidden="true" className="font-mono text-xs text-muted-foreground/50">
+                        →
+                      </span>
+                    </Link>
+                  ) : (
+                    <div
+                      key={item.label}
+                      className={cn(
+                        "flex items-center justify-between border-b border-border/50 py-3 text-sm font-medium text-foreground",
+                        isActive(pathname, item.activePath ?? "") && "text-primary",
+                      )}
+                    >
+                      {item.label}
+                      <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground/50">
+                        Menu
+                      </span>
+                    </div>
+                  ),
+                )}
               </nav>
 
-              <p className="eyebrow-muted mb-2 mt-6">Event files</p>
-              <div className="grid grid-cols-1 gap-1">
-                {primaryNav[1]?.children?.map((child) => (
-                  <Link
-                    key={child.label}
-                    href={child.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center gap-2.5 rounded-sm px-2 py-2 text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-                  >
-                    <CategoryIcon category={child.label} className="size-3.5 text-primary/70" />
-                    {child.label}
-                  </Link>
+              {navItems
+                .filter((item) => item.children?.length)
+                .map((group) => (
+                  <div key={group.label} className="mt-6">
+                    <p className="eyebrow-muted mb-2">{group.label}</p>
+                    <div className="grid grid-cols-1 gap-1">
+                      {group.children?.map((child) =>
+                        child.href && !child.disabled ? (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center gap-2.5 rounded-sm px-2 py-2 text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                          >
+                            <NavChildIcon item={child} className="size-3.5 text-primary/70" />
+                            {child.label}
+                          </Link>
+                        ) : (
+                          <span
+                            key={child.label}
+                            aria-disabled="true"
+                            className="flex items-center gap-2.5 rounded-sm px-2 py-2 text-xs text-muted-foreground/45"
+                          >
+                            <NavChildIcon item={child} className="size-3.5" />
+                            {child.label}
+                            <span className="ml-auto font-mono text-[8px] uppercase tracking-[0.12em]">
+                              Soon
+                            </span>
+                          </span>
+                        ),
+                      )}
+                    </div>
+                  </div>
                 ))}
-              </div>
 
               <div className="mt-6 grid grid-cols-2 gap-2">
                 <Link
@@ -308,7 +406,7 @@ export function SiteHeader({ server }: { server: string }) {
                 <Link
                   href="/calendar/"
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-sm border border-primary/40 bg-primary/10 px-3 py-2.5 text-center font-mono text-[10px] uppercase tracking-widest text-emerald-300"
+                  className="rounded-sm border border-primary/40 bg-primary/10 px-3 py-2.5 text-center font-mono text-[10px] uppercase tracking-widest text-primary"
                 >
                   Event clock
                 </Link>

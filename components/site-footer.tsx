@@ -8,7 +8,7 @@ import { getSiteConfig } from "@/lib/content";
 export function SiteFooter() {
   const site = getSiteConfig();
   return (
-    <footer className="relative mt-20 border-t border-border/60 bg-[#060b08]">
+    <footer className="relative mt-20 border-t border-border/60 bg-ink">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       <div className="container-page py-12">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_2fr]">

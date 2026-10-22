@@ -83,7 +83,7 @@ export default function GuidesPage() {
                   <Badge variant="outline">{beginner.priorities.length} priorities</Badge>
                 </div>
               </div>
-              <span className="inline-flex items-center gap-2 self-start rounded-sm border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-emerald-300 transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+              <span className="inline-flex items-center gap-2 self-start rounded-sm border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                 Open guide <ArrowRight className="size-3.5" />
               </span>
             </div>
@@ -123,7 +123,7 @@ export default function GuidesPage() {
               </div>
               <Link
                 href={`/guides/${heroGuide.slug}/`}
-                className="inline-flex items-center gap-2 self-start rounded-sm border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-emerald-300 transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="inline-flex items-center gap-2 self-start rounded-sm border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
               >
                 Open the roster <ArrowRight className="size-3.5" />
               </Link>
@@ -143,7 +143,7 @@ export default function GuidesPage() {
         )}
       </section>
 
-      <section className="border-y border-border/60 bg-[#09110c]">
+      <section className="border-y border-border/60 bg-well">
         <div className="container-page py-10">
           <SectionHeading
             eyebrow="Long-horizon planning"

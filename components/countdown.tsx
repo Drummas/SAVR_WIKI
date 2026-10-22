@@ -44,7 +44,7 @@ export function Countdown({
   const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
-    // Stored timestamps are on the in-game clock (UTC-4); reading the device
+    // Stored timestamps are on the in-game clock (UTC-2); reading the device
     // clock into that same space keeps the countdown honest.
     const tick = () => setNow(new Date(nowOnServerClock()));
     tick();
@@ -83,7 +83,7 @@ export function Countdown({
       <span
         className={cn(
           "inline-flex items-center gap-1 font-mono text-xs tabular-nums",
-          state === "live" ? "text-emerald-300" : "text-emerald-300/90",
+          state === "live" ? "text-primary" : "text-primary/90",
           className,
         )}
       >
@@ -126,7 +126,7 @@ export function Countdown({
               <div
                 className={cn(
                   "font-display text-xl leading-none tabular-nums sm:text-2xl",
-                  state === "live" ? "text-emerald-300" : "text-foreground",
+                  state === "live" ? "text-primary" : "text-foreground",
                 )}
               >
                 {String(cell.value).padStart(2, "0")}

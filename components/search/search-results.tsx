@@ -41,7 +41,7 @@ function Highlight({ text, query }: { text: string; query: string }) {
     <>
       {parts.map((part, index) =>
         tokens.some((token) => new RegExp(`^${token}$`, "i").test(part)) ? (
-          <mark key={index} className="rounded-sm bg-primary/20 px-0.5 text-emerald-200">
+          <mark key={index} className="rounded-sm bg-primary/20 px-0.5 text-primary-soft">
             {part}
           </mark>
         ) : (
@@ -78,7 +78,7 @@ export function SearchResultRow({
       </span>
       <span className="min-w-0 flex-1">
         <span className="flex flex-wrap items-center gap-2">
-          <span className="line-clamp-1 text-sm font-medium text-foreground group-hover:text-emerald-200">
+          <span className="line-clamp-1 text-sm font-medium text-foreground group-hover:text-primary-soft">
             <Highlight text={doc.title} query={query} />
           </span>
           <Badge variant="outline" className="shrink-0">

@@ -39,13 +39,13 @@ export function HeroCard({ hero, code }: { hero: Hero; code?: string }) {
       id={`hero-${hero.slug}`}
       className="group hud-corners relative flex h-full scroll-mt-28 flex-col overflow-hidden rounded-md border border-border/80 bg-card/50 transition-colors duration-300 hover:border-primary/45 hover:bg-card/70"
     >
-      <div className="relative aspect-[5/4] shrink-0 overflow-hidden border-b border-border/50 bg-[#070f0a]">
+      <div className="relative aspect-[5/4] shrink-0 overflow-hidden border-b border-border/50 bg-panel">
         <div
           className="absolute inset-0 bg-tactical-grid bg-grid-sm opacity-40"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_70%_62%_at_50%_88%,rgba(52,224,126,0.18),transparent_72%)]"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_70%_62%_at_50%_88%,rgb(var(--primary-rgb)_/_0.18),transparent_72%)]"
           aria-hidden="true"
         />
         {hero.image ? (
@@ -81,7 +81,7 @@ export function HeroCard({ hero, code }: { hero: Hero; code?: string }) {
       </div>
 
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="font-display text-2xl uppercase leading-none tracking-wide text-foreground group-hover:text-emerald-100">
+        <h3 className="font-display text-2xl uppercase leading-none tracking-wide text-foreground group-hover:text-primary-soft">
           {hero.name}
         </h3>
         <p className="mt-1.5 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em]">
@@ -109,7 +109,7 @@ export function HeroCard({ hero, code }: { hero: Hero; code?: string }) {
               {hero.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-sm border border-border/70 bg-background/50 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.04em] text-emerald-200/75"
+                  className="rounded-sm border border-border/70 bg-background/50 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.04em] text-primary-soft/75"
                 >
                   {skill}
                 </span>

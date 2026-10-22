@@ -58,7 +58,7 @@ export function HeroRosterSummary() {
               href={meta.source}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-primary hover:text-emerald-300"
+              className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary-soft"
             >
               Published hero roster
               <ArrowUpRight className="size-3" />

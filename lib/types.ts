@@ -210,3 +210,25 @@ export interface SiteConfig {
   stats: { label: string; value: string }[];
   disclaimer: string;
 }
+
+export interface GiftCode {
+  code: string;
+  /** Optional reward summary when a source states it. */
+  reward?: string;
+}
+
+export interface GiftCodeSource {
+  label: string;
+  url: string;
+  note: string;
+}
+
+export interface GiftCodeConfig {
+  /** Date the page content was last edited (`YYYY-MM-DD`). */
+  updated: string;
+  /** Date every remaining code was last confirmed redeemable. */
+  checked: string;
+  redemptionUrl: string;
+  codes: GiftCode[];
+  sources: GiftCodeSource[];
+}

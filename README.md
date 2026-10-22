@@ -51,6 +51,7 @@ Node 20+ is required. The site uses `output: "export"`, so `npm run build` produ
 | `/strategies/[slug]/` | Strategy brief with objective, actions, requirements, optimisation, metrics, failure modes |
 | `/alliance-vs-alliance/` | Advanced AvA command centre: scoring, five-phase plan, overlap diagram, planning, coordination, daily plan |
 | `/calendar/` | Monthly, weekly and agenda views, live server/local clock, filters, countdowns, overlap indicators |
+| `/tools/gift-codes/` | Active gift codes, auto-refreshed hourly, with copy/filter, Android redemption steps, iPhone portal link and source freshness |
 | `/gallery/` | Searchable image library with category/tag filters and zoomable lightbox |
 | `/faq/` | Searchable, category-filtered FAQ accordion with deep links |
 | `/search/` | Full local search archive with type/category filters |
@@ -68,7 +69,7 @@ Node 20+ is required. The site uses `output: "export"`, so `npm run build` produ
   /guides             8 MDX guide files (incl. Know Your Heroes)
   /strategies         6 MDX strategy files
   /faq                faq.json
-/data                 site.json, calendar-events.json, gallery.json, heroes.json
+/data                 site.json, calendar-events.json, gallery.json, heroes.json, gift-codes.json
 /lib                  content loader, types, SEO, navigation, search and calendar helpers
 /public
   /brand              alliance + game wordmark artwork, crest
@@ -111,9 +112,9 @@ Collections:
 
 ### Event clock and timezones
 
-Every window in `data/calendar-events.json` is stored on the **in-game clock**, which runs at **UTC-4** — four hours behind UTC and five hours behind UK summer time. A stored `...Z` value is server wall-clock time, not a UTC instant: `2026-10-19T00:00:00Z` means midnight on the server, which is 04:00 UTC. The site renders those values in whichever clock the visitor picked:
+Every window in `data/calendar-events.json` is stored on the **in-game clock**, which runs at **UTC-2** — two hours behind UTC and three hours behind UK summer time. A stored `...Z` value is server wall-clock time, not a UTC instant: `2026-10-19T00:00:00Z` means midnight on the server, which is 02:00 UTC. The site renders those values in whichever clock the visitor picked:
 
-- **Server** — the in-game clock (`UTC-4`), used by default.
+- **Server** — the in-game clock (`UTC-2`), used by default.
 - **My local** — a fixed offset the player sets with the header clock chip (or the calendar panel), the way the game asks for a timezone. The choice is stored in `localStorage` and every calendar label, countdown, event list and day grid follows it.
 
 Nothing is stored in the visitor's timezone, so editors always type the in-game time in the CMS. Countdowns read the device clock every second, so the current day rolls over at midnight without a rebuild. `lib/time.ts` holds the offset maths (`SERVER_OFFSET`, `displayOffset`, `nowOnServerClock`) and `components/time/` the provider, clock chip, panel and time labels.
@@ -144,6 +145,10 @@ The MDX body of event/guide/strategy files remains editable in the CMS markdown 
 ### Editing files directly
 
 Content is plain MDX + JSON in Git. Replace the placeholder text and images, update `updated` dates, and rebuild. The dynamic routes are generated from filenames.
+
+### Gift codes
+
+`/tools/gift-codes/` reads [`data/gift-codes.json`](data/gift-codes.json). A GitHub Actions schedule runs [`scripts/refresh-gift-codes.mjs`](scripts/refresh-gift-codes.mjs) at minute 0 of every hour (UTC), follows the newest in-game-checked list, removes expired and duplicate codes, and commits only when the working set changes. That commit triggers the normal static deployment. The workflow starts once it is pushed to the default branch; see [docs/CONTENT.md](docs/CONTENT.md#gift-codes).
 
 ### Hero roster
 
@@ -184,21 +189,36 @@ Full instructions, including Decap OAuth, are in [docs/DEPLOYMENT.md](docs/DEPLO
 
 The presentation layer is separated from typed content models. The roadmap includes calculators, a member portal, Discord integration, push notifications and an update tracker. A Supabase/PostgreSQL schema and RLS starter are included in `supabase/migrations/0001_init.sql`. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-## Theme
+## Themes
 
-The palette is defined once in [`styles/globals.css`](styles/globals.css) and consumed through Tailwind tokens, so a rebrand is a token edit rather than a search-and-replace.
+Three palettes ship with the site. **Vivid is the default**; the original neon palette is still available, alongside a blue/purple direction.
 
-| Tone | Token / class | Used for |
-| --- | --- | --- |
-| Neon green | `--primary` (`#34e07f`) | actions, links, active nav, focus ring, the wordmark's highlight |
-| Jade | `--accent` | supporting highlights and secondary chips |
-| Moss / ink surfaces | `--background`, `--muted`, `--secondary`, `--card` | four dark steps for layering |
-| Sage grey | `--muted-foreground` | body copy and metadata on dark surfaces |
-| Acid lime | `lime-*` | warnings and verification notices |
-| Teal / cyan | `teal-*`, `cyan-*` | informational notes and calendar categories |
-| Coral | `--destructive`, `red-*` | alerts, risks and mistakes only |
+| Theme | Mood | `--primary` | `--accent` |
+| --- | --- | --- | --- |
+| **Vivid** (default) | tangerine and magenta on warm ink | `#fa8c2d` | `#f0449c` |
+| **Aurora** | azure and violet over deep indigo | `#4898fe` | `#8b5cf6` |
+| **Neon** | spring green and emerald, the original Savage Rebelz palette | `#34e07f` | `#10b981` |
 
-Every text/background pairing used for copy clears WCAG AA (body copy sits between 6.6:1 and 16.5:1; the lowest-contrast pairing in the system is `--accent` on `--background` at 5.8:1). Alert colours stay outside the green family so warnings and errors are never mistaken for brand chrome.
+Pick one from the palette chip in the top bar, or from the Appearance tiles in the mobile drawer. The choice is saved in `localStorage` under `savr.theme` and written to `<html data-theme="…">`; a tiny inline script in the root layout applies it before first paint, so a returning visitor never sees a flash of the wrong palette. The browser's `theme-color` bar is kept in step too.
+
+Where it lives:
+
+- [`styles/globals.css`](styles/globals.css) — the token contract, once per `[data-theme="…"]` block: surfaces, `--primary`/`--accent`, `--primary-rgb` for alpha glows, `--ink`/`--panel`/`--well` for chrome, `--grid-rgb`, `--art-filter` and the headline gradient stops.
+- [`lib/themes.ts`](lib/themes.ts) — the registry (label, swatches, chrome colour), `DEFAULT_THEME` and the storage key.
+- [`components/theme/`](components/theme/) — the provider (persistence, cross-tab sync, meta tag) and the header/drawer switchers.
+- [`tailwind.config.ts`](tailwind.config.ts) — maps the tokens to utilities such as `bg-primary`, `text-primary-soft`, `bg-ink`, `bg-panel`, `bg-well`, `text-warning` and `text-success`.
+
+Adding a fourth palette means adding one `[data-theme="…"]` block with the same variables and one entry to `THEMES`; no component needs to change.
+
+What deliberately does **not** move with the theme:
+
+- the SAVR wordmark and crest artwork, and their green glow;
+- hero class colours (red / blue / green) and the UR gold — defined as fixed `hero.*` values in `tailwind.config.ts`;
+- semantic status colours: `warning` amber, `success` green, `destructive` coral.
+
+Illustrations, cover art and gallery reference boards follow the palette through `--art-filter` / the `.themed-art` class (the backdrop, event covers, gallery grid, lightbox and in-page visual references). If you add an authentic in-game capture that must stay true-to-source, remove that class from its `<Image>`.
+
+Body copy on each theme's background sits between 16.4:1 and 16.8:1, muted metadata 8.2–8.5:1 and primary accent text 6.6–13:1, so all three clear WCAG AA.
 
 ## Quality notes
 

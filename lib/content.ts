@@ -10,6 +10,7 @@ import type {
   FAQItem,
   GalleryImage,
   GameEvent,
+  GiftCodeConfig,
   Guide,
   GuideStep,
   ResourceRequirement,
@@ -283,6 +284,28 @@ export function getCalendarEvents(): CalendarEvent[] {
     (a, b) => new Date(a.start).getTime() - new Date(b.start).getTime(),
   );
   return calendarCache;
+}
+
+let giftCodeCache: GiftCodeConfig | null = null;
+
+/**
+ * Gift codes follow the newest in-game check. The scheduled workflow writes
+ * the data file hourly; this loader still collapses duplicates defensively so
+ * a hand edit cannot render the same code twice.
+ */
+export function getGiftCodes(): GiftCodeConfig {
+  if (giftCodeCache) return giftCodeCache;
+  const data = readJson<GiftCodeConfig>("data/gift-codes.json");
+  const seen = new Set<string>();
+  const codes = (data.codes ?? []).filter((entry) => {
+    if (!entry || typeof entry.code !== "string") return false;
+    const normalized = entry.code.trim().toLowerCase();
+    if (!normalized || seen.has(normalized)) return false;
+    seen.add(normalized);
+    return true;
+  });
+  giftCodeCache = { ...data, codes };
+  return giftCodeCache;
 }
 
 let galleryCache: GalleryImage[] | null = null;

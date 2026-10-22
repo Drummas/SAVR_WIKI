@@ -203,7 +203,7 @@ export default function HomePage() {
               </div>
               <h1 className="display-hero max-w-[52rem] text-[2.7rem] text-foreground sm:text-[3.4rem] lg:text-[4.3rem] xl:text-[4.9rem]">
                 Last Asylum: Plague
-                <span className="mt-1 block text-gradient-toxic">Alliance Knowledge Base</span>
+                <span className="mt-1 block text-gradient-brand">Alliance Knowledge Base</span>
               </h1>
               <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground pretty sm:text-lg">
                 Events, Strategies, Optimisation, and Alliance Coordination
@@ -246,7 +246,7 @@ export default function HomePage() {
               <NextOps events={calendar} initialDate={initialDate} />
               <div className="mt-2 flex items-center justify-between px-1 font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground/40">
                 <span className="inline-flex items-center gap-1">
-                  <span className="size-1 rounded-full bg-emerald-400" /> Calendar synced
+                  <span className="size-1 rounded-full bg-primary" /> Calendar synced
                 </span>
                 <span>Server or local clock</span>
               </div>
@@ -306,7 +306,7 @@ export default function HomePage() {
                   href={site.discordUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-0.5 inline-block font-mono text-[11px] text-primary transition-colors hover:text-emerald-300"
+                  className="mt-0.5 inline-block font-mono text-[11px] text-primary transition-colors hover:text-primary-soft"
                 >
                   Discord →
                 </a>
@@ -331,7 +331,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-border/60 bg-[#08100b]">
+      <section className="border-y border-border/60 bg-well">
         <div className="container-page py-11 lg:py-14">
           <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch">
             <div className="relative overflow-hidden rounded-lg border border-primary/25 bg-gradient-to-br from-primary/[0.1] via-card/60 to-card/30 p-6 sm:p-8">
@@ -357,7 +357,7 @@ export default function HomePage() {
                     { value: "10–20%", label: "Closer reserve" },
                   ].map((stat) => (
                     <div key={stat.label} className="rounded-sm border border-border/60 bg-background/40 p-2.5">
-                      <p className="font-display text-xl leading-none text-emerald-200">{stat.value}</p>
+                      <p className="font-display text-xl leading-none text-primary-soft">{stat.value}</p>
                       <p className="mt-1 font-mono text-[7px] uppercase tracking-[0.1em] text-muted-foreground/60">
                         {stat.label}
                       </p>
@@ -400,9 +400,9 @@ export default function HomePage() {
                   width={1600}
                   height={900}
                   sizes="(max-width: 1024px) 100vw, 460px"
-                  className="h-44 w-full object-cover opacity-90 sm:h-52"
+                  className="themed-art h-44 w-full object-cover opacity-90 sm:h-52"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#08100b] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-well via-transparent to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-4">
                   <p className="font-mono text-[8px] uppercase tracking-[0.14em] text-primary/80">
                     Overlap doctrine
@@ -464,9 +464,9 @@ export default function HomePage() {
                 width={1600}
                 height={900}
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="absolute inset-0 h-full w-full object-cover opacity-35 transition-all duration-700 group-hover:scale-105 group-hover:opacity-45"
+                className="themed-art absolute inset-0 h-full w-full object-cover opacity-35 transition-all duration-700 group-hover:scale-105 group-hover:opacity-45"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#070c09] via-[#070c09]/80 to-[#070c09]/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/20" />
               <div className="relative flex flex-1 flex-col justify-between p-5">
                 <div className="flex items-center justify-between">
                   <Badge variant="outline" className="border-white/10 bg-black/30 backdrop-blur">
@@ -492,7 +492,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-border/60 bg-[#08100b]">
+      <section className="border-y border-border/60 bg-well">
         <div className="container-page py-11 lg:py-14">
           <SectionHeading
             eyebrow="Strategy hub"
@@ -513,7 +513,7 @@ export default function HomePage() {
               </p>
               <Link
                 href={`/strategies/${survivalGuide.slug}/`}
-                className="inline-flex shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-primary hover:text-emerald-300"
+                className="inline-flex shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-primary hover:text-primary-soft"
               >
                 Read overlap strategy <ArrowRight className="size-3.5" />
               </Link>
@@ -533,7 +533,7 @@ export default function HomePage() {
         <NextOps events={calendar} initialDate={initialDate} variant="section" />
       </section>
 
-      <section className="border-t border-border/60 bg-[#071009]">
+      <section className="border-t border-border/60 bg-ink">
         <div className="container-page py-11 lg:py-14">
           <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
             <div>
@@ -574,7 +574,7 @@ export default function HomePage() {
                       width={image.width}
                       height={image.height}
                       sizes="(max-width: 768px) 50vw, 260px"
-                      className="aspect-[16/10] w-full object-cover opacity-80 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
+                      className="themed-art aspect-[16/10] w-full object-cover opacity-80 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 p-3">

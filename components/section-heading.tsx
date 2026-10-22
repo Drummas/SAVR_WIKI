@@ -46,7 +46,7 @@ export function SectionHeading({
       {href && (
         <Link
           href={href}
-          className="group inline-flex shrink-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-primary transition-colors hover:text-emerald-300"
+          className="group inline-flex shrink-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-primary transition-colors hover:text-primary-soft"
         >
           {linkLabel ?? "View all"}
           <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />

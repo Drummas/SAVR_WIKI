@@ -73,7 +73,7 @@ export default function StrategiesPage() {
                   ))}
                 </div>
               </div>
-              <span className="inline-flex items-center gap-2 self-start rounded-sm border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-emerald-300 transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+              <span className="inline-flex items-center gap-2 self-start rounded-sm border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                 Read the plan <ArrowRight className="size-3.5" />
               </span>
             </div>
@@ -94,7 +94,7 @@ export default function StrategiesPage() {
         </div>
       </section>
 
-      <section className="border-y border-border/60 bg-[#09110c]">
+      <section className="border-y border-border/60 bg-well">
         <div className="container-page py-10">
           <div className="grid gap-5 lg:grid-cols-[1.2fr_1fr]">
             <div className="rounded-md border border-primary/20 bg-primary/[0.035] p-6">
@@ -108,7 +108,7 @@ export default function StrategiesPage() {
               </p>
               <Link
                 href="/alliance-vs-alliance/"
-                className="mt-5 inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-emerald-400"
+                className="mt-5 inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-primary/90"
               >
                 Enter command centre <ArrowRight className="size-3.5" />
               </Link>

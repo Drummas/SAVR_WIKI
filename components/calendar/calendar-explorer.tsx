@@ -235,7 +235,7 @@ export function CalendarExplorer({
               className={cn(
                 "rounded-sm border px-2 py-1 font-mono text-[8px] uppercase tracking-[0.1em] transition-colors sm:text-[9px]",
                 activeCategories.length === calendarCategories.length
-                  ? "border-primary/40 bg-primary/10 text-emerald-300"
+                  ? "border-primary/40 bg-primary/10 text-primary"
                   : "border-border text-muted-foreground hover:text-foreground",
               )}
             >
@@ -309,7 +309,7 @@ export function CalendarExplorer({
                             isToday
                               ? "bg-primary font-semibold text-primary-foreground"
                               : isSelected
-                                ? "text-emerald-200"
+                                ? "text-primary-soft"
                                 : "text-foreground/80",
                           )}
                         >
@@ -465,7 +465,7 @@ export function CalendarExplorer({
                         {event.href && (
                           <Link
                             href={event.href}
-                            className="inline-flex items-center gap-1 text-[10px] font-medium text-primary hover:text-emerald-300"
+                            className="inline-flex items-center gap-1 text-[10px] font-medium text-primary hover:text-primary-soft"
                           >
                             Brief <ArrowRight className="size-3" />
                           </Link>
@@ -537,7 +537,7 @@ export function CalendarExplorer({
                         {event.href && (
                           <Link
                             href={event.href}
-                            className="mt-2 inline-flex items-center gap-1 text-[10px] font-medium text-primary hover:text-emerald-300"
+                            className="mt-2 inline-flex items-center gap-1 text-[10px] font-medium text-primary hover:text-primary-soft"
                           >
                             Open briefing <ArrowRight className="size-3" />
                           </Link>
@@ -598,8 +598,8 @@ export function CalendarExplorer({
             </div>
           </div>
 
-          <div className="rounded-md border border-lime-500/20 bg-lime-500/[0.035] p-4">
-            <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-lime-300">
+          <div className="rounded-md border border-warning/20 bg-warning/[0.035] p-4">
+            <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-warning">
               Schedule confidence
             </p>
             <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
@@ -619,7 +619,7 @@ export function CalendarExplorer({
             <Link
               href="/admin/cms/"
               prefetch={false}
-              className="mt-3 inline-flex items-center gap-1 text-[10px] font-medium text-primary hover:text-emerald-300"
+              className="mt-3 inline-flex items-center gap-1 text-[10px] font-medium text-primary hover:text-primary-soft"
             >
               Open studio <ArrowRight className="size-3" />
             </Link>

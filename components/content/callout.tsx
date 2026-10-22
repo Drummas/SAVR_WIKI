@@ -13,8 +13,8 @@ const variants = {
   warning: {
     icon: AlertTriangle,
     label: "Warning",
-    className: "border-lime-500/35 bg-lime-500/[0.06] text-lime-300",
-    iconClass: "text-lime-400",
+    className: "border-warning/35 bg-warning/[0.06] text-warning",
+    iconClass: "text-warning",
   },
   danger: {
     icon: ShieldAlert,
@@ -25,13 +25,13 @@ const variants = {
   success: {
     icon: CheckCircle2,
     label: "Confirmed",
-    className: "border-emerald-500/30 bg-emerald-500/[0.055] text-emerald-300",
-    iconClass: "text-emerald-400",
+    className: "border-success/30 bg-success/[0.055] text-success",
+    iconClass: "text-success",
   },
   strategy: {
     icon: Crosshair,
     label: "Strategy",
-    className: "border-primary/35 bg-primary/[0.06] text-emerald-300",
+    className: "border-primary/35 bg-primary/[0.06] text-primary",
     iconClass: "text-primary",
   },
 } as const;

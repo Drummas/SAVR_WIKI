@@ -122,7 +122,7 @@ const phases = [
     name: "Resource accumulation",
     timing: "Monday → Thursday",
     icon: Layers,
-    color: "text-lime-300",
+    color: "text-warning",
     summary:
       "Spend inside the first three phases while protecting the reserve. Accumulate completed actions for the later, more contested phases.",
     actions: [
@@ -167,7 +167,7 @@ const phases = [
     name: "Reward collection",
     timing: "After the final phase → T+24h",
     icon: Trophy,
-    color: "text-emerald-300",
+    color: "text-primary",
     summary:
       "Claim, screenshot and archive. Turn the result into a conversion table and one process change for next week.",
     actions: [
@@ -341,7 +341,7 @@ export default function AllianceVsAlliancePage() {
               <h1 className="max-w-4xl font-display text-5xl uppercase leading-[0.88] tracking-wide text-foreground sm:text-6xl lg:text-7xl">
                 Win the week,
                 <br />
-                <span className="text-gradient-toxic">not the hour.</span>
+                <span className="text-gradient-brand">not the hour.</span>
               </h1>
               <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground pretty sm:text-base">
                 Alliance Duel is six days of resource conversion. This is the full playbook: scoring map,
@@ -378,7 +378,7 @@ export default function AllianceVsAlliancePage() {
                   key={stat.label}
                   className="hud-corners rounded-md border border-border/70 bg-card/60 p-4 backdrop-blur"
                 >
-                  <p className="font-display text-2xl uppercase leading-none text-emerald-200 sm:text-3xl">
+                  <p className="font-display text-2xl uppercase leading-none text-primary-soft sm:text-3xl">
                     {stat.value}
                   </p>
                   <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.14em] text-foreground/70">
@@ -402,7 +402,7 @@ export default function AllianceVsAlliancePage() {
             ))}
           </div>
 
-          <div className="mt-4 flex items-start gap-2 rounded-sm border border-lime-500/25 bg-lime-500/[0.045] px-3.5 py-2.5 text-[11px] leading-relaxed text-lime-200/90">
+          <div className="mt-4 flex items-start gap-2 rounded-sm border border-warning/25 bg-warning/[0.045] px-3.5 py-2.5 text-[11px] leading-relaxed text-warning/90">
             <AlertTriangle className="mt-0.5 size-3.5 shrink-0" />
             Phase order, point values and eligibility are community-reported and version-sensitive. Verify
             both live event screens before any spend. The command centre is a decision framework, not an
@@ -671,7 +671,7 @@ export default function AllianceVsAlliancePage() {
                   {overlapWeeks.map((day) => (
                     <div
                       key={`${day.label}-ava`}
-                      className="flex h-8 items-center justify-center rounded-sm border border-primary/20 bg-primary/10 font-mono text-[8px] text-emerald-300"
+                      className="flex h-8 items-center justify-center rounded-sm border border-primary/20 bg-primary/10 font-mono text-[8px] text-primary"
                     >
                       {day.ava.slice(0, 4)}
                     </div>
@@ -735,7 +735,7 @@ export default function AllianceVsAlliancePage() {
                     <tr key={row[0]} className="border-t border-border/40">
                       <td className="px-4 py-3 font-medium text-foreground">{row[0]}</td>
                       <td className="px-4 py-3 text-muted-foreground">{row[1]}</td>
-                      <td className="px-4 py-3 font-mono text-[10px] uppercase text-emerald-300/70">
+                      <td className="px-4 py-3 font-mono text-[10px] uppercase text-primary/70">
                         {row[2]}
                       </td>
                       <td className="px-4 py-3 text-muted-foreground/70">{row[3]}</td>
@@ -887,7 +887,7 @@ export default function AllianceVsAlliancePage() {
                     <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground/60">
                       {day.day}
                     </p>
-                    <p className="mt-0.5 font-display text-lg uppercase tracking-wide text-emerald-200">
+                    <p className="mt-0.5 font-display text-lg uppercase tracking-wide text-primary-soft">
                       {day.primary}
                     </p>
                   </div>

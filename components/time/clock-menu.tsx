@@ -48,7 +48,7 @@ export function ClockMenu({ className }: { className?: string }) {
         className={cn(
           "inline-flex items-center gap-1.5 rounded-sm border px-2 py-1 font-mono uppercase tracking-[0.12em] transition-colors",
           open
-            ? "border-primary/50 bg-primary/10 text-emerald-200"
+            ? "border-primary/50 bg-primary/10 text-primary-soft"
             : "border-border/70 text-muted-foreground/80 hover:border-primary/40 hover:text-primary",
         )}
       >

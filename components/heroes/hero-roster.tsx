@@ -31,7 +31,7 @@ function FilterChip({
       className={cn(
         "inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.12em] transition-colors",
         active
-          ? (tone?.active ?? "border-primary/50 bg-primary/15 text-emerald-300")
+          ? (tone?.active ?? "border-primary/50 bg-primary/15 text-primary")
           : "border-border/70 bg-background/40 text-muted-foreground hover:border-primary/30 hover:text-foreground",
       )}
     >
@@ -43,7 +43,7 @@ function FilterChip({
         <span
           className={cn(
             "text-[8px] tabular-nums",
-            active ? (tone ? "opacity-70" : "text-emerald-300/70") : "text-muted-foreground/50",
+            active ? (tone ? "opacity-70" : "text-primary/70") : "text-muted-foreground/50",
           )}
         >
           {String(count).padStart(2, "0")}
@@ -217,7 +217,7 @@ export function HeroRoster({ heroes }: { heroes: Hero[] }) {
           <button
             type="button"
             onClick={reset}
-            className="mt-4 inline-flex items-center gap-1.5 rounded-sm border border-primary/40 bg-primary/10 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-emerald-300 hover:bg-primary hover:text-primary-foreground"
+            className="mt-4 inline-flex items-center gap-1.5 rounded-sm border border-primary/40 bg-primary/10 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-primary hover:bg-primary hover:text-primary-foreground"
           >
             <X className="size-3" />
             Clear filters

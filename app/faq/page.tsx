@@ -93,8 +93,8 @@ export default function FaqPage() {
               </div>
             </div>
 
-            <div className="rounded-md border border-lime-500/20 bg-lime-500/[0.035] p-4">
-              <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-lime-300">
+            <div className="rounded-md border border-warning/20 bg-warning/[0.035] p-4">
+              <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-warning">
                 Answer confidence
               </p>
               <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">

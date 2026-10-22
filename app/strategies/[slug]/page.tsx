@@ -141,7 +141,7 @@ export default async function StrategyPage({ params }: { params: Promise<{ slug:
                   <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground/60">
                     {metric.label}
                   </p>
-                  <p className="mt-1 font-display text-xl uppercase tracking-wide text-emerald-200">
+                  <p className="mt-1 font-display text-xl uppercase tracking-wide text-primary-soft">
                     {metric.value}
                   </p>
                   {metric.note && (
@@ -235,14 +235,14 @@ export default async function StrategyPage({ params }: { params: Promise<{ slug:
 
             <ContentSection index={5} title="Tips & failure modes" className="mt-10">
               <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-md border border-emerald-500/20 bg-emerald-500/[0.025] p-4">
-                  <p className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-emerald-300">
+                <div className="rounded-md border border-primary/20 bg-primary/[0.025] p-4">
+                  <p className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-primary">
                     <ListChecks className="size-3.5" /> Field tips
                   </p>
                   <ul className="space-y-2.5">
                     {strategy.tips.map((tip) => (
                       <li key={tip} className="flex gap-2.5 text-xs leading-relaxed text-muted-foreground">
-                        <span className="mt-1.5 size-1 shrink-0 rounded-full bg-emerald-400/70" />
+                        <span className="mt-1.5 size-1 shrink-0 rounded-full bg-primary/70" />
                         {tip}
                       </li>
                     ))}
@@ -280,7 +280,7 @@ export default async function StrategyPage({ params }: { params: Promise<{ slug:
                           <span className="block font-mono text-[9px] uppercase tracking-[0.14em] text-primary/60">
                             {related.type}
                           </span>
-                          <span className="mt-0.5 block text-xs text-foreground group-hover:text-emerald-100">
+                          <span className="mt-0.5 block text-xs text-foreground group-hover:text-primary-soft">
                             {related.label}
                           </span>
                         </span>

@@ -46,7 +46,7 @@ export function EventCard({
             height={900}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
             priority={priority}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="themed-art h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div className="flex h-full items-center justify-center bg-tactical-grid bg-grid-sm">
@@ -68,7 +68,7 @@ export function EventCard({
       </div>
 
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="font-display text-xl uppercase leading-tight tracking-wide text-foreground transition-colors group-hover:text-emerald-100">
+        <h3 className="font-display text-xl uppercase leading-tight tracking-wide text-foreground transition-colors group-hover:text-primary-soft">
           {event.title}
         </h3>
         <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
@@ -113,7 +113,7 @@ export function GuideCard({
         </span>
       </div>
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="font-display text-xl uppercase leading-tight tracking-wide text-foreground group-hover:text-emerald-100">
+        <h3 className="font-display text-xl uppercase leading-tight tracking-wide text-foreground group-hover:text-primary-soft">
           {guide.title}
         </h3>
         <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-muted-foreground">{guide.summary}</p>
@@ -151,7 +151,7 @@ export function StrategyCard({
         </span>
         <Badge variant="outline">{strategy.category}</Badge>
       </div>
-      <h3 className="mt-4 font-display text-xl uppercase leading-tight tracking-wide text-foreground group-hover:text-emerald-100">
+      <h3 className="mt-4 font-display text-xl uppercase leading-tight tracking-wide text-foreground group-hover:text-primary-soft">
         {strategy.title}
       </h3>
       <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-muted-foreground">

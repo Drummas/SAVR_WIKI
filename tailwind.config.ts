@@ -24,6 +24,7 @@ const config: Config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          soft: "hsl(var(--primary-soft))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -49,6 +50,18 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        /* Near-black chrome steps, retuned per theme (top bar, drawer, bands). */
+        ink: "hsl(var(--ink))",
+        panel: "hsl(var(--panel))",
+        well: "hsl(var(--well))",
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
         /*
          * Class/role language for the hero roster — tanks red, rangers blue,
          * warlocks green — plus the gold reserved for UR marks.
@@ -59,21 +72,11 @@ const config: Config = {
           green: "#34e07f",
           gold: "#f3c96b",
         },
-        /* Green-family tones used across the site chrome. */
-        tactical: {
-          neon: "#34e07f", // wordmark highlight — primary actions
-          jade: "#10b981", // secondary tone for chips and support accents
-          mint: "#a7f3c4", // light tone for labels on dark surfaces
-          acid: "#a3e635", // high-attention lime for warnings
-          cyan: "#22d3ee", // informational tone
-          sage: "#8aa79a", // muted green-grey for metadata
-          moss: "#16241d", // raised surface
-          gunmetal: "#141d17",
-          ash: "#0e150f",
-          void: "#070c09",
-          coral: "#f87171", // alerts only
-          blood: "#b91c1c",
-        },
+        /*
+         * Chrome colours (primary, accent, surfaces, warning, success) are
+         * theme tokens from styles/globals.css. Only the hero class language
+         * above is fixed, because those colours encode meaning.
+         */
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
@@ -87,9 +90,9 @@ const config: Config = {
       },
       backgroundImage: {
         "tactical-grid":
-          "linear-gradient(to right, rgba(134,180,152,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(134,180,152,0.07) 1px, transparent 1px)",
+          "linear-gradient(to right, rgb(var(--grid-rgb) / 0.07) 1px, transparent 1px), linear-gradient(to bottom, rgb(var(--grid-rgb) / 0.07) 1px, transparent 1px)",
         "hero-glow":
-          "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(52,224,126,0.20), transparent 65%)",
+          "radial-gradient(ellipse 80% 60% at 50% -10%, rgb(var(--primary-rgb) / 0.20), transparent 65%)",
         "card-sheen":
           "linear-gradient(135deg, rgba(255,255,255,0.045), transparent 45%)",
       },
@@ -98,7 +101,7 @@ const config: Config = {
         "grid-sm": "24px 24px",
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(52,224,126,0.22), 0 0 32px -10px rgba(52,224,126,0.5)",
+        glow: "0 0 0 1px rgb(var(--primary-rgb) / 0.22), 0 0 32px -10px rgb(var(--primary-rgb) / 0.5)",
         panel: "0 24px 60px -32px rgba(0,0,0,0.9)",
       },
       keyframes: {

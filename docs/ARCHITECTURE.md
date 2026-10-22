@@ -27,6 +27,28 @@ At build time:
 
 At runtime the browser only loads the search index when the user opens search, the gallery or a page that needs it. There is no API server.
 
+## Presentation and themes
+
+The visual system is token-driven: `styles/globals.css` declares one
+`[data-theme="…"]` block per palette (`vivid` default, `aurora`, `green`) with
+the same variables, and Tailwind maps those to utilities. Components never
+hard-code a brand colour, so adding a palette is a CSS block plus a registry
+entry in `lib/themes.ts`.
+
+Theme selection is client-side and intentionally does not require a server:
+`components/theme/theme-provider.tsx` persists the id in `localStorage`
+(`savr.theme`), syncs across tabs, and updates the `theme-color` meta tag. The
+root layout renders a tiny inline script that sets `<html data-theme>` before
+first paint; the provider reconciles state after hydration. Pages remain fully
+static.
+
+Fixed colour language lives outside the token sets: hero class colours and UR
+gold in `tailwind.config.ts`, removal status colours (`warning`, `success`,
+`destructive`), and the SAVR wordmark/crest artwork. Illustrations that follow
+the theme do so with the `--art-filter` / `.themed-art` filter rather than
+recoloured assets; remove that class from an image when a true-to-source
+capture matters more than a cohesive palette.
+
 ## Content layer
 
 `lib/content.ts` is the current file adapter. It:

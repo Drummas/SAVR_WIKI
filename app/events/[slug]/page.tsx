@@ -68,7 +68,7 @@ function DifficultyBadge({ difficulty }: { difficulty: Difficulty }) {
 function StatusNote({ status }: { status: "verified" | "community" | "template" }) {
   if (status === "verified") {
     return (
-      <div className="flex items-start gap-2 rounded-sm border border-emerald-500/25 bg-emerald-500/[0.045] px-3 py-2.5 text-xs text-emerald-200">
+      <div className="flex items-start gap-2 rounded-sm border border-primary/25 bg-primary/[0.045] px-3 py-2.5 text-xs text-primary-soft">
         <CheckCircle2 className="mt-0.5 size-3.5 shrink-0" />
         Verified against in-game evidence by Alliance Leadership. Still re-check before each cycle.
       </div>
@@ -76,7 +76,7 @@ function StatusNote({ status }: { status: "verified" | "community" | "template" 
   }
   if (status === "template") {
     return (
-      <div className="flex items-start gap-2 rounded-sm border border-lime-500/25 bg-lime-500/[0.045] px-3 py-2.5 text-xs text-lime-200">
+      <div className="flex items-start gap-2 rounded-sm border border-warning/25 bg-warning/[0.045] px-3 py-2.5 text-xs text-warning">
         <AlertTriangle className="mt-0.5 size-3.5 shrink-0" />
         Template / unverified. Replace the placeholders with live event data before spending resources.
       </div>
@@ -235,7 +235,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                       <div key={phase.phase} className="px-4 py-3">
                         <div className="flex flex-wrap items-center justify-between gap-2">
                           <p className="text-xs font-medium text-foreground">{phase.phase}</p>
-                          <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-emerald-300/80">
+                          <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-primary/80">
                             {phase.timing}
                           </span>
                         </div>
@@ -272,7 +272,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                       <Trophy className="size-3 text-primary/60 sm:hidden" />
                       {reward.reward}
                     </p>
-                    <p className="pl-5 font-mono text-[10px] uppercase tracking-wide text-emerald-300/80 sm:pl-0">
+                    <p className="pl-5 font-mono text-[10px] uppercase tracking-wide text-primary/80 sm:pl-0">
                       {reward.amount}
                     </p>
                     <p className="pl-5 text-[11px] leading-relaxed text-muted-foreground sm:pl-0">
@@ -306,14 +306,14 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
 
             <ContentSection index={5} title="Best practices & common mistakes" className="mt-10">
               <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-md border border-emerald-500/20 bg-emerald-500/[0.025] p-4">
-                  <p className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-emerald-300">
+                <div className="rounded-md border border-primary/20 bg-primary/[0.025] p-4">
+                  <p className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-primary">
                     <CheckCircle2 className="size-3.5" /> Run it this way
                   </p>
                   <ul className="space-y-2.5">
                     {event.bestPractices.map((item) => (
                       <li key={item} className="flex gap-2.5 text-xs leading-relaxed text-muted-foreground">
-                        <span className="mt-1.5 size-1 shrink-0 rounded-full bg-emerald-400/70" />
+                        <span className="mt-1.5 size-1 shrink-0 rounded-full bg-primary/70" />
                         {item}
                       </li>
                     ))}
@@ -442,7 +442,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                   <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-primary/70">
                     Strategy
                   </p>
-                  <p className="mt-1 text-sm font-medium text-foreground group-hover:text-emerald-100">
+                  <p className="mt-1 text-sm font-medium text-foreground group-hover:text-primary-soft">
                     Overlap window plan
                   </p>
                 </Link>
@@ -453,7 +453,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                   <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-primary/70">
                     Command centre
                   </p>
-                  <p className="mt-1 text-sm font-medium text-foreground group-hover:text-emerald-100">
+                  <p className="mt-1 text-sm font-medium text-foreground group-hover:text-primary-soft">
                     Alliance vs Alliance
                   </p>
                 </Link>
@@ -464,7 +464,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                   <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-primary/70">
                     Timing
                   </p>
-                  <p className="mt-1 text-sm font-medium text-foreground group-hover:text-emerald-100">
+                  <p className="mt-1 text-sm font-medium text-foreground group-hover:text-primary-soft">
                     Event calendar
                   </p>
                 </Link>

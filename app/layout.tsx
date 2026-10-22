@@ -7,9 +7,11 @@ import { SearchProvider } from "@/components/search/search-provider";
 import { SiteBackdrop } from "@/components/site-backdrop";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ClockProvider } from "@/components/time/clock-provider";
 import { getSiteConfig } from "@/lib/content";
 import { siteUrl, websiteSchema } from "@/lib/seo";
+import { DEFAULT_THEME, THEMES, THEME_STORAGE_KEY } from "@/lib/themes";
 import "@/styles/globals.css";
 
 const inter = Inter({
@@ -92,32 +94,49 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#070c09",
+  themeColor: "#120d18",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
 };
 
+/**
+ * Applies the saved palette before the body paints, so a visitor who chose
+ * Aurora never sees a frame of Vivid. Kept inline and dependency-free on
+ * purpose; the provider reconciles the rest after hydration.
+ */
+const themeScript = `(function(){try{var ids=${JSON.stringify(
+  THEMES.map((theme) => theme.id),
+)};var t=localStorage.getItem("${THEME_STORAGE_KEY}");if(ids.indexOf(t)<0){t="${DEFAULT_THEME}";}document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme="${DEFAULT_THEME}";}})();`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const site = getSiteConfig();
 
   return (
-    <html lang="en-GB" className={`dark ${inter.variable} ${barlow.variable}`}>
+    <html
+      lang="en-GB"
+      data-theme={DEFAULT_THEME}
+      suppressHydrationWarning
+      className={`dark ${inter.variable} ${barlow.variable}`}
+    >
       <body className="min-h-screen font-sans pb-16 lg:pb-0">
+        <script id="savr-theme" dangerouslySetInnerHTML={{ __html: themeScript }} />
         <SiteBackdrop />
-        <ClockProvider>
-          <SearchProvider>
-            <a href="#main" className="skip-link">
-              Skip to content
-            </a>
-            <SiteHeader server={site.server} />
-            <main id="main" className="min-h-[60vh]">
-              {children}
-            </main>
-            <SiteFooter />
-            <MobileBottomNav />
-          </SearchProvider>
-        </ClockProvider>
+        <ThemeProvider>
+          <ClockProvider>
+            <SearchProvider>
+              <a href="#main" className="skip-link">
+                Skip to content
+              </a>
+              <SiteHeader server={site.server} />
+              <main id="main" className="min-h-[60vh]">
+                {children}
+              </main>
+              <SiteFooter />
+              <MobileBottomNav />
+            </SearchProvider>
+          </ClockProvider>
+        </ThemeProvider>
         <JsonLd data={websiteSchema()} />
       </body>
     </html>

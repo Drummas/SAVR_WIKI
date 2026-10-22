@@ -39,7 +39,7 @@ export function ImageLightbox({
     >
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="fixed inset-0 z-[90] bg-black/95 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <DialogPrimitive.Content className="fixed inset-x-2 top-1/2 z-[91] mx-auto max-h-[92vh] w-auto max-w-6xl -translate-y-1/2 overflow-hidden rounded-lg border border-border bg-[#09110c] shadow-2xl outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:inset-x-6">
+        <DialogPrimitive.Content className="fixed inset-x-2 top-1/2 z-[91] mx-auto max-h-[92vh] w-auto max-w-6xl -translate-y-1/2 overflow-hidden rounded-lg border border-border bg-well shadow-2xl outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:inset-x-6">
           <DialogPrimitive.Title className="sr-only">{image.alt}</DialogPrimitive.Title>
           <DialogPrimitive.Description className="sr-only">
             {image.caption ?? "Full size image viewer"}
@@ -93,7 +93,7 @@ export function ImageLightbox({
               height={image.height ?? 900}
               sizes="100vw"
               className={cn(
-                "mx-auto h-auto w-full object-contain transition-[max-width] duration-200",
+                "themed-art mx-auto h-auto w-full object-contain transition-[max-width] duration-200",
                 zoomed ? "max-w-none" : "max-h-[68vh] max-w-full",
               )}
               priority

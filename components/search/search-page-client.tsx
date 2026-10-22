@@ -94,7 +94,7 @@ export function SearchPageClient() {
               className={cn(
                 "shrink-0 rounded-sm border px-2.5 py-1.5 font-mono text-[9px] uppercase tracking-[0.08em] transition-colors",
                 type === "all"
-                  ? "border-primary/40 bg-primary/10 text-emerald-300"
+                  ? "border-primary/40 bg-primary/10 text-primary"
                   : "border-border/60 text-muted-foreground hover:text-foreground",
               )}
             >
@@ -108,7 +108,7 @@ export function SearchPageClient() {
                 className={cn(
                   "shrink-0 rounded-sm border px-2.5 py-1.5 font-mono text-[9px] uppercase tracking-[0.08em] transition-colors",
                   type === contentType
-                    ? "border-primary/40 bg-primary/10 text-emerald-300"
+                    ? "border-primary/40 bg-primary/10 text-primary"
                     : "border-border/60 text-muted-foreground hover:text-foreground",
                 )}
               >
@@ -179,7 +179,7 @@ export function SearchPageClient() {
                     setType("all");
                     setCategory("all");
                   }}
-                  className="font-mono text-[9px] uppercase tracking-[0.1em] text-primary hover:text-emerald-300"
+                  className="font-mono text-[9px] uppercase tracking-[0.1em] text-primary hover:text-primary-soft"
                 >
                   Clear filters
                 </button>
@@ -212,7 +212,7 @@ export function SearchPageClient() {
         </p>
         <Link
           href="/calendar/"
-          className="inline-flex shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-primary hover:text-emerald-300"
+          className="inline-flex shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-primary hover:text-primary-soft"
         >
           Open calendar <ArrowRight className="size-3.5" />
         </Link>

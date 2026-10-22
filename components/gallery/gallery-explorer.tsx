@@ -112,7 +112,7 @@ export function GalleryExplorer({ images }: { images: GalleryImage[] }) {
                 className={cn(
                   "inline-flex shrink-0 items-center gap-1.5 rounded-sm border px-2.5 py-1.5 font-mono text-[9px] uppercase tracking-[0.08em] transition-colors",
                   activeCategory === category
-                    ? "border-primary/40 bg-primary/10 text-emerald-300"
+                    ? "border-primary/40 bg-primary/10 text-primary"
                     : "border-border/60 text-muted-foreground hover:text-foreground",
                 )}
               >
@@ -141,7 +141,7 @@ export function GalleryExplorer({ images }: { images: GalleryImage[] }) {
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="ml-auto rounded-sm border border-primary/30 bg-primary/10 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wide text-emerald-300"
+              className="ml-auto rounded-sm border border-primary/30 bg-primary/10 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wide text-primary"
             >
               Clear filter
             </button>
@@ -166,7 +166,7 @@ export function GalleryExplorer({ images }: { images: GalleryImage[] }) {
                   height={image.height}
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 300px"
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="themed-art h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80" />
                 <Badge variant="outline" className="absolute left-2 top-2 border-white/10 bg-black/50 text-white/70 backdrop-blur">
@@ -198,7 +198,7 @@ export function GalleryExplorer({ images }: { images: GalleryImage[] }) {
               setQuery("");
               setActiveCategory("All");
             }}
-            className="mt-4 rounded-sm border border-primary/40 bg-primary/10 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-emerald-300"
+            className="mt-4 rounded-sm border border-primary/40 bg-primary/10 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-primary"
           >
             Reset filters
           </button>
@@ -221,7 +221,7 @@ export function GalleryExplorer({ images }: { images: GalleryImage[] }) {
         <Link
           href="/admin/cms/"
           prefetch={false}
-          className="inline-flex shrink-0 items-center gap-2 rounded-sm border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-emerald-300 transition-colors hover:bg-primary hover:text-primary-foreground"
+          className="inline-flex shrink-0 items-center gap-2 rounded-sm border border-primary/40 bg-primary/10 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
         >
           Upload images <ArrowRight className="size-3.5" />
         </Link>

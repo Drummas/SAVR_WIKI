@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { useClock } from "./clock-provider";
 
 /**
- * Clock source picker: server time (the in-game clock, UTC-4) or a local
+ * Clock source picker: server time (the in-game clock, UTC-2) or a local
  * offset the player sets by hand, the same way the game asks for a timezone.
  */
 export function ClockControls({
@@ -85,7 +85,7 @@ export function ClockControls({
 
       {showHint && (
         <p className="text-[10px] leading-relaxed text-muted-foreground/70">
-          Server time is the in-game clock ({zoneLabel(SERVER_OFFSET)}) — four hours behind UTC. Set your own
+          Server time is the in-game clock ({zoneLabel(SERVER_OFFSET)}) — two hours behind UTC. Set your own
           offset and the whole calendar follows it.
         </p>
       )}

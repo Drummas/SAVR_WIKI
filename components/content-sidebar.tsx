@@ -28,7 +28,7 @@ function ItemList({ items, pathname }: { items: SidebarItem[]; pathname: string 
             className={cn(
               "group flex items-start justify-between gap-2 rounded-sm border-l border-transparent py-2 pl-3 pr-2 text-xs transition-colors",
               active
-                ? "border-primary bg-primary/[0.06] text-emerald-200"
+                ? "border-primary bg-primary/[0.06] text-primary-soft"
                 : "text-muted-foreground hover:border-border hover:bg-secondary/50 hover:text-foreground",
             )}
           >

@@ -44,7 +44,7 @@ export function EventClockPanel({ className }: { className?: string }) {
           </span>
         </div>
         <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
-          The in-game clock runs at {zoneLabel(SERVER_OFFSET)} — four hours behind UTC, five behind UK summer
+          The in-game clock runs at {zoneLabel(SERVER_OFFSET)} — two hours behind UTC, three behind UK summer
           time. Both clocks tick with your device and refresh every second, so countdowns never drift. Set
           your own offset the way you do in game and the whole calendar re-times to it.
         </p>

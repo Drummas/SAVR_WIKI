@@ -25,7 +25,7 @@ export const metadata: Metadata = buildMetadata({
 
 export default function EventsPage() {
   const events = getEvents();
-  // Calendar values are on the in-game clock, which runs four hours behind UTC.
+  // Calendar values are on the in-game clock, which runs two hours behind UTC.
   const now = nowOnServerClock();
   const upcoming = getCalendarEvents()
     .filter((event) => new Date(event.end ?? event.start).getTime() >= now)
@@ -53,10 +53,10 @@ export default function EventsPage() {
       </PageHeader>
 
       <section className="container-page py-10">
-        <div className="mb-8 flex gap-3 rounded-md border border-lime-500/20 bg-lime-500/[0.04] p-4">
-          <ShieldAlert className="mt-0.5 size-4 shrink-0 text-lime-400" />
+        <div className="mb-8 flex gap-3 rounded-md border border-warning/20 bg-warning/[0.04] p-4">
+          <ShieldAlert className="mt-0.5 size-4 shrink-0 text-warning" />
           <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-lime-300">
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-warning">
               Verification rule
             </p>
             <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
@@ -97,7 +97,7 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <section className="border-y border-border/60 bg-[#09110c]">
+      <section className="border-y border-border/60 bg-well">
         <div className="container-page py-10">
           <SectionHeading
             eyebrow="Next windows"
@@ -124,7 +124,7 @@ export default function EventsPage() {
                   </span>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-xs font-medium text-foreground group-hover:text-emerald-100">
+                  <p className="truncate text-xs font-medium text-foreground group-hover:text-primary-soft">
                     {event.title}
                   </p>
                   <p className="mt-1 flex flex-wrap items-center gap-2 font-mono text-[9px] uppercase tracking-[0.1em] text-muted-foreground/60">

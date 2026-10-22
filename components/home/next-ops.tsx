@@ -214,7 +214,7 @@ export function NextOps({
             </span>
           </div>
           <Link href={next.href ?? "/calendar/"} className="mt-2 block">
-            <h2 className="font-display text-2xl uppercase leading-none tracking-wide text-foreground hover:text-emerald-100">
+            <h2 className="font-display text-2xl uppercase leading-none tracking-wide text-foreground hover:text-primary-soft">
               {next.title}
             </h2>
           </Link>
@@ -251,7 +251,7 @@ export function NextOps({
           <p className="mt-2 text-sm text-muted-foreground">No upcoming windows scheduled.</p>
           <Link
             href="/calendar/"
-            className="mt-2 inline-flex items-center gap-1 text-xs text-primary hover:text-emerald-300"
+            className="mt-2 inline-flex items-center gap-1 text-xs text-primary hover:text-primary-soft"
           >
             Update the calendar <ArrowRight className="size-3" />
           </Link>

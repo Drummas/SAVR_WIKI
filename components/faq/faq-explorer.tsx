@@ -94,7 +94,7 @@ export function FaqExplorer({
               className={cn(
                 "shrink-0 rounded-sm border px-2.5 py-1.5 font-mono text-[9px] uppercase tracking-[0.08em] transition-colors",
                 category === item
-                  ? "border-primary/40 bg-primary/10 text-emerald-300"
+                  ? "border-primary/40 bg-primary/10 text-primary"
                   : "border-border/60 text-muted-foreground hover:text-foreground",
               )}
             >
@@ -182,7 +182,7 @@ export function FaqExplorer({
               setQuery("");
               setCategory("All");
             }}
-            className="mt-4 rounded-sm border border-primary/40 bg-primary/10 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-emerald-300"
+            className="mt-4 rounded-sm border border-primary/40 bg-primary/10 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-primary"
           >
             Reset filters
           </button>

@@ -63,7 +63,7 @@ function RelatedLink({ slug }: { slug: string }) {
           <span className="block font-mono text-[9px] uppercase tracking-[0.14em] text-primary/60">
             Guide
           </span>
-          <span className="mt-0.5 block text-xs text-foreground group-hover:text-emerald-100">
+          <span className="mt-0.5 block text-xs text-foreground group-hover:text-primary-soft">
             {guide.title}
           </span>
         </span>
@@ -82,7 +82,7 @@ function RelatedLink({ slug }: { slug: string }) {
           <span className="block font-mono text-[9px] uppercase tracking-[0.14em] text-primary/60">
             Event
           </span>
-          <span className="mt-0.5 block text-xs text-foreground group-hover:text-emerald-100">
+          <span className="mt-0.5 block text-xs text-foreground group-hover:text-primary-soft">
             {event.title}
           </span>
         </span>
@@ -101,7 +101,7 @@ function RelatedLink({ slug }: { slug: string }) {
           <span className="block font-mono text-[9px] uppercase tracking-[0.14em] text-primary/60">
             Strategy
           </span>
-          <span className="mt-0.5 block text-xs text-foreground group-hover:text-emerald-100">
+          <span className="mt-0.5 block text-xs text-foreground group-hover:text-primary-soft">
             {strategy.title}
           </span>
         </span>
@@ -252,7 +252,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                   <ul className="space-y-2.5">
                     {guide.actions.map((action) => (
                       <li key={action} className="flex gap-2.5 text-xs leading-relaxed text-muted-foreground">
-                        <CheckCircle2 className="mt-0.5 size-3 shrink-0 text-emerald-400/70" />
+                        <CheckCircle2 className="mt-0.5 size-3 shrink-0 text-primary/70" />
                         {action}
                       </li>
                     ))}
@@ -349,14 +349,14 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               className="mt-10"
             >
               <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-md border border-emerald-500/20 bg-emerald-500/[0.025] p-4">
-                  <p className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-emerald-300">
+                <div className="rounded-md border border-primary/20 bg-primary/[0.025] p-4">
+                  <p className="mb-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-primary">
                     <CheckCircle2 className="size-3.5" /> Tips & tricks
                   </p>
                   <ul className="space-y-2.5">
                     {guide.tips.map((tip) => (
                       <li key={tip} className="flex gap-2.5 text-xs leading-relaxed text-muted-foreground">
-                        <span className="mt-1.5 size-1 shrink-0 rounded-full bg-emerald-400/70" />
+                        <span className="mt-1.5 size-1 shrink-0 rounded-full bg-primary/70" />
                         {tip}
                       </li>
                     ))}

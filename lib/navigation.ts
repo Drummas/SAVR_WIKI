@@ -20,9 +20,18 @@ export const calendarCategories = [
 
 export interface NavItem {
   label: string;
-  href: string;
+  /** Omitted for a menu-only trigger or an entry that is not available yet. */
+  href?: string;
   description?: string;
   children?: NavItem[];
+  /** Path that marks the trigger active when the section has no landing page. */
+  activePath?: string;
+  /** Icon used inside a flyout. Category icons are derived from the label. */
+  icon?: "category" | "calculator" | "gift";
+  /** Rendered as a non-interactive "soon" entry. */
+  disabled?: boolean;
+  /** Optional footer link at the bottom of the flyout. */
+  footerLabel?: string;
 }
 
 export const primaryNav: NavItem[] = [
@@ -31,15 +40,38 @@ export const primaryNav: NavItem[] = [
     label: "Events",
     href: "/events/",
     description: "Every recurring event, scored and broken down",
-    children: eventCategories.map((category) => ({
-      label: category,
-      href: `/events/${category.toLowerCase().replaceAll(" ", "-").replaceAll("vs", "vs")}/`,
-    })),
+    footerLabel: "All event intelligence",
+    children: eventCategories.map(
+      (category): NavItem => ({
+        label: category,
+        href: `/events/${category.toLowerCase().replaceAll(" ", "-").replaceAll("vs", "vs")}/`,
+        icon: "category",
+      }),
+    ),
   },
   { label: "Guides", href: "/guides/" },
   { label: "Strategies", href: "/strategies/" },
   { label: "Alliance vs Alliance", href: "/alliance-vs-alliance/" },
   { label: "Calendar", href: "/calendar/" },
+  {
+    label: "Tools",
+    activePath: "/tools/",
+    description: "Calculators and code drops",
+    children: [
+      {
+        label: "Calculators",
+        description: "Planning maths — coming soon",
+        icon: "calculator",
+        disabled: true,
+      },
+      {
+        label: "Gift codes",
+        href: "/tools/gift-codes/",
+        description: "Working codes, checked in-game",
+        icon: "gift",
+      },
+    ],
+  },
   { label: "Gallery", href: "/gallery/" },
   { label: "FAQ", href: "/faq/" },
 ];
@@ -59,6 +91,7 @@ export const footerNav = [
     heading: "Tools",
     links: [
       { label: "Event calendar", href: "/calendar/" },
+      { label: "Gift codes", href: "/tools/gift-codes/" },
       { label: "Image library", href: "/gallery/" },
       { label: "Search archive", href: "/search/" },
       { label: "FAQ", href: "/faq/" },

@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "The Savage Rebelz (SAVR) alliance knowledge base for Last Asylum: Plague. Events, strategies, optimisation and coordination.",
     start_url: "/",
     display: "standalone",
-    background_color: "#070c09",
-    theme_color: "#070c09",
+    background_color: "#120d18",
+    theme_color: "#120d18",
     orientation: "portrait-primary",
     categories: ["games", "education", "reference"],
     icons: [

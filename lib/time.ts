@@ -1,11 +1,11 @@
 /**
  * Clock and timezone helpers.
  *
- * Calendar data is authored on the in-game clock, which runs at `UTC-4` —
- * four hours behind UTC, and five hours behind UK summer time (BST). A stored
+ * Calendar data is authored on the in-game clock, which runs at `UTC-2` —
+ * two hours behind UTC, and three hours behind UK summer time (BST). A stored
  * value therefore describes server wall-clock time, not an absolute UTC
  * instant: `2026-10-19T00:00:00Z` in the JSON means midnight on the server,
- * which is 04:00 UTC.
+ * which is 02:00 UTC.
  *
  * `SERVER_OFFSET` is the server offset in minutes east of UTC. Rendering in
  * server time shows a stored value unchanged; rendering in any other zone
@@ -15,7 +15,7 @@
  * server-rendered markup and the first client render always agree.
  */
 
-export const SERVER_OFFSET = -240;
+export const SERVER_OFFSET = -120;
 
 export type ClockMode = "server" | "local";
 
@@ -38,10 +38,10 @@ const cityHints: Record<number, string> = {
   [-420]: "Denver",
   [-360]: "Chicago",
   [-300]: "New York",
-  [-240]: "Server time · Halifax",
+  [-240]: "Halifax",
   [-210]: "St. John's",
   [-180]: "São Paulo",
-  [-120]: "South Georgia",
+  [-120]: "Server time · Fernando de Noronha",
   [-60]: "Azores",
   [-30]: "Mid-Atlantic",
   0: "GMT / UTC",
@@ -90,7 +90,7 @@ export function browserOffset() {
 
 /**
  * Shift to apply to a stored (server-clock) timestamp so it renders in
- * `offset`. Server time is the identity; any other zone includes the five-hour
+ * `offset`. Server time is the identity; any other zone includes the two-hour
  * hop between the in-game clock and UTC.
  */
 export function displayOffset(offset: number) {

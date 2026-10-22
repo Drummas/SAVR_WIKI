@@ -2,20 +2,21 @@ import { nowOnServerClock, zoneDateKey } from "@/lib/time";
 import type { CalendarCategory, CalendarEvent } from "@/lib/types";
 
 /**
- * Category tones. The calendar deliberately uses a spread of green-family hues
- * (neon → jade → teal → cyan → lime) plus amber and coral so seven overlapping
- * categories stay distinguishable on dark surfaces.
+ * Category tones. The calendar deliberately uses a broad spread of hues
+ * (sky → red → violet → teal → orange → cyan → amber) so seven overlapping
+ * categories stay distinguishable on dark surfaces. These are functional data
+ * colours, fixed across themes rather than tied to the palette.
  */
 export const categoryStyles: Record<
   CalendarCategory,
   { dot: string; chip: string; text: string; border: string; bg: string }
 > = {
   "Alliance Events": {
-    dot: "bg-emerald-400",
-    chip: "border-emerald-500/30 bg-emerald-500/10 text-emerald-200",
-    text: "text-emerald-300",
-    border: "border-emerald-500/30",
-    bg: "bg-emerald-500/10",
+    dot: "bg-sky-400",
+    chip: "border-sky-500/30 bg-sky-500/10 text-sky-200",
+    text: "text-sky-300",
+    border: "border-sky-500/30",
+    bg: "bg-sky-500/10",
   },
   "Survival Battle": {
     dot: "bg-red-400",
@@ -25,11 +26,11 @@ export const categoryStyles: Record<
     bg: "bg-red-500/10",
   },
   "Alliance vs Alliance": {
-    dot: "bg-lime-400",
-    chip: "border-lime-500/30 bg-lime-500/10 text-lime-200",
-    text: "text-lime-300",
-    border: "border-lime-500/30",
-    bg: "bg-lime-500/10",
+    dot: "bg-violet-400",
+    chip: "border-violet-500/30 bg-violet-500/10 text-violet-200",
+    text: "text-violet-300",
+    border: "border-violet-500/30",
+    bg: "bg-violet-500/10",
   },
   "State Events": {
     dot: "bg-teal-400",
@@ -39,11 +40,11 @@ export const categoryStyles: Record<
     bg: "bg-teal-500/10",
   },
   "Resource Events": {
-    dot: "bg-green-400",
-    chip: "border-green-500/30 bg-green-500/10 text-green-200",
-    text: "text-green-300",
-    border: "border-green-500/30",
-    bg: "bg-green-500/10",
+    dot: "bg-orange-400",
+    chip: "border-orange-500/30 bg-orange-500/10 text-orange-200",
+    text: "text-orange-300",
+    border: "border-orange-500/30",
+    bg: "bg-orange-500/10",
   },
   "Hero Events": {
     dot: "bg-cyan-400",

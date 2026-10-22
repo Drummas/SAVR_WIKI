@@ -77,7 +77,7 @@ function SearchDialogBody({ onClose }: { onClose: () => void }) {
             className={cn(
               "shrink-0 rounded-sm px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] transition-colors",
               filter === index
-                ? "bg-primary/15 text-emerald-300"
+                ? "bg-primary/15 text-primary"
                 : "text-muted-foreground hover:bg-secondary hover:text-foreground",
             )}
           >
@@ -121,7 +121,7 @@ function SearchDialogBody({ onClose }: { onClose: () => void }) {
         <Link
           href={query ? `/search/?q=${encodeURIComponent(query)}` : "/search/"}
           onClick={onClose}
-          className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-emerald-300"
+          className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary-soft"
         >
           View all results <ArrowRight className="size-3.5" />
         </Link>

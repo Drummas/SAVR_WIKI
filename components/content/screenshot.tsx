@@ -54,7 +54,7 @@ export function Screenshot({
           <Link
             href="/admin/cms/"
             prefetch={false}
-            className="inline-flex items-center gap-2 rounded-sm border border-primary/40 bg-primary/10 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-emerald-300 transition-colors hover:bg-primary hover:text-primary-foreground"
+            className="inline-flex items-center gap-2 rounded-sm border border-primary/40 bg-primary/10 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             <Upload className="size-3" /> Upload via studio
           </Link>
@@ -82,7 +82,7 @@ export function Screenshot({
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 820px"
           priority={priority}
           loading={priority ? "eager" : "lazy"}
-          className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.015]"
+          className="themed-art h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.015]"
         />
         <span className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-70" />
         <span className="absolute left-3 top-3 flex items-center gap-1.5 rounded-sm border border-white/10 bg-black/55 px-2 py-1 font-mono text-[9px] uppercase tracking-[0.14em] text-white/70 backdrop-blur">
