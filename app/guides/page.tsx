@@ -4,6 +4,7 @@ import { ArrowRight, BookOpen, Compass, Crosshair, Layers } from "lucide-react";
 
 import { PageHeader } from "@/components/page-header";
 import { GuideCard } from "@/components/content/cards";
+import { BeginnerGuides } from "@/components/guides/beginner-guides";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { JsonLd } from "@/components/json-ld";
@@ -35,6 +36,7 @@ export default function GuidesPage() {
 
   return (
     <>
+      <div className="experience-advanced-only">
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
@@ -192,6 +194,11 @@ export default function GuidesPage() {
           ))}
         </div>
       </section>
+      </div>
+
+      <div className="experience-beginner-only">
+        <BeginnerGuides />
+      </div>
     </>
   );
 }

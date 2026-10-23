@@ -42,10 +42,10 @@ Node 20+ is required. The site uses `output: "export"`, so `npm run build` produ
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Hero, search, quick navigation, featured events, AvA, focuses, strategies, calendar preview, updates, gallery |
+| `/` | Advanced: hero, search, quick navigation, featured events, AvA, focuses, strategies, calendar preview, updates, gallery. Beginner: start-here checklist, starter reading path, daily links and new-player questions |
 | `/events/` | Event index |
 | `/events/[slug]/` | Full event template: objective, requirements, schedule, rewards, prep, practices, mistakes, tips, walkthrough, checklist, screenshots, notes, strategy |
-| `/guides/` | Learning path and guide index |
+| `/guides/` | Learning path and guide index (beginner-first in the beginner layout) |
 | `/guides/[slug]/` | Guide template: overview, priorities, actions, resources, visual steps, tips, mistakes. `layout: "roster"` swaps in the filterable hero roster |
 | `/strategies/` | Strategy hub |
 | `/strategies/[slug]/` | Strategy brief with objective, actions, requirements, optimisation, metrics, failure modes |
@@ -224,6 +224,26 @@ What deliberately does **not** move with the theme:
 Illustrations, cover art and gallery reference boards follow the palette through `--art-filter` / the `.themed-art` class (the backdrop, event covers, gallery grid, lightbox and in-page visual references). If you add an authentic in-game capture that must stay true-to-source, remove that class from its `<Image>`.
 
 Body copy on each theme's background sits between 16.4:1 and 16.8:1, muted metadata 8.2–8.5:1 and primary accent text 6.6–13:1, so all three clear WCAG AA.
+
+## Reader layouts
+
+One field manual, two reading layouts. A visitor picks one on their first visit; the header toggle switches whenever they want.
+
+| Layout | Home | Guides | Navigation |
+| --- | --- | --- | --- |
+| **Beginner** | First-week checklist, five-guide reading path, daily links and new-player questions | Beginner-first index with the core four guides | Home, Guides, Gift codes, Calendar, FAQ — with a trimmed bottom bar |
+| **Advanced** (default) | Full event, AvA, strategy, calendar and gallery dashboard | Full guide index | Every archive section |
+
+Advanced event, strategy and roster pages stay reachable in either layout; beginner mode simply keeps them out of the way until the basics are running.
+
+The first-visit dialog records the choice in `localStorage` under `savr.experience`; an inline script in the root layout writes `<html data-experience="…">` before first paint. Both variants are part of the static HTML and CSS reveals only the active one, so switching is instant and hydration never disagrees with the server markup. Once the visitor answers, a coach mark points at the header toggle for 3.6 seconds and then dismisses itself.
+
+Where it lives:
+
+- [`lib/experience.ts`](lib/experience.ts) — layout ids, default, storage key and hint duration
+- [`components/experience/`](components/experience/) — provider, first-visit chooser, header toggle and coach mark
+- [`components/home/beginner-home.tsx`](components/home/beginner-home.tsx) and [`components/guides/beginner-guides.tsx`](components/guides/beginner-guides.tsx) — beginner content
+- [`styles/globals.css`](styles/globals.css) — `.experience-advanced-only` / `.experience-beginner-only` visibility rules
 
 ## Quality notes
 

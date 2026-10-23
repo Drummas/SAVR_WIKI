@@ -412,6 +412,21 @@
   }
 }
 
+/*
+ * Reader layouts. The root layout script writes the saved choice to
+ * <html data-experience>: "beginner" or "advanced". Both variants are rendered
+ * in the static export and CSS reveals only the active one, so switching is
+ * instant, hydration never disagrees with the server HTML and a returning
+ * visitor gets the right layout on the first paint. No attribute (a first
+ * visit) is the advanced fallback behind the chooser.
+ */
+html[data-experience="beginner"] .experience-advanced-only {
+  display: none !important;
+}
+html:not([data-experience="beginner"]) .experience-beginner-only {
+  display: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

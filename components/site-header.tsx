@@ -9,6 +9,8 @@ import { Calculator, ChevronDown, Gift, Menu, Search, X } from "lucide-react";
 import siteConfig from "@/data/site.json";
 import { BrandMark } from "@/components/brand-mark";
 import { CategoryIcon } from "@/components/category-icon";
+import { ExperienceToggle } from "@/components/experience/experience-toggle";
+import { useExperience } from "@/components/experience/experience-provider";
 import { SearchTrigger } from "@/components/search/search-trigger";
 import { ThemeMenu, ThemePicker } from "@/components/theme/theme-switcher";
 import { ClockControls } from "@/components/time/clock-controls";
@@ -16,7 +18,7 @@ import { ClockMenu } from "@/components/time/clock-menu";
 import { useClock } from "@/components/time/clock-provider";
 import { LiveClock } from "@/components/time/live-clock";
 import { ServerDay } from "@/components/time/server-day";
-import { primaryNav, type NavItem } from "@/lib/navigation";
+import { beginnerNav, primaryNav, type NavItem } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
 function isActive(pathname: string, href?: string) {
@@ -176,6 +178,7 @@ function NavFlyout({ item }: { item: NavItem }) {
 export function SiteHeader({ server }: { server: string }) {
   const pathname = usePathname();
   const clock = useClock();
+  const { experience } = useExperience();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -183,6 +186,7 @@ export function SiteHeader({ server }: { server: string }) {
   }, [pathname]);
 
   const navItems = primaryNav.filter((item) => item.label !== "Home");
+  const starterNav = beginnerNav.filter((item) => item.label !== "Home");
 
   return (
     <>
@@ -222,7 +226,10 @@ export function SiteHeader({ server }: { server: string }) {
             <BrandMark />
           </Link>
 
-          <nav className="hidden items-center lg:flex" aria-label="Primary navigation">
+          <nav
+            className="experience-advanced-only hidden items-center lg:flex [&_.nav-link]:px-1.5"
+            aria-label="Primary navigation"
+          >
             {navItems.map((item) =>
               item.children ? (
                 <NavFlyout key={item.label} item={item} />
@@ -243,7 +250,26 @@ export function SiteHeader({ server }: { server: string }) {
             )}
           </nav>
 
+          <nav
+            className="experience-beginner-only hidden items-center lg:flex [&_.nav-link]:px-1.5"
+            aria-label="Beginner navigation"
+          >
+            {starterNav.map((item) =>
+              item.href ? (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  data-active={isActive(pathname, item.href)}
+                  className="nav-link uppercase tracking-wide"
+                >
+                  {item.label}
+                </Link>
+              ) : null,
+            )}
+          </nav>
+
           <div className="flex items-center gap-2">
+            <ExperienceToggle />
             <SearchTrigger />
             <Link
               href="/calendar/"
@@ -271,7 +297,9 @@ export function SiteHeader({ server }: { server: string }) {
               {siteConfig.allianceName} navigation
             </DialogPrimitive.Title>
             <DialogPrimitive.Description className="sr-only">
-              Browse events, guides, strategies, AvA, calendar, tools, roster, gallery and FAQ.
+              {experience === "beginner"
+                ? "Browse starter guides, gift codes, the calendar and the FAQ."
+                : "Browse events, guides, strategies, AvA, calendar, tools, roster, gallery and FAQ."}
             </DialogPrimitive.Description>
             <div className="flex items-center justify-between border-b border-border/70 px-4 py-3.5">
               <Link href="/" onClick={() => setMobileOpen(false)}>
@@ -326,7 +354,10 @@ export function SiteHeader({ server }: { server: string }) {
               </Link>
 
               <p className="eyebrow-muted mb-2">Navigation</p>
-              <nav className="flex flex-col" aria-label="Mobile navigation">
+              <nav
+                className="experience-advanced-only flex flex-col"
+                aria-label="Mobile navigation"
+              >
                 {navItems.map((item) =>
                   item.href ? (
                     <Link
@@ -360,10 +391,34 @@ export function SiteHeader({ server }: { server: string }) {
                 )}
               </nav>
 
+              <nav
+                className="experience-beginner-only flex flex-col"
+                aria-label="Beginner navigation"
+              >
+                {beginnerNav.map((item) =>
+                  item.href ? (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={cn(
+                        "flex items-center justify-between border-b border-border/50 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
+                        isActive(pathname, item.href) && "text-primary",
+                      )}
+                    >
+                      {item.label}
+                      <span aria-hidden="true" className="font-mono text-xs text-muted-foreground/50">
+                        →
+                      </span>
+                    </Link>
+                  ) : null,
+                )}
+              </nav>
+
               {navItems
                 .filter((item) => item.children?.length)
                 .map((group) => (
-                  <div key={group.label} className="mt-6">
+                  <div key={group.label} className="experience-advanced-only mt-6">
                     <p className="eyebrow-muted mb-2">{group.label}</p>
                     <div className="grid grid-cols-1 gap-1">
                       {group.children?.map((child) =>

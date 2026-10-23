@@ -77,6 +77,19 @@ export const primaryNav: NavItem[] = [
   { label: "FAQ", href: "/faq/" },
 ];
 
+/**
+ * Trimmed header for the beginner layout: the starter material, the two things
+ * a new player opens daily and the questions page. Advanced pages still exist
+ * and stay linked from the beginner home; they just stay out of the way.
+ */
+export const beginnerNav: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "Guides", href: "/guides/" },
+  { label: "Gift codes", href: "/tools/gift-codes/" },
+  { label: "Calendar", href: "/calendar/" },
+  { label: "FAQ", href: "/faq/" },
+];
+
 export const footerNav = [
   {
     heading: "Intel",

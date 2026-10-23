@@ -24,6 +24,7 @@ import { BrandCrest } from "@/components/brand-mark";
 import { BrandWordmark } from "@/components/brand-wordmark";
 import { SectionHeading } from "@/components/section-heading";
 import { EventCard, StrategyCard, UpdateRow } from "@/components/content/cards";
+import { BeginnerHome } from "@/components/home/beginner-home";
 import { NextOps } from "@/components/home/next-ops";
 import { SearchTrigger } from "@/components/search/search-trigger";
 import { Badge } from "@/components/ui/badge";
@@ -171,6 +172,7 @@ export default function HomePage() {
 
   return (
     <>
+      <div className="experience-advanced-only">
       <section className="relative overflow-hidden border-b border-border/60">
         <div className="pointer-events-none absolute inset-0 bg-tactical-grid bg-grid opacity-70" aria-hidden="true" />
         <div className="pointer-events-none absolute inset-0 bg-hero-glow" aria-hidden="true" />
@@ -677,6 +679,11 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+      </div>
+
+      <div className="experience-beginner-only">
+        <BeginnerHome />
+      </div>
     </>
   );
 }

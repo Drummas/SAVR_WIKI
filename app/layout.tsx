@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, Inter } from "next/font/google";
 
+import { ExperienceProvider } from "@/components/experience/experience-provider";
 import { JsonLd } from "@/components/json-ld";
 import { MobileBottomNav } from "@/components/mobile-bottom-nav";
 import { SearchProvider } from "@/components/search/search-provider";
@@ -10,6 +11,7 @@ import { SiteHeader } from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ClockProvider } from "@/components/time/clock-provider";
 import { getSiteConfig } from "@/lib/content";
+import { EXPERIENCE_STORAGE_KEY, EXPERIENCES } from "@/lib/experience";
 import { siteUrl, websiteSchema } from "@/lib/seo";
 import { DEFAULT_THEME, THEMES, THEME_STORAGE_KEY } from "@/lib/themes";
 import "@/styles/globals.css";
@@ -109,6 +111,15 @@ const themeScript = `(function(){try{var ids=${JSON.stringify(
   THEMES.map((theme) => theme.id),
 )};var t=localStorage.getItem("${THEME_STORAGE_KEY}");if(ids.indexOf(t)<0){t="${DEFAULT_THEME}";}document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme="${DEFAULT_THEME}";}})();`;
 
+/**
+ * Applies the saved beginner/advanced layout before the body paints. With no
+ * saved value the attribute stays off, which CSS treats as the advanced
+ * layout; the provider then opens the first-visit chooser.
+ */
+const experienceScript = `(function(){try{var ids=${JSON.stringify(
+  EXPERIENCES.map((experience) => experience.id),
+)};var v=localStorage.getItem("${EXPERIENCE_STORAGE_KEY}");if(ids.indexOf(v)>=0){document.documentElement.dataset.experience=v;}}catch(e){}})();`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const site = getSiteConfig();
 
@@ -121,19 +132,22 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     >
       <body className="min-h-screen font-sans pb-16 lg:pb-0">
         <script id="savr-theme" dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script id="savr-experience" dangerouslySetInnerHTML={{ __html: experienceScript }} />
         <SiteBackdrop />
         <ThemeProvider>
           <ClockProvider>
             <SearchProvider>
-              <a href="#main" className="skip-link">
-                Skip to content
-              </a>
-              <SiteHeader server={site.server} />
-              <main id="main" className="min-h-[60vh]">
-                {children}
-              </main>
-              <SiteFooter />
-              <MobileBottomNav />
+              <ExperienceProvider>
+                <a href="#main" className="skip-link">
+                  Skip to content
+                </a>
+                <SiteHeader server={site.server} />
+                <main id="main" className="min-h-[60vh]">
+                  {children}
+                </main>
+                <SiteFooter />
+                <MobileBottomNav />
+              </ExperienceProvider>
             </SearchProvider>
           </ClockProvider>
         </ThemeProvider>
