@@ -1,37 +1,37 @@
 {
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "source": "https://lastasylum.gg/en/leaderboard/alliance/50375557",
   "alliance": {
     "name": "SavageRebelz",
     "tag": "SAVR",
     "server": 297,
-    "power": 4223277820,
-    "kills": 23861844,
+    "power": 4286123820,
+    "kills": 23865894,
     "members": 97,
-    "asOf": "2026-11-04T00:00:00.000Z"
+    "asOf": "2026-11-05T00:00:00.000Z"
   },
   "members": [
     {
       "name": "T-MoneyCanada",
-      "power": 93150714,
-      "totalHeroMight": 44531833,
-      "heroHighestMight": 2687161,
+      "power": 93442144,
+      "totalHeroMight": 45454876,
+      "heroHighestMight": 2722188,
       "kills": 1774794,
       "sanctuary": 27,
       "joined": "2026-10-04T04:32:41.985Z"
     },
     {
       "name": "Big-Sam-28",
-      "power": 78038349,
-      "totalHeroMight": 35803413,
-      "heroHighestMight": 2287519,
+      "power": 79652483,
+      "totalHeroMight": 38132834,
+      "heroHighestMight": 2347144,
       "kills": 1696545,
       "sanctuary": 28,
       "joined": "2026-10-05T22:32:41.730Z"
     },
     {
       "name": "MiniKimy25",
-      "power": 73950057,
+      "power": 74697957,
       "totalHeroMight": null,
       "heroHighestMight": 2355176,
       "kills": 1438350,
@@ -39,8 +39,17 @@
       "joined": "2026-10-21T00:39:32.746Z"
     },
     {
+      "name": "Jesalin",
+      "power": 72440681,
+      "totalHeroMight": 31675708,
+      "heroHighestMight": null,
+      "kills": 747253,
+      "sanctuary": 27,
+      "joined": "2026-10-04T05:29:27.767Z"
+    },
+    {
       "name": "~destiny~",
-      "power": 73740482,
+      "power": 71942557,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 189715,
@@ -48,71 +57,35 @@
       "joined": "2026-10-18T22:17:22.818Z"
     },
     {
-      "name": "Jesalin",
-      "power": 70852834,
-      "totalHeroMight": 31556753,
-      "heroHighestMight": null,
-      "kills": 747253,
-      "sanctuary": 27,
-      "joined": "2026-10-04T05:29:27.767Z"
-    },
-    {
       "name": "DoctorPeePee",
-      "power": 68734536,
-      "totalHeroMight": 39063512,
-      "heroHighestMight": 2515008,
+      "power": 68557326,
+      "totalHeroMight": 40019471,
+      "heroHighestMight": 2543660,
       "kills": 2190338,
       "sanctuary": 29,
       "joined": "2026-10-04T03:59:51.072Z"
     },
     {
-      "name": "mskardea",
-      "power": 68110446,
-      "totalHeroMight": null,
-      "heroHighestMight": 2267573,
-      "kills": 648758,
-      "sanctuary": 27,
-      "joined": "2026-10-18T23:58:58.844Z"
-    },
-    {
       "name": "violette006",
-      "power": 65751641,
-      "totalHeroMight": null,
-      "heroHighestMight": 2423801,
+      "power": 68510565,
+      "totalHeroMight": 31421745,
+      "heroHighestMight": 2424932,
       "kills": 1079088,
       "sanctuary": 29,
       "joined": "2026-10-04T15:34:48.020Z"
     },
     {
-      "name": "Kairos669",
-      "power": 63999399,
-      "totalHeroMight": 41858489,
-      "heroHighestMight": null,
-      "kills": 1741823,
-      "sanctuary": 28,
-      "joined": "2026-10-18T22:04:32.748Z"
-    },
-    {
-      "name": "Kataia",
-      "power": 62023923,
-      "totalHeroMight": 39667896,
-      "heroHighestMight": 2546221,
-      "kills": 1103301,
-      "sanctuary": 27,
-      "joined": "2026-10-21T00:50:46.739Z"
-    },
-    {
-      "name": "Dusked",
-      "power": 62008658,
+      "name": "mskardea",
+      "power": 68063196,
       "totalHeroMight": null,
       "heroHighestMight": null,
-      "kills": 184996,
-      "sanctuary": 26,
-      "joined": "2026-10-19T00:11:03.249Z"
+      "kills": 648758,
+      "sanctuary": 27,
+      "joined": "2026-10-18T23:58:58.844Z"
     },
     {
       "name": "ayameyx",
-      "power": 61689268,
+      "power": 66714611,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 363004,
@@ -120,35 +93,17 @@
       "joined": "2026-10-04T18:50:48.328Z"
     },
     {
-      "name": "wazupdoc",
-      "power": 61037815,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 60511,
-      "sanctuary": 26,
-      "joined": "2026-10-19T02:56:59.286Z"
-    },
-    {
-      "name": "Bluey80",
-      "power": 60123460,
-      "totalHeroMight": 34855529,
-      "heroHighestMight": null,
-      "kills": 493423,
+      "name": "Kataia",
+      "power": 64212502,
+      "totalHeroMight": 40857293,
+      "heroHighestMight": 2572477,
+      "kills": 1103301,
       "sanctuary": 27,
-      "joined": "2026-10-04T15:56:39.883Z"
-    },
-    {
-      "name": "Evcha",
-      "power": 60013608,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 203581,
-      "sanctuary": 25,
-      "joined": "2026-10-18T21:29:01.545Z"
+      "joined": "2026-10-21T00:50:46.739Z"
     },
     {
       "name": "MasterJacksta",
-      "power": 59911969,
+      "power": 63519350,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 119627,
@@ -156,8 +111,44 @@
       "joined": "2026-10-04T03:59:50.447Z"
     },
     {
+      "name": "Kairos669",
+      "power": 62819670,
+      "totalHeroMight": 41417641,
+      "heroHighestMight": 2379205,
+      "kills": 1743523,
+      "sanctuary": 28,
+      "joined": "2026-10-18T22:04:32.748Z"
+    },
+    {
+      "name": "wazupdoc",
+      "power": 62201418,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 60511,
+      "sanctuary": 26,
+      "joined": "2026-10-19T02:56:59.286Z"
+    },
+    {
+      "name": "Evcha",
+      "power": 62132651,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 203581,
+      "sanctuary": 25,
+      "joined": "2026-10-18T21:29:01.545Z"
+    },
+    {
+      "name": "Dusked",
+      "power": 62042146,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 184996,
+      "sanctuary": 26,
+      "joined": "2026-10-19T00:11:03.249Z"
+    },
+    {
       "name": "I-Eat-Glue",
-      "power": 59839159,
+      "power": 61232672,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 252314,
@@ -165,8 +156,17 @@
       "joined": "2026-10-05T12:21:28.787Z"
     },
     {
+      "name": "Bluey80",
+      "power": 60932887,
+      "totalHeroMight": 36483924,
+      "heroHighestMight": null,
+      "kills": 493423,
+      "sanctuary": 27,
+      "joined": "2026-10-04T15:56:39.883Z"
+    },
+    {
       "name": "FrostyFrenchFry",
-      "power": 59141345,
+      "power": 60656882,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 35552,
@@ -174,8 +174,17 @@
       "joined": "2026-10-19T00:59:26.544Z"
     },
     {
+      "name": "Echoing",
+      "power": 60511847,
+      "totalHeroMight": 33707908,
+      "heroHighestMight": 2323091,
+      "kills": 2085625,
+      "sanctuary": 29,
+      "joined": "2026-10-04T03:19:05.827Z"
+    },
+    {
       "name": "Drummas",
-      "power": 59109802,
+      "power": 59376912,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 1181533,
@@ -183,17 +192,8 @@
       "joined": "2026-10-04T11:57:05.105Z"
     },
     {
-      "name": "Echoing",
-      "power": 58662523,
-      "totalHeroMight": 32472144,
-      "heroHighestMight": 2306886,
-      "kills": 2085625,
-      "sanctuary": 29,
-      "joined": "2026-10-04T03:19:05.827Z"
-    },
-    {
       "name": "belcanto",
-      "power": 58389204,
+      "power": 57212751,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 580945,
@@ -202,7 +202,7 @@
     },
     {
       "name": "DocOlive808",
-      "power": 55471955,
+      "power": 56238849,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 311375,
@@ -210,62 +210,8 @@
       "joined": "2026-10-18T23:37:33.580Z"
     },
     {
-      "name": "MysticalPixie",
-      "power": 55064992,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 30262,
-      "sanctuary": 25,
-      "joined": "2026-10-04T17:43:46.458Z"
-    },
-    {
-      "name": "DrArisenVase",
-      "power": 53239403,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 18664,
-      "sanctuary": 24,
-      "joined": "2026-10-04T17:57:00.014Z"
-    },
-    {
-      "name": "DoctorJubie",
-      "power": 52771510,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 91267,
-      "sanctuary": 25,
-      "joined": "2026-10-04T17:52:05.240Z"
-    },
-    {
-      "name": "IslaCHUNKY",
-      "power": 52309585,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 47231,
-      "sanctuary": 24,
-      "joined": "2026-10-05T22:33:36.254Z"
-    },
-    {
-      "name": "Josslynlyn",
-      "power": 52180013,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 6238,
-      "sanctuary": 25,
-      "joined": "2026-08-19T23:31:03.734Z"
-    },
-    {
-      "name": "DocScratchnSniff",
-      "power": 51700894,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 162888,
-      "sanctuary": 26,
-      "joined": "2026-10-07T02:16:09.766Z"
-    },
-    {
       "name": "EffervescentBee",
-      "power": 50954854,
+      "power": 55145136,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 523036,
@@ -273,8 +219,71 @@
       "joined": "2026-10-04T16:45:10.540Z"
     },
     {
+      "name": "MysticalPixie",
+      "power": 54128457,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 31070,
+      "sanctuary": 25,
+      "joined": "2026-10-04T17:43:46.458Z"
+    },
+    {
+      "name": "DrArisenVase",
+      "power": 53516653,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 18664,
+      "sanctuary": 25,
+      "joined": "2026-10-04T17:57:00.014Z"
+    },
+    {
+      "name": "IslaCHUNKY",
+      "power": 53501634,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 47231,
+      "sanctuary": 24,
+      "joined": "2026-10-05T22:33:36.254Z"
+    },
+    {
+      "name": "DoctorJubie",
+      "power": 52949078,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 91267,
+      "sanctuary": 25,
+      "joined": "2026-10-04T17:52:05.240Z"
+    },
+    {
+      "name": "DocScratchnSniff",
+      "power": 52922009,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 162888,
+      "sanctuary": 26,
+      "joined": "2026-10-07T02:16:09.766Z"
+    },
+    {
+      "name": "Josslynlyn",
+      "power": 52210130,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 6238,
+      "sanctuary": 25,
+      "joined": "2026-08-19T23:31:03.734Z"
+    },
+    {
+      "name": "SheevPalpatine",
+      "power": 51745676,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 66503,
+      "sanctuary": 24,
+      "joined": "2026-10-04T22:37:16.971Z"
+    },
+    {
       "name": "calixte39646",
-      "power": 50517714,
+      "power": 50914997,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 381409,
@@ -283,7 +292,7 @@
     },
     {
       "name": "ZpedeX",
-      "power": 50172327,
+      "power": 50686857,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 30547,
@@ -291,35 +300,8 @@
       "joined": "2026-10-19T00:53:19.314Z"
     },
     {
-      "name": "Escobar1982",
-      "power": 50014198,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 18076,
-      "sanctuary": 26,
-      "joined": "2026-10-07T13:14:48.011Z"
-    },
-    {
-      "name": "Psychotic373",
-      "power": 49666992,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 235985,
-      "sanctuary": 25,
-      "joined": "2026-09-18T13:43:41.517Z"
-    },
-    {
-      "name": "SheevPalpatine",
-      "power": 49313759,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 66503,
-      "sanctuary": 24,
-      "joined": "2026-10-04T22:37:16.971Z"
-    },
-    {
       "name": "SasquatchSeeker",
-      "power": 48917363,
+      "power": 50534206,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 92554,
@@ -327,17 +309,26 @@
       "joined": "2026-10-04T04:37:49.938Z"
     },
     {
-      "name": "Habu1",
-      "power": 48878535,
+      "name": "Psychotic373",
+      "power": 50533266,
       "totalHeroMight": null,
       "heroHighestMight": null,
-      "kills": 194493,
+      "kills": 235985,
       "sanctuary": 25,
-      "joined": "2026-10-18T22:50:45.325Z"
+      "joined": "2026-09-18T13:43:41.517Z"
+    },
+    {
+      "name": "Escobar1982",
+      "power": 50292062,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 18076,
+      "sanctuary": 26,
+      "joined": "2026-10-07T13:14:48.011Z"
     },
     {
       "name": "Frisolac",
-      "power": 47717668,
+      "power": 49561558,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 187425,
@@ -345,17 +336,17 @@
       "joined": "2026-10-05T07:44:20.482Z"
     },
     {
-      "name": "TornadoSmuggler",
-      "power": 47492902,
+      "name": "Habu1",
+      "power": 49231775,
       "totalHeroMight": null,
       "heroHighestMight": null,
-      "kills": 128044,
-      "sanctuary": 26,
-      "joined": "2026-10-04T06:20:03.026Z"
+      "kills": 194493,
+      "sanctuary": 25,
+      "joined": "2026-10-18T22:50:45.325Z"
     },
     {
       "name": "MsDoctor30",
-      "power": 47019138,
+      "power": 48721056,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 343292,
@@ -363,26 +354,26 @@
       "joined": "2026-10-14T02:20:20.722Z"
     },
     {
-      "name": "Darko-121",
-      "power": 46952705,
+      "name": "TornadoSmuggler",
+      "power": 48001144,
       "totalHeroMight": null,
       "heroHighestMight": null,
-      "kills": 42673,
-      "sanctuary": 25,
-      "joined": "2026-10-04T22:48:39.055Z"
+      "kills": 128044,
+      "sanctuary": 26,
+      "joined": "2026-10-04T06:20:03.026Z"
     },
     {
       "name": "Gargiulo",
-      "power": 46751561,
+      "power": 47882461,
       "totalHeroMight": null,
       "heroHighestMight": null,
-      "kills": 196704,
+      "kills": 198246,
       "sanctuary": 25,
       "joined": "2026-10-04T06:12:31.284Z"
     },
     {
       "name": "Ironwight",
-      "power": 45895975,
+      "power": 47190085,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 75277,
@@ -390,71 +381,17 @@
       "joined": "2026-10-19T01:06:03.419Z"
     },
     {
-      "name": "MazanJanos",
-      "power": 44256436,
+      "name": "Darko-121",
+      "power": 46370116,
       "totalHeroMight": null,
       "heroHighestMight": null,
-      "kills": 2735,
-      "sanctuary": 24,
-      "joined": "2026-10-19T08:26:10.831Z"
-    },
-    {
-      "name": "Uriuss",
-      "power": 43934629,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 22705,
-      "sanctuary": 23,
-      "joined": "2026-10-04T23:55:41.252Z"
-    },
-    {
-      "name": "MelonBarn",
-      "power": 43567531,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 4202,
-      "sanctuary": 20,
-      "joined": "2026-08-27T02:20:29.890Z"
-    },
-    {
-      "name": "Mizari",
-      "power": 43461350,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 14631,
+      "kills": 42673,
       "sanctuary": 25,
-      "joined": "2026-09-10T07:09:33.546Z"
-    },
-    {
-      "name": "ButoKing",
-      "power": 43424729,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 531786,
-      "sanctuary": 25,
-      "joined": "2026-10-20T02:56:24.303Z"
-    },
-    {
-      "name": "Monstarah",
-      "power": 43142218,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 494940,
-      "sanctuary": 27,
-      "joined": "2026-10-04T15:47:31.341Z"
-    },
-    {
-      "name": "OliveEater123",
-      "power": 42716823,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 132152,
-      "sanctuary": 25,
-      "joined": "2026-10-20T00:27:27.761Z"
+      "joined": "2026-10-04T22:48:39.055Z"
     },
     {
       "name": "smilingdragon",
-      "power": 42486387,
+      "power": 45359667,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 41313,
@@ -462,17 +399,71 @@
       "joined": "2026-10-19T14:17:48.416Z"
     },
     {
-      "name": "DrDarkJustice",
-      "power": 41251577,
+      "name": "ButoKing",
+      "power": 44772198,
       "totalHeroMight": null,
       "heroHighestMight": null,
-      "kills": 16650,
-      "sanctuary": 24,
-      "joined": "2026-07-28T19:29:04.297Z"
+      "kills": 531786,
+      "sanctuary": 25,
+      "joined": "2026-10-20T02:56:24.303Z"
+    },
+    {
+      "name": "MelonBarn",
+      "power": 44367668,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 4202,
+      "sanctuary": 20,
+      "joined": "2026-08-27T02:20:29.890Z"
+    },
+    {
+      "name": "Uriuss",
+      "power": 44000870,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 22705,
+      "sanctuary": 23,
+      "joined": "2026-10-04T23:55:41.252Z"
+    },
+    {
+      "name": "MazanJanos",
+      "power": 43757436,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 2735,
+      "sanctuary": 25,
+      "joined": "2026-10-19T08:26:10.831Z"
+    },
+    {
+      "name": "OliveEater123",
+      "power": 43531738,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 132152,
+      "sanctuary": 25,
+      "joined": "2026-10-20T00:27:27.761Z"
+    },
+    {
+      "name": "Monstarah",
+      "power": 43183446,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 494940,
+      "sanctuary": 27,
+      "joined": "2026-10-04T15:47:31.341Z"
+    },
+    {
+      "name": "Mizari",
+      "power": 42965073,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 14631,
+      "sanctuary": 25,
+      "joined": "2026-09-10T07:09:33.546Z"
     },
     {
       "name": "BigRedkg4eyu",
-      "power": 40653449,
+      "power": 41877460,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 48715,
@@ -480,35 +471,8 @@
       "joined": "2026-10-18T21:37:07.480Z"
     },
     {
-      "name": "TazTess",
-      "power": 40449748,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 7774,
-      "sanctuary": 23,
-      "joined": "2026-08-28T09:57:54.620Z"
-    },
-    {
-      "name": "Scover",
-      "power": 40407051,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 66690,
-      "sanctuary": 20,
-      "joined": "2026-10-18T21:37:03.987Z"
-    },
-    {
-      "name": "Hazelrah",
-      "power": 39636364,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 16428,
-      "sanctuary": 23,
-      "joined": "2026-10-04T15:36:17.699Z"
-    },
-    {
       "name": "doctorphilly",
-      "power": 39475714,
+      "power": 41835841,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 129108,
@@ -516,13 +480,67 @@
       "joined": "2026-10-18T21:37:02.908Z"
     },
     {
+      "name": "DrDarkJustice",
+      "power": 41675696,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 16650,
+      "sanctuary": 24,
+      "joined": "2026-07-28T19:29:04.297Z"
+    },
+    {
+      "name": "Hazelrah",
+      "power": 40675050,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 16428,
+      "sanctuary": 23,
+      "joined": "2026-10-04T15:36:17.699Z"
+    },
+    {
+      "name": "TazTess",
+      "power": 40584513,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 7774,
+      "sanctuary": 23,
+      "joined": "2026-08-28T09:57:54.620Z"
+    },
+    {
       "name": "Pølle",
-      "power": 38948918,
+      "power": 39784917,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 18595,
       "sanctuary": 24,
       "joined": "2026-10-24T08:09:43.751Z"
+    },
+    {
+      "name": "Scover",
+      "power": 39379288,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 66690,
+      "sanctuary": 20,
+      "joined": "2026-10-18T21:37:03.987Z"
+    },
+    {
+      "name": "Upnorth",
+      "power": 38861355,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 5404,
+      "sanctuary": 21,
+      "joined": "2026-10-19T00:00:18.751Z"
+    },
+    {
+      "name": "vulpa920230",
+      "power": 38701297,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 16631,
+      "sanctuary": 23,
+      "joined": "2026-10-25T08:07:28.385Z"
     },
     {
       "name": "DarkestSky",
@@ -534,26 +552,8 @@
       "joined": "2026-10-18T22:58:11.383Z"
     },
     {
-      "name": "vulpa920230",
-      "power": 38549485,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 16631,
-      "sanctuary": 23,
-      "joined": "2026-10-25T08:07:28.385Z"
-    },
-    {
-      "name": "scarangel",
-      "power": 38195969,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 128358,
-      "sanctuary": 26,
-      "joined": "2026-10-04T05:17:21.655Z"
-    },
-    {
       "name": "Faceiam",
-      "power": 38113224,
+      "power": 38496299,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 8136,
@@ -561,17 +561,26 @@
       "joined": "2026-08-07T12:48:17.839Z"
     },
     {
-      "name": "Upnorth",
-      "power": 37633175,
+      "name": "IBO123",
+      "power": 38365100,
       "totalHeroMight": null,
       "heroHighestMight": null,
-      "kills": 5404,
-      "sanctuary": 21,
-      "joined": "2026-10-19T00:00:18.751Z"
+      "kills": 105790,
+      "sanctuary": 24,
+      "joined": "2026-10-19T06:57:36.688Z"
+    },
+    {
+      "name": "scarangel",
+      "power": 38335771,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 128358,
+      "sanctuary": 26,
+      "joined": "2026-10-04T05:17:21.655Z"
     },
     {
       "name": "danno77",
-      "power": 37628424,
+      "power": 37827828,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 6244,
@@ -580,7 +589,7 @@
     },
     {
       "name": "Acesz",
-      "power": 37236802,
+      "power": 37363707,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 1384,
@@ -588,17 +597,8 @@
       "joined": "2026-10-19T09:18:18.477Z"
     },
     {
-      "name": "M0RAX",
-      "power": 36152635,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 16023,
-      "sanctuary": 22,
-      "joined": "2026-10-04T12:04:12.363Z"
-    },
-    {
       "name": "JMP97",
-      "power": 36075464,
+      "power": 36251656,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 112143,
@@ -606,8 +606,17 @@
       "joined": "2026-10-04T20:57:48.250Z"
     },
     {
+      "name": "M0RAX",
+      "power": 36154563,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 16023,
+      "sanctuary": 22,
+      "joined": "2026-10-04T12:04:12.363Z"
+    },
+    {
       "name": "verunkam",
-      "power": 35242909,
+      "power": 35249717,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 6686,
@@ -616,7 +625,7 @@
     },
     {
       "name": "Verkana111",
-      "power": 34829172,
+      "power": 34840145,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 20114,
@@ -624,26 +633,8 @@
       "joined": "2026-09-21T11:21:34.889Z"
     },
     {
-      "name": "kinkajou",
-      "power": 34556968,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 22378,
-      "sanctuary": 23,
-      "joined": "2026-10-19T00:11:29.759Z"
-    },
-    {
-      "name": "IBO123",
-      "power": 34515570,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 105790,
-      "sanctuary": 24,
-      "joined": "2026-10-19T06:57:36.688Z"
-    },
-    {
       "name": "SixBites",
-      "power": 34196756,
+      "power": 34719768,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 18583,
@@ -651,8 +642,17 @@
       "joined": "2026-09-30T03:33:55.987Z"
     },
     {
+      "name": "kinkajou",
+      "power": 34470981,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 22378,
+      "sanctuary": 23,
+      "joined": "2026-10-19T00:11:29.759Z"
+    },
+    {
       "name": "drRain",
-      "power": 34158963,
+      "power": 34006414,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 20939,
@@ -661,7 +661,7 @@
     },
     {
       "name": "SimonKing",
-      "power": 33018952,
+      "power": 33405716,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 4976,
@@ -669,17 +669,8 @@
       "joined": "2026-10-19T01:05:44.988Z"
     },
     {
-      "name": "AbsolutBrat",
-      "power": 32057124,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 22684,
-      "sanctuary": 22,
-      "joined": "2026-10-19T00:16:03.706Z"
-    },
-    {
       "name": "Ailisi5",
-      "power": 32028888,
+      "power": 32934122,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 67132,
@@ -687,17 +678,8 @@
       "joined": "2026-10-19T18:14:32.631Z"
     },
     {
-      "name": "Dayanera",
-      "power": 30249022,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 5026,
-      "sanctuary": 21,
-      "joined": "2026-08-26T16:30:54.409Z"
-    },
-    {
       "name": "Nawalonyszpak",
-      "power": 30139316,
+      "power": 32765956,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 76947,
@@ -705,8 +687,26 @@
       "joined": "2026-09-04T14:11:33.259Z"
     },
     {
+      "name": "AbsolutBrat",
+      "power": 32096541,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 22684,
+      "sanctuary": 22,
+      "joined": "2026-10-19T00:16:03.706Z"
+    },
+    {
+      "name": "Dayanera",
+      "power": 29664053,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 5026,
+      "sanctuary": 21,
+      "joined": "2026-08-26T16:30:54.409Z"
+    },
+    {
       "name": "HopeCullen",
-      "power": 28997636,
+      "power": 29099149,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 9444,
@@ -715,7 +715,7 @@
     },
     {
       "name": "highme420",
-      "power": 28858707,
+      "power": 29032962,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 23935,
@@ -724,7 +724,7 @@
     },
     {
       "name": "Chicken-Chaser",
-      "power": 27361499,
+      "power": 27951087,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 4386,
@@ -733,7 +733,7 @@
     },
     {
       "name": "3RedToes",
-      "power": 25467597,
+      "power": 25515532,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 22378,
@@ -742,7 +742,7 @@
     },
     {
       "name": "7thsky",
-      "power": 25366557,
+      "power": 25498403,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 3003,
@@ -751,7 +751,7 @@
     },
     {
       "name": "Doc33823",
-      "power": 24890141,
+      "power": 25143192,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 10327,
@@ -759,17 +759,17 @@
       "joined": "2026-10-18T23:07:07.335Z"
     },
     {
-      "name": "PHL-BabyAi",
-      "power": 24491303,
+      "name": "LuAwesome",
+      "power": 24571422,
       "totalHeroMight": null,
       "heroHighestMight": null,
-      "kills": 21427,
-      "sanctuary": 20,
-      "joined": "2026-10-18T23:19:41.294Z"
+      "kills": 8024,
+      "sanctuary": 19,
+      "joined": "2026-10-21T05:43:32.477Z"
     },
     {
       "name": "DoctorFunseys",
-      "power": 24477514,
+      "power": 24321459,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 4991,
@@ -777,17 +777,8 @@
       "joined": "2026-10-18T22:32:11.993Z"
     },
     {
-      "name": "SebaARG",
-      "power": 24212664,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 2022,
-      "sanctuary": 22,
-      "joined": "2026-08-17T03:46:46.268Z"
-    },
-    {
       "name": "RealMD",
-      "power": 24109972,
+      "power": 24145993,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 58056,
@@ -795,17 +786,26 @@
       "joined": "2026-08-24T22:02:56.762Z"
     },
     {
-      "name": "LuAwesome",
-      "power": 23953632,
+      "name": "SebaARG",
+      "power": 23942725,
       "totalHeroMight": null,
       "heroHighestMight": null,
-      "kills": 8024,
-      "sanctuary": 18,
-      "joined": "2026-10-21T05:43:32.477Z"
+      "kills": 2022,
+      "sanctuary": 22,
+      "joined": "2026-08-17T03:46:46.268Z"
+    },
+    {
+      "name": "PHL-BabyAi",
+      "power": 23660319,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 21427,
+      "sanctuary": 20,
+      "joined": "2026-10-18T23:19:41.294Z"
     },
     {
       "name": "Carlypierce",
-      "power": 23664765,
+      "power": 23533600,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 11576,
@@ -814,7 +814,7 @@
     },
     {
       "name": "Divinity833",
-      "power": 22805531,
+      "power": 22840453,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 16225,
@@ -823,12 +823,21 @@
     },
     {
       "name": "helloall",
-      "power": 22501965,
+      "power": 22689978,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 1175,
       "sanctuary": 19,
       "joined": "2026-09-15T07:54:09.209Z"
+    },
+    {
+      "name": "Evo3evo",
+      "power": 22135911,
+      "totalHeroMight": null,
+      "heroHighestMight": null,
+      "kills": 7680,
+      "sanctuary": 18,
+      "joined": "2026-08-18T20:11:59.881Z"
     },
     {
       "name": "GinKitty",
@@ -841,7 +850,7 @@
     },
     {
       "name": "Maomo",
-      "power": 21355906,
+      "power": 21568518,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 5441,
@@ -849,17 +858,8 @@
       "joined": "2026-11-02T15:47:27.476Z"
     },
     {
-      "name": "Evo3evo",
-      "power": 20708800,
-      "totalHeroMight": null,
-      "heroHighestMight": null,
-      "kills": 7680,
-      "sanctuary": 18,
-      "joined": "2026-08-18T20:11:59.881Z"
-    },
-    {
       "name": "DrDanubius",
-      "power": 18541340,
+      "power": 18539280,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 6060,
@@ -868,7 +868,7 @@
     },
     {
       "name": "JuLika",
-      "power": 17423749,
+      "power": 17356337,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 4275,
@@ -877,7 +877,7 @@
     },
     {
       "name": "SCP-049-Keter3",
-      "power": 9272442,
+      "power": 9228226,
       "totalHeroMight": null,
       "heroHighestMight": null,
       "kills": 8576,
